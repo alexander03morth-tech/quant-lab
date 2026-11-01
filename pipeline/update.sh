@@ -8,3 +8,4 @@ $PY pipeline/precompute.py
 # Nyheter får aldrig stoppa datauppdateringen
 $PY pipeline/news.py || echo "nyhetshämtning misslyckades – fortsätter"
 $PY pipeline/market_summary.py
+$PY pipeline/fundamentals.py || echo "nyckeltal misslyckades – behåller gårdagens"

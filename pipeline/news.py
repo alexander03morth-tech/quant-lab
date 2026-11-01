@@ -39,6 +39,28 @@ def keywords(stock: dict) -> list[str]:
     first = re.sub(r"\s+[ABC]$", "", stock["name"]).split()[0].lower()
     return [first] + ALIASES.get(stock["ticker"], [])
 
+# Private equity: affärer, bud och fonder i Norden
+PE_QUERIES = {
+    "firmor": '"Nordic Capital" OR Triton OR Altor OR "IK Partners" OR "Summa Equity" OR Adelis OR Verdane OR Litorina OR "FSN Capital" OR Ratos',
+    "eqt": '"EQT" (förvärv OR köper OR exit OR fond OR säljer OR bud)',
+    "bud": 'uppköpserbjudande OR budpremie OR "lägger bud" OR "offentligt bud" OR "avnoteras"',
+    "pe": '"private equity" OR riskkapitalbolag OR "riskkapitalbolaget"',
+}
+PE_CATEGORIES = [
+    ("bud", r"bud|uppköpserbjudande|budpremie|avnoter|take.private|accepter"),
+    ("forvarv", r"förvärv|köper|köp av|tar över|förvärvar"),
+    ("exit", r"exit|säljer|avyttr|börsnoter|notering|ipo"),
+    ("fond", r"fond|reser|kapital(?:et)?\s+till|miljarder till|dry powder"),
+]
+
+
+def pe_category(title: str) -> str:
+    for cat, rx in PE_CATEGORIES:
+        if re.search(rx, title, re.I):
+            return cat
+    return "ovrigt"
+
+
 MARKET_QUERIES = {
     "borsen": '"Stockholmsbörsen" OR "OMXS30" OR "Stockholmsbörsen idag"',
     "makro": 'Riksbanken OR inflationen OR styrräntan OR kronan',
@@ -46,8 +68,14 @@ MARKET_QUERIES = {
 
 
 def trusted(source: str) -> bool:
-    s = source.lower()
-    return any(t.lower() in s for t in TRUSTED)
+    s = source.lower().strip()
+    return any(s == t.lower() or s.startswith(t.lower() + " ") for t in TRUSTED)
+
+
+PE_RELEVANT = re.compile(
+    r"private equity|riskkapital|buyout|uppköp|budpremie|\bbud\b|budet|avnoter|förvärv|exit|"
+    r"EQT|Nordic Capital|Triton|Altor|IK Partners|Summa Equity|Adelis|Verdane|Litorina|FSN|Ratos|KKR|Blackstone|Bain Capital|Carlyle|CVC|Cinven|Permira",
+    re.I)
 
 
 def fetch(query: str) -> list[dict]:
@@ -106,7 +134,22 @@ def main() -> None:
             market[key] = old.get("market", {}).get(key, [])
             print(f"VARNING marknad {key}: {e}", file=sys.stderr)
         time.sleep(0.8)
-    dst.write_text(json.dumps({"fetchedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+    pe, seen_pe = [], set()
+    for key, q in PE_QUERIES.items():
+        try:
+            for m in fetch(q):
+                k = re.sub(r"\W+", "", m["title"].lower())[:70]
+                if k in seen_pe or not trusted(m["source"]) or not PE_RELEVANT.search(m["title"]):
+                    continue
+                seen_pe.add(k)
+                pe.append({**m, "cat": pe_category(m["title"])})
+        except Exception as e:
+            print(f"VARNING PE {key}: {e}", file=sys.stderr)
+        time.sleep(0.8)
+    pe.sort(key=lambda x: x["t"], reverse=True)
+    if not pe:
+        pe = old.get("pe", [])
+    dst.write_text(json.dumps({"pe": pe[:60], "fetchedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                                "source": "Google News (sv)", "items": items, "market": market}, ensure_ascii=False, separators=(",", ":")))
     total = sum(len(v) for v in items.values())
     print(f"news.json: {total} rubriker för {len(items)} bolag" + (f", misslyckades: {failed}" if failed else ""))

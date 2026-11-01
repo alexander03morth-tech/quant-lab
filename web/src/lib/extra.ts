@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 export interface NewsItem { t: string; title: string; source: string; url: string }
-export interface NewsFile { fetchedAt: string; source: string; items: Record<string, NewsItem[]>; market: Record<string, NewsItem[]> }
+export interface NewsFile { fetchedAt: string; source: string; items: Record<string, NewsItem[]>; market: Record<string, NewsItem[]>; pe?: (NewsItem & { cat: string })[] }
 export interface SummarySection { id: string; title: string; text: string; explain: string; pairs?: { y: string; x: string; z: number; p: number; hl: number }[] }
 export interface Mover { ticker: string; name: string; sector: string; ret: number; abn: number; beta: number; volRatio: number | null; sigma: number; news: NewsItem | null }
 export interface Summary {
@@ -49,3 +49,15 @@ export function tradingDayFor(iso: string, dates: string[]): number {
   while (lo < hi) { const mid = (lo + hi) >> 1; if (dates[mid] < day) lo = mid + 1; else hi = mid; }
   return lo < dates.length ? lo : -1;
 }
+
+export interface Fundamentals {
+  name: string; sector: string; currency: string; fx: number; price: number | null; shares: number | null;
+  marketCap: number | null; ev: number | null; netDebt: number | null; debt: number | null; cash: number | null;
+  ebitda: number | null; revenue: number | null; ebitdaMargin: number | null; revenueGrowth: number | null;
+  fcf: number | null; capex: number | null; capexPct: number | null; capexEstimated?: boolean;
+  evEbitda: number | null; netDebtEbitda: number | null; fcfYield: number | null;
+  high52: number | null; low52: number | null; lbo: boolean; lboNote: string | null;
+  history: { year: number; revenue: number; ebitda: number | null; ebit: number | null }[];
+}
+export interface FundamentalsFile { fetchedAt: string; fx: Record<string, number>; source: string; items: Record<string, Fundamentals> }
+export const useFundamentals = () => useFile<FundamentalsFile>("fundamentals.json");

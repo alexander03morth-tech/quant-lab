@@ -47,16 +47,20 @@ export function scene3d(titles: { x: string; y: string; z: string }, extra: Reco
     backgroundcolor: "rgba(0,0,0,0)", color: cssVar("--text-3"),
     tickfont: { family: cssVar("--mono"), size: 10, color: cssVar("--text-3") }, showspikes: false,
   });
+  // Axlar slås ihop på djupet så att t.ex. { xaxis: { tickformat } } inte tappar titeln
+  const { xaxis: ex, yaxis: ey, zaxis: ez, ...rest } = extra as Record<string, Record<string, unknown> | undefined>;
+  const merge = (base: Record<string, unknown>, add?: Record<string, unknown>) =>
+    add ? { ...base, ...add, title: { ...(base.title as object), ...((add.title as object) ?? {}) } } : base;
   return {
     hovermode: "closest",
     dragmode: "turntable",
     showlegend: false,
     margin: { l: 0, r: 0, t: 0, b: 0 },
     scene: {
-      xaxis: ax(titles.x), yaxis: ax(titles.y), zaxis: ax(titles.z),
+      xaxis: merge(ax(titles.x), ex), yaxis: merge(ax(titles.y), ey), zaxis: merge(ax(titles.z), ez),
       camera: { eye: { x: 1.25, y: -1.3, z: 0.75 }, center: { x: 0, y: 0, z: -0.12 } },
       aspectmode: "manual", aspectratio: { x: 1.5, y: 1.1, z: 0.8 },
-      ...extra,
+      ...rest,
     },
   } as Partial<Layout>;
 }

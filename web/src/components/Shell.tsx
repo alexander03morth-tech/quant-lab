@@ -20,6 +20,11 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
     { to: "/backtest", label: "Backtest", ready: false },
     { to: "/pca", label: "PCA / faktorer", ready: false },
   ] },
+  { group: "Private equity", items: [
+    { to: "/pe/oversikt", label: "PE-översikt", ready: true },
+    { to: "/pe/lbo", label: "LBO-modell", ready: true },
+    { to: "/pe/screen", label: "Take-private-screen", ready: true },
+  ] },
   { group: "Lär dig", items: [
     { to: "/kurs", label: "Lär dig quant", ready: false },
     { to: "/ordlista", label: "Ordlista", ready: true },
