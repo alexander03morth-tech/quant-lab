@@ -25,6 +25,11 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
     { to: "/aktie/dcf", label: "DCF-värdering", ready: true },
     { to: "/aktie/jamfor", label: "Jämförelse", ready: true },
   ] },
+  { group: "Investment banking", items: [
+    { to: "/ib/vardering", label: "Värderingsöversikt", ready: true },
+    { to: "/ib/ma", label: "M&A-kalkyl", ready: true },
+    { to: "/ib/process", label: "Affärsprocessen", ready: true },
+  ] },
   { group: "Private equity", items: [
     { to: "/pe/oversikt", label: "PE-översikt", ready: true },
     { to: "/pe/lbo", label: "LBO-modell", ready: true },

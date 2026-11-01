@@ -92,7 +92,7 @@ export function Plot({ data, layout, height = 300, xRange, onXRange, config, ari
       const base = baseLayout();
       const merged: Partial<Layout> = {
         ...base, ...layout, height,
-        xaxis: { ...(base.xaxis as object), ...(layout?.xaxis as object), ...(xRange ? { range: xRange, autorange: false } : { autorange: true }) },
+        xaxis: { ...(base.xaxis as object), ...(layout?.xaxis as object), ...(xRange ? { range: xRange, autorange: false } : (layout?.xaxis as any)?.range ? {} : { autorange: true }) },
         yaxis: { ...(base.yaxis as object), ...(layout?.yaxis as object) },
       };
       if (layout?.yaxis2) merged.yaxis2 = { ...(base.yaxis as object), ...(layout.yaxis2 as object) };

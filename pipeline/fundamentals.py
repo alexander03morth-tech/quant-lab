@@ -95,6 +95,9 @@ def main() -> None:
                 # Yahoo ger ibland orimliga värden (FCF > operativt kassaflöde). Använd 5 % av omsättningen.
                 capex = 0.05 * rev if rev else None
                 capex_est = True
+                # Yahoos FCF är då också opålitligt → räkna om konsekvent: operativt kassaflöde minus capex
+                if capex is not None:
+                    fcf = (ocf - capex) if ocf is not None else (ebitda * (1 - 0.206) - capex if ebitda else None)
             hist = history_rows(tk, fx)
             lbo = s["sector"] not in NOT_LBO and ebitda is not None and ebitda > 0
             ni = conv(clean(i.get("netIncomeToCommon")))

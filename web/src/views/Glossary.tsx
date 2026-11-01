@@ -9,7 +9,7 @@ import { useSettings } from "../lib/settings";
 const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 const TRACKS: { value: Track | "alla"; label: string }[] = [
   { value: "alla", label: "Alla" }, { value: "kvant", label: "Kvant" }, { value: "marknad", label: "Marknad" },
-  { value: "portfolj", label: "Portfölj & risk" }, { value: "aktie", label: "Aktieanalys" }, { value: "pe", label: "Private equity" },
+  { value: "portfolj", label: "Portfölj & risk" }, { value: "aktie", label: "Aktieanalys" }, { value: "ib", label: "Investment banking" }, { value: "pe", label: "Private equity" },
 ];
 
 export function Glossary() {
