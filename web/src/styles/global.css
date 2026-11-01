@@ -351,3 +351,49 @@ body {
   .hero { grid-template-columns: 1fr; padding: 18px 16px; }
   .zgauge-val { font-size: 38px; }
 }
+
+/* begreppslänkar i löptext */
+.term { border: 0; background: none; padding: 0; font: inherit; color: var(--accent); cursor: pointer; text-decoration: underline; text-decoration-style: dotted; text-decoration-color: color-mix(in srgb, var(--accent) 60%, transparent); text-underline-offset: 3px; }
+.term:hover { text-decoration-style: solid; }
+
+/* nyheter */
+.news-hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr); gap: 20px 32px; align-items: end; }
+.big-num { font-family: var(--mono); font-size: clamp(34px, 5vw, 58px); line-height: 1; letter-spacing: -0.04em; font-weight: 500; }
+.big-num.pos, .big-num.neg { text-shadow: 0 0 32px currentColor; }
+.breadth { display: flex; height: 10px; border-radius: 99px; overflow: hidden; background: var(--surface-2); }
+.breadth .u { background: var(--pos); box-shadow: 0 0 12px var(--pos); } .breadth .d { background: var(--neg); }
+.summary-sec { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.summary-sec:last-child { border-bottom: 0; }
+.summary-sec h3 { margin: 0 0 6px; font-size: 15px; font-weight: 600; display: flex; gap: 8px; align-items: center; }
+.summary-sec p { margin: 0; line-height: 1.6; }
+.eli5 { margin-top: 10px; padding: 10px 12px; border-radius: 8px; background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent); font-size: 14px; color: var(--text); }
+.eli5 b.k { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); display: block; margin-bottom: 2px; }
+details.eli5 summary { cursor: pointer; color: var(--primary); font-weight: 600; font-size: 13px; }
+.news-list { list-style: none; margin: 0; padding: 0; }
+.news-item { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 11px 0; border-bottom: 1px solid var(--border); }
+.news-item:last-child { border-bottom: 0; }
+.news-item a.title { color: var(--text); text-decoration: none; font-weight: 500; line-height: 1.35; }
+.news-item a.title:hover { color: var(--accent); }
+.news-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 12px; color: var(--text-3); }
+.news-meta .src { color: var(--text-2); font-weight: 600; }
+.reaction { font-family: var(--mono); font-size: 12.5px; text-align: right; white-space: nowrap; align-self: start; }
+.reaction small { display: block; color: var(--text-3); font-size: 10.5px; font-family: var(--font); }
+.mover-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.mover { padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-1); display: grid; gap: 4px; text-decoration: none; color: inherit; }
+.mover:hover { border-color: var(--border-strong); }
+.mover .r { font-family: var(--mono); font-size: 22px; letter-spacing: -0.03em; }
+@media (max-width: 900px) { .news-hero { grid-template-columns: 1fr; } }
+
+/* portföljbyggare */
+.builder-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr); gap: 18px 28px; }
+.name-input { background-image: none !important; padding: 7px 12px !important; font-weight: 600; min-width: 200px; flex: 1; }
+.holdings td { padding: 5px 8px; }
+.w-input { width: 64px; text-align: right; background: var(--surface-1); border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; color: var(--text); font-size: 13px; }
+.sector-dot { width: 8px; height: 8px; border-radius: 2px; background: var(--text-3); flex: none; }
+.sector-dot[data-s="finans"] { background: var(--series-b); } .sector-dot[data-s="industri"] { background: var(--series-a); }
+.sector-dot[data-s="halsovard"] { background: var(--pos); } .sector-dot[data-s="material"] { background: var(--warn); }
+.sector-dot[data-s="it"] { background: var(--series-c); } .sector-dot[data-s="telekom"] { background: #22d3ee; }
+.sector-dot[data-s="sallanskop"] { background: #f472b6; } .sector-dot[data-s="dagligvaror"] { background: #a3e635; }
+.chip:disabled { opacity: .45; cursor: not-allowed; }
+.chip[aria-pressed="true"] { border-color: var(--primary); color: var(--text); background: var(--primary-soft); }
+@media (max-width: 900px) { .builder-grid { grid-template-columns: 1fr; } }

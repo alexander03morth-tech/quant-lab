@@ -4,6 +4,7 @@
  */
 import { fmt, fmtDays, fmtP, fmtPct } from "../lib/format";
 import type { Concept, Ctx } from "./types";
+import { MARKET_CONCEPTS } from "./concepts-market";
 
 const has = (c: Ctx, ...keys: string[]) => keys.every((k) => c[k] !== undefined && c[k] !== null);
 const pair = (c: Ctx) => `${c.A}/${c.B}`;
@@ -492,7 +493,8 @@ const list: Concept[] = [
       "Utan mean reversion breddas konen för evigt utan att svänga in – som en slumpvandring.",
       "Sannolikheterna förutsätter att modellen stämmer. Vid regimskiften gör den inte det.",
     ],
-    formula: String.raw`s_{t+h} \mid s_t \sim N\!\left(\mu + (s_t-\mu)arphi^h,\ \sigma^2rac{1-arphi^{2h}}{1-arphi^2}ight)`,
+    formula: String.raw`s_{t+h} \mid s_t \sim N\!\left(\mu + (s_t-\mu)arphi^h,\ \sigma^2rac{1-arphi^{2h}}{1-arphi^2}
+ight)`,
     symbols: [[String.raw`arphi`, "AR(1)-koefficient; dragkraft = 1 − φ"], [String.raw`\mu`, "långsiktigt medel"], [String.raw`\sigma`, "daglig brusvolatilitet"], [String.raw`h`, "dagar framåt"]],
     example: (c) => has(c, "z0", "in10", "in20")
       ? `${pair(c)} står idag på z = ${fmt(c.z0, 2)}. Enligt modellen är chansen ${fmtPct(c.in10, 0)} att spreaden ligger innanför utgångströskeln om 10 dagar och ${fmtPct(c.in20, 0)} om 20 dagar.`
@@ -600,5 +602,6 @@ const list: Concept[] = [
   },
 ];
 
-export const CONCEPTS: Record<string, Concept> = Object.fromEntries(list.map((c) => [c.id, c]));
-export const CONCEPT_LIST = list;
+const all = [...list, ...MARKET_CONCEPTS];
+export const CONCEPTS: Record<string, Concept> = Object.fromEntries(all.map((c) => [c.id, c]));
+export const CONCEPT_LIST = all;

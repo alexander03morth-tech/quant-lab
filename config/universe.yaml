@@ -22,34 +22,35 @@ sectors:
   dagligvaror: "Dagligvaror"
   telekom: "Telekom & kommunikation"
 
+# news: Google News-sökning (svenska). Exkludera namnkrockar, t.ex. Volvo Cars ≠ AB Volvo.
 stocks:
-  - { ticker: ABB.ST,      name: ABB,               sector: industri }
-  - { ticker: ADDT-B.ST,   name: Addtech B,         sector: industri }
-  - { ticker: ALFA.ST,     name: Alfa Laval,        sector: industri }
-  - { ticker: ASSA-B.ST,   name: Assa Abloy B,      sector: industri }
-  - { ticker: AZN.ST,      name: AstraZeneca,       sector: halsovard }
-  - { ticker: ATCO-A.ST,   name: Atlas Copco A,     sector: industri }
-  - { ticker: BOL.ST,      name: Boliden,           sector: material }
-  - { ticker: EPI-A.ST,    name: Epiroc A,          sector: industri }
-  - { ticker: EQT.ST,      name: EQT,               sector: finans }
-  - { ticker: ERIC-B.ST,   name: Ericsson B,        sector: it }
-  - { ticker: ESSITY-B.ST, name: Essity B,          sector: dagligvaror }
-  - { ticker: EVO.ST,      name: Evolution,         sector: sallanskop }
-  - { ticker: SHB-A.ST,    name: Handelsbanken A,   sector: finans }
-  - { ticker: HM-B.ST,     name: H&M B,             sector: sallanskop }
-  - { ticker: HEXA-B.ST,   name: Hexagon B,         sector: it }
-  - { ticker: INDU-C.ST,   name: Industrivärden C,  sector: finans }
-  - { ticker: INVE-B.ST,   name: Investor B,        sector: finans }
-  - { ticker: LIFCO-B.ST,  name: Lifco B,           sector: industri }
-  - { ticker: NIBE-B.ST,   name: Nibe B,            sector: industri }
-  - { ticker: NDA-SE.ST,   name: Nordea,            sector: finans }
-  - { ticker: SAAB-B.ST,   name: Saab B,            sector: industri }
-  - { ticker: SAND.ST,     name: Sandvik,           sector: industri }
-  - { ticker: SCA-B.ST,    name: SCA B,             sector: material }
-  - { ticker: SEB-A.ST,    name: SEB A,             sector: finans }
-  - { ticker: SKA-B.ST,    name: Skanska B,         sector: industri }
-  - { ticker: SKF-B.ST,    name: SKF B,             sector: industri }
-  - { ticker: SWED-A.ST,   name: Swedbank A,        sector: finans }
-  - { ticker: TEL2-B.ST,   name: Tele2 B,           sector: telekom }
-  - { ticker: TELIA.ST,    name: Telia,             sector: telekom }
-  - { ticker: VOLV-B.ST,   name: Volvo B,           sector: industri }
+  - { ticker: ABB.ST,      name: ABB,               sector: industri, news: '"ABB" (aktie OR koncernen OR order OR rapport)' }
+  - { ticker: ADDT-B.ST,   name: Addtech B,         sector: industri, news: '"Addtech"' }
+  - { ticker: ALFA.ST,     name: Alfa Laval,        sector: industri, news: '"Alfa Laval"' }
+  - { ticker: ASSA-B.ST,   name: Assa Abloy B,      sector: industri, news: '"Assa Abloy"' }
+  - { ticker: AZN.ST,      name: AstraZeneca,       sector: halsovard, news: '"AstraZeneca"' }
+  - { ticker: ATCO-A.ST,   name: Atlas Copco A,     sector: industri, news: '"Atlas Copco"' }
+  - { ticker: BOL.ST,      name: Boliden,           sector: material, news: '"Boliden"' }
+  - { ticker: EPI-A.ST,    name: Epiroc A,          sector: industri, news: '"Epiroc"' }
+  - { ticker: EQT.ST,      name: EQT,               sector: finans, news: '"EQT" (aktie OR riskkapital OR fond OR förvärv)' }
+  - { ticker: ERIC-B.ST,   name: Ericsson B,        sector: it, news: '"Ericsson"' }
+  - { ticker: ESSITY-B.ST, name: Essity B,          sector: dagligvaror, news: '"Essity"' }
+  - { ticker: EVO.ST,      name: Evolution,         sector: sallanskop, news: '"Evolution" (Gaming OR casino OR aktie) -"Evolution Mining"' }
+  - { ticker: SHB-A.ST,    name: Handelsbanken A,   sector: finans, news: '"Handelsbanken"' }
+  - { ticker: HM-B.ST,     name: H&M B,             sector: sallanskop, news: '"H&M" OR "Hennes & Mauritz"' }
+  - { ticker: HEXA-B.ST,   name: Hexagon B,         sector: it, news: '"Hexagon" (aktie OR Octave OR rapport OR AB)' }
+  - { ticker: INDU-C.ST,   name: Industrivärden C,  sector: finans, news: '"Industrivärden"' }
+  - { ticker: INVE-B.ST,   name: Investor B,        sector: finans, news: '"Investor AB" OR "Investor" Wallenberg' }
+  - { ticker: LIFCO-B.ST,  name: Lifco B,           sector: industri, news: '"Lifco"' }
+  - { ticker: NIBE-B.ST,   name: Nibe B,            sector: industri, news: '"Nibe"' }
+  - { ticker: NDA-SE.ST,   name: Nordea,            sector: finans, news: '"Nordea"' }
+  - { ticker: SAAB-B.ST,   name: Saab B,            sector: industri, news: '"Saab" (aktie OR försvar OR order OR Gripen)' }
+  - { ticker: SAND.ST,     name: Sandvik,           sector: industri, news: '"Sandvik"' }
+  - { ticker: SCA-B.ST,    name: SCA B,             sector: material, news: '"SCA" (skog OR Svenska Cellulosa OR aktie) OR "Svenska Cellulosa"' }
+  - { ticker: SEB-A.ST,    name: SEB A,             sector: finans, news: '"SEB" (bank OR aktie OR banken)' }
+  - { ticker: SKA-B.ST,    name: Skanska B,         sector: industri, news: '"Skanska"' }
+  - { ticker: SKF-B.ST,    name: SKF B,             sector: industri, news: '"SKF"' }
+  - { ticker: SWED-A.ST,   name: Swedbank A,        sector: finans, news: '"Swedbank"' }
+  - { ticker: TEL2-B.ST,   name: Tele2 B,           sector: telekom, news: '"Tele2"' }
+  - { ticker: TELIA.ST,    name: Telia,             sector: telekom, news: '"Telia"' }
+  - { ticker: VOLV-B.ST,   name: Volvo B,           sector: industri, news: '("AB Volvo" OR Volvokoncernen OR "Volvo lastvagnar" OR "Volvo Group") -"Volvo Cars" -"Volvo Car"' }

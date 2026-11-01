@@ -3,6 +3,8 @@ import { Shell } from "./components/Shell";
 import { DataProvider } from "./lib/data";
 import { SettingsProvider } from "./lib/settings";
 import { Glossary } from "./views/Glossary";
+import { NewsView } from "./views/NewsView";
+import { PortfolioView } from "./views/PortfolioView";
 import { PairRedirect, PairView } from "./views/PairView";
 import { Placeholder } from "./views/Placeholder";
 
@@ -13,7 +15,9 @@ export default function App() {
         <HashRouter>
           <Shell>
             <Routes>
-              <Route path="/" element={<Navigate to="/par" replace />} />
+              <Route path="/" element={<Navigate to="/nyheter" replace />} />
+              <Route path="/nyheter" element={<NewsView />} />
+              <Route path="/portfolj" element={<PortfolioView />} />
               <Route path="/par" element={<PairRedirect />} />
               <Route path="/par/:a/:b" element={<PairView />} />
               <Route path="/ordlista" element={<Glossary />} />

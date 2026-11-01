@@ -9,11 +9,13 @@ import { TickerTape } from "./TickerTape";
 
 const NAV: { group: string; items: { to: string; label: string; ready: boolean }[] }[] = [
   { group: "Utforska", items: [
+    { to: "/nyheter", label: "Börsen idag", ready: true },
     { to: "/marknad", label: "Marknadsöversikt", ready: false },
     { to: "/korrelation", label: "Korrelationsmatris", ready: false },
     { to: "/scanner", label: "Parscanner", ready: false },
   ] },
   { group: "Analys", items: [
+    { to: "/portfolj", label: "Portföljlabb", ready: true },
     { to: "/par", label: "Paranalys", ready: true },
     { to: "/backtest", label: "Backtest", ready: false },
     { to: "/pca", label: "PCA / faktorer", ready: false },

@@ -69,14 +69,17 @@ export interface PlotProps {
   onXRange?: (r: [string, string] | null) => void;
   config?: Partial<Config>;
   ariaLabel: string;
+  onClick?: (pt: any) => void;
 }
 
-export function Plot({ data, layout, height = 300, xRange, onXRange, config, ariaLabel }: PlotProps) {
+export function Plot({ data, layout, height = 300, xRange, onXRange, config, ariaLabel, onClick }: PlotProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
   const { theme } = useSettings();
   const cbRef = useRef(onXRange);
   cbRef.current = onXRange;
+  const clickRef = useRef(onClick);
+  clickRef.current = onClick;
 
   useEffect(() => {
     let cancelled = false;
@@ -94,6 +97,8 @@ export function Plot({ data, layout, height = 300, xRange, onXRange, config, ari
       }).then((el: PlotlyHTMLElement) => {
         setReady(true);
         el.removeAllListeners?.("plotly_relayout");
+        el.removeAllListeners?.("plotly_click");
+        el.on("plotly_click", (ev: any) => clickRef.current?.(ev.points?.[0]));
         el.on("plotly_relayout", (ev: any) => {
           if (!cbRef.current) return;
           if (ev["xaxis.autorange"]) cbRef.current(null);

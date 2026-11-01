@@ -5,3 +5,6 @@ cd "$(dirname "$0")/.."
 PY=${PYTHON:-python}
 $PY pipeline/fetch.py
 $PY pipeline/precompute.py
+# Nyheter får aldrig stoppa datauppdateringen
+$PY pipeline/news.py || echo "nyhetshämtning misslyckades – fortsätter"
+$PY pipeline/market_summary.py
