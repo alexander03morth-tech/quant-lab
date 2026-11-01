@@ -23,7 +23,7 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
   { group: "Private equity", items: [
     { to: "/pe/oversikt", label: "PE-översikt", ready: true },
     { to: "/pe/lbo", label: "LBO-modell", ready: true },
-    { to: "/pe/screen", label: "Take-private-screen", ready: true },
+    { to: "/pe/fond", label: "Fondekonomi", ready: true },
   ] },
   { group: "Lär dig", items: [
     { to: "/kurs", label: "Lär dig quant", ready: false },

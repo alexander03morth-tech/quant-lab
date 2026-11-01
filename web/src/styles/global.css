@@ -434,3 +434,11 @@ tr.row-link { cursor: pointer; } tr.row-link:hover td { background: var(--surfac
 .t-portfolj { border-color: var(--series-b); color: var(--series-b); } .t-marknad { border-color: var(--pos); color: var(--pos); }
 .analogy { font-size: 15.5px; font-style: italic; color: var(--text); border-left: 3px solid var(--accent); padding: 2px 0 2px 12px; }
 .worked { background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-family: var(--font); font-variant-numeric: tabular-nums; }
+
+/* LBO-exempelbolag */
+.case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 8px; position: relative; z-index: 1; }
+.case { text-align: left; display: grid; gap: 4px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--surface-1) 80%, transparent); cursor: pointer; color: var(--text-2); font-size: 13px; }
+.case b { color: var(--text); font-size: 14.5px; }
+.case:hover { border-color: var(--border-strong); }
+.case[aria-pressed="true"] { border-color: var(--primary); background: var(--primary-soft); box-shadow: 0 0 0 1px var(--primary) inset; }
+.lbo-result { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 16px 40px; padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }

@@ -87,7 +87,7 @@ export function PeOverview() {
             <div className="card-head"><h2 className="card-title"><span className="idx">03</span>Prova själv</h2></div>
             <div className="card-body stack" style={{ gap: 8 }}>
               <Link className="btn primary" to="/pe/lbo">Räkna på ett uppköp →</Link>
-              <Link className="btn" to="/pe/screen">Vilka börsbolag går att köpa ut? →</Link>
+              <Link className="btn" to="/pe/fond">Hur tjänar en PE-fond pengar? →</Link>
             </div>
           </section>
         </aside>
