@@ -1,0 +1,213 @@
+{
+ "updatedAt": "2026-11-01T20:17:33+00:00",
+ "lastTradingDay": "2026-10-30",
+ "firstDate": "2010-01-04",
+ "universeAsOf": "2026-06-01",
+ "benchmark": {
+  "ticker": "^OMX",
+  "name": "OMX Stockholm 30"
+ },
+ "sectors": {
+  "industri": "Industri",
+  "finans": "Finans",
+  "halsovard": "Hälsovård",
+  "material": "Råvaror & material",
+  "it": "Informationsteknik",
+  "sallanskop": "Sällanköpsvaror",
+  "dagligvaror": "Dagligvaror",
+  "telekom": "Telekom & kommunikation"
+ },
+ "stocks": [
+  {
+   "ticker": "ABB.ST",
+   "name": "ABB",
+   "sector": "industri"
+  },
+  {
+   "ticker": "ADDT-B.ST",
+   "name": "Addtech B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "ALFA.ST",
+   "name": "Alfa Laval",
+   "sector": "industri"
+  },
+  {
+   "ticker": "ASSA-B.ST",
+   "name": "Assa Abloy B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "AZN.ST",
+   "name": "AstraZeneca",
+   "sector": "halsovard"
+  },
+  {
+   "ticker": "ATCO-A.ST",
+   "name": "Atlas Copco A",
+   "sector": "industri"
+  },
+  {
+   "ticker": "BOL.ST",
+   "name": "Boliden",
+   "sector": "material"
+  },
+  {
+   "ticker": "EPI-A.ST",
+   "name": "Epiroc A",
+   "sector": "industri"
+  },
+  {
+   "ticker": "EQT.ST",
+   "name": "EQT",
+   "sector": "finans"
+  },
+  {
+   "ticker": "ERIC-B.ST",
+   "name": "Ericsson B",
+   "sector": "it"
+  },
+  {
+   "ticker": "ESSITY-B.ST",
+   "name": "Essity B",
+   "sector": "dagligvaror"
+  },
+  {
+   "ticker": "EVO.ST",
+   "name": "Evolution",
+   "sector": "sallanskop"
+  },
+  {
+   "ticker": "SHB-A.ST",
+   "name": "Handelsbanken A",
+   "sector": "finans"
+  },
+  {
+   "ticker": "HM-B.ST",
+   "name": "H&M B",
+   "sector": "sallanskop"
+  },
+  {
+   "ticker": "HEXA-B.ST",
+   "name": "Hexagon B",
+   "sector": "it"
+  },
+  {
+   "ticker": "INDU-C.ST",
+   "name": "Industrivärden C",
+   "sector": "finans"
+  },
+  {
+   "ticker": "INVE-B.ST",
+   "name": "Investor B",
+   "sector": "finans"
+  },
+  {
+   "ticker": "LIFCO-B.ST",
+   "name": "Lifco B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "NIBE-B.ST",
+   "name": "Nibe B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "NDA-SE.ST",
+   "name": "Nordea",
+   "sector": "finans"
+  },
+  {
+   "ticker": "SAAB-B.ST",
+   "name": "Saab B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "SAND.ST",
+   "name": "Sandvik",
+   "sector": "industri"
+  },
+  {
+   "ticker": "SCA-B.ST",
+   "name": "SCA B",
+   "sector": "material"
+  },
+  {
+   "ticker": "SEB-A.ST",
+   "name": "SEB A",
+   "sector": "finans"
+  },
+  {
+   "ticker": "SKA-B.ST",
+   "name": "Skanska B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "SKF-B.ST",
+   "name": "SKF B",
+   "sector": "industri"
+  },
+  {
+   "ticker": "SWED-A.ST",
+   "name": "Swedbank A",
+   "sector": "finans"
+  },
+  {
+   "ticker": "TEL2-B.ST",
+   "name": "Tele2 B",
+   "sector": "telekom"
+  },
+  {
+   "ticker": "TELIA.ST",
+   "name": "Telia",
+   "sector": "telekom"
+  },
+  {
+   "ticker": "VOLV-B.ST",
+   "name": "Volvo B",
+   "sector": "industri"
+  }
+ ],
+ "quality": {
+  "adjustments": [
+   {
+    "ticker": "HEXA-B.ST",
+    "date": "2026-05-13",
+    "factor": 0.77126,
+    "note": "Avknoppning av Octave (maj 2026). Yahoo har bara justerat 13–20 maj, inte kurserna före."
+   },
+   {
+    "ticker": "TEL2-B.ST",
+    "date": "2013-05-16",
+    "factor": 0.76686,
+    "note": "Extrautdelning 2013 saknas i Yahoos justering."
+   }
+  ],
+  "spikes": [
+   {
+    "ticker": "TEL2-B.ST",
+    "date": "2025-07-29",
+    "bad": 176.004,
+    "replaced_with": 138.519
+   }
+  ],
+  "warnings": [
+   {
+    "ticker": "ERIC-B.ST",
+    "date": "2016-10-12",
+    "return": -0.2021
+   },
+   {
+    "ticker": "EVO.ST",
+    "date": "2015-08-27",
+    "return": 0.2752
+   },
+   {
+    "ticker": "EVO.ST",
+    "date": "2018-04-19",
+    "return": 0.2743
+   }
+  ]
+ }
+}

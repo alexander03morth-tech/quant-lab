@@ -1,0 +1,31 @@
+# Manuella korrigeringar av Yahoo-data. Yahoo justerar inte alltid för avknoppningar
+# och extrautdelningar, eller lägger justeringen på fel dag. Varje rad skalar ALLA
+# kurser före `date` med en faktor så att hoppet försvinner.
+#
+# method: index_neutral → faktor = (P_t / P_{t-1}) / (1 + r_index_t)
+#   dvs. vi antar att aktien rörde sig som index just den dagen och tar bort resten.
+#   Felet blir högst en dags idiosynkratisk avkastning.
+# method: factor → ange `factor` explicit.
+
+adjustments:
+  - ticker: HEXA-B.ST
+    date: "2026-05-13"
+    method: index_neutral
+    note: "Avknoppning av Octave (maj 2026). Yahoo har bara justerat 13–20 maj, inte kurserna före."
+  - ticker: TEL2-B.ST
+    date: "2013-05-16"
+    method: index_neutral
+    note: "Extrautdelning 2013 saknas i Yahoos justering."
+
+# Enskilda felaktiga kurser som rättas automatiskt: |avkastning| > spike_threshold
+# och nästa dag går tillbaka till inom spike_revert av kursen före. Ersätts med föregående kurs.
+spike_threshold: 0.15
+spike_revert: 0.05
+
+# Kvarvarande dagliga rörelser större än detta loggas i meta.json som datavarningar.
+warn_threshold: 0.20
+
+# Verifierade verkliga kursrörelser > warn_threshold (ska inte flaggas).
+known_moves:
+  - { ticker: SAAB-B.ST, date: "2013-12-19", note: "Gripen-ordern från Brasilien" }
+  - { ticker: ERIC-B.ST, date: "2016-10-12", note: "Vinstvarning Q3 2016" }

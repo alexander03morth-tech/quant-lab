@@ -1,0 +1,55 @@
+# OMXS30-universum för Quant Lab.
+# Källa: Nasdaq OMXS30-sammansättning efter halvårsöversynen 1 juni 2026 (inga ändringar).
+# Nästa översyn: december 2026. Ändra listan här – pipelinen och webben läser allt härifrån.
+#
+# OBS survivorship bias: listan används bakåt i tiden. Bolag som lämnat indexet
+# (eller gått i konkurs) saknas, vilket gör historiska resultat bättre än verkligheten.
+
+as_of: "2026-06-01"
+start_date: "2010-01-01"   # minst 10 år; vi tar mer där det finns
+
+benchmark:
+  ticker: "^OMX"
+  name: "OMX Stockholm 30"
+
+sectors:
+  industri: "Industri"
+  finans: "Finans"
+  halsovard: "Hälsovård"
+  material: "Råvaror & material"
+  it: "Informationsteknik"
+  sallanskop: "Sällanköpsvaror"
+  dagligvaror: "Dagligvaror"
+  telekom: "Telekom & kommunikation"
+
+stocks:
+  - { ticker: ABB.ST,      name: ABB,               sector: industri }
+  - { ticker: ADDT-B.ST,   name: Addtech B,         sector: industri }
+  - { ticker: ALFA.ST,     name: Alfa Laval,        sector: industri }
+  - { ticker: ASSA-B.ST,   name: Assa Abloy B,      sector: industri }
+  - { ticker: AZN.ST,      name: AstraZeneca,       sector: halsovard }
+  - { ticker: ATCO-A.ST,   name: Atlas Copco A,     sector: industri }
+  - { ticker: BOL.ST,      name: Boliden,           sector: material }
+  - { ticker: EPI-A.ST,    name: Epiroc A,          sector: industri }
+  - { ticker: EQT.ST,      name: EQT,               sector: finans }
+  - { ticker: ERIC-B.ST,   name: Ericsson B,        sector: it }
+  - { ticker: ESSITY-B.ST, name: Essity B,          sector: dagligvaror }
+  - { ticker: EVO.ST,      name: Evolution,         sector: sallanskop }
+  - { ticker: SHB-A.ST,    name: Handelsbanken A,   sector: finans }
+  - { ticker: HM-B.ST,     name: H&M B,             sector: sallanskop }
+  - { ticker: HEXA-B.ST,   name: Hexagon B,         sector: it }
+  - { ticker: INDU-C.ST,   name: Industrivärden C,  sector: finans }
+  - { ticker: INVE-B.ST,   name: Investor B,        sector: finans }
+  - { ticker: LIFCO-B.ST,  name: Lifco B,           sector: industri }
+  - { ticker: NIBE-B.ST,   name: Nibe B,            sector: industri }
+  - { ticker: NDA-SE.ST,   name: Nordea,            sector: finans }
+  - { ticker: SAAB-B.ST,   name: Saab B,            sector: industri }
+  - { ticker: SAND.ST,     name: Sandvik,           sector: industri }
+  - { ticker: SCA-B.ST,    name: SCA B,             sector: material }
+  - { ticker: SEB-A.ST,    name: SEB A,             sector: finans }
+  - { ticker: SKA-B.ST,    name: Skanska B,         sector: industri }
+  - { ticker: SKF-B.ST,    name: SKF B,             sector: industri }
+  - { ticker: SWED-A.ST,   name: Swedbank A,        sector: finans }
+  - { ticker: TEL2-B.ST,   name: Tele2 B,           sector: telekom }
+  - { ticker: TELIA.ST,    name: Telia,             sector: telekom }
+  - { ticker: VOLV-B.ST,   name: Volvo B,           sector: industri }
