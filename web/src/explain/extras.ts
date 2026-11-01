@@ -11,7 +11,10 @@ const PORT = { to: "/portfolj", label: "Portföljlabbet" };
 const NEWS = { to: "/nyheter", label: "Börsen idag" };
 const LBO = { to: "/pe/lbo", label: "LBO-modellen" };
 
+import { AKTIE_EXTRAS } from "./concepts-aktie";
+
 export const EXTRAS: Record<string, Extra> = {
+  ...AKTIE_EXTRAS,
   "normalized-prices": { track: "kvant", view: PAIR, analogy: "Som att jämföra två löpare som startar från samma linje – det spelar ingen roll vem som är längst, bara vem som springer snabbast.", worked: "Aktie A går från 50 till 60 kr (+20 %), aktie B från 400 till 440 kr (+10 %). Normaliserat blir A 120 och B 110 – nu syns att A gått dubbelt så bra." },
   "log-price": { track: "kvant", view: PAIR, analogy: "Logaritmer gör procent till avstånd: att gå från 100 till 200 kr är lika långt som från 10 till 20 kr.", worked: "ln(110) − ln(100) = 0,0953 ≈ 9,5 %. En uppgång på 10 % och sedan ner 10 % blir ln: +0,0953 − 0,1054 = −0,01 (du förlorar 1 %)." },
   correlation: { track: "kvant", view: { to: "/portfolj", label: "korrelationsmatrisen i Portföljlabbet" }, analogy: "Två personer som går i samma riktning på en gata – korrelation mäter om de tar steg åt samma håll samtidigt, inte om de hamnar på samma ställe.", worked: "Nordea och Swedbank har korrelation ca 0,7: när Nordea går upp en dag går Swedbank oftast också upp. Telia och Boliden har kanske 0,2 – nästan oberoende." },

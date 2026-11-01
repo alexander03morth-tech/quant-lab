@@ -1,0 +1,150 @@
+/** Aktieanalys och värdering. Samma mall: vad, varför, tolkning, formel, exempel, fallgropar + liknelse och räkneexempel. */
+import { fmt, fmtPct } from "../lib/format";
+import type { Extra } from "./extras";
+import type { Concept, Ctx } from "./types";
+
+const has = (c: Ctx, ...k: string[]) => k.every((x) => c[x] != null && !(typeof c[x] === "number" && !Number.isFinite(c[x])));
+const BOLAG = { to: "/aktie/bolag", label: "Bolagsanalys" };
+const DCF = { to: "/aktie/dcf", label: "DCF-värderingen" };
+const COMPS = { to: "/aktie/jamfor", label: "Jämförelsen" };
+
+export const AKTIE_CONCEPTS: Concept[] = [
+  {
+    id: "pe", title: "P/E-tal", en: "price/earnings", kind: "Mått",
+    what: "Aktiekursen delat med vinsten per aktie – eller börsvärdet delat med nettovinsten. Hur många års vinst du betalar för bolaget.",
+    why: "Det mest använda värderingsmåttet. Gör det möjligt att jämföra hur dyrt bolag är oavsett aktiekurs.",
+    interpret: ["Under 10: billigt – eller marknaden tror att vinsten ska falla.", "10–20: normalt för stabila storbolag.", "Över 25: marknaden förväntar sig hög tillväxt.", "Jämför alltid inom samma bransch – banker och mjukvarubolag har helt olika normalnivåer."],
+    formula: String.raw`\text{P/E} = \frac{\text{Börsvärde}}{\text{Nettovinst}} = \frac{\text{Kurs}}{\text{Vinst per aktie}}`,
+    example: (c) => has(c, "name", "pe") ? `${c.name} handlas till P/E ${fmt(c.pe, 1)}: du betalar ${fmt(c.pe, 0)} års vinst för bolaget.` : null,
+    pitfalls: [{ title: "Engångsposter", text: "En stor nedskrivning eller försäljningsvinst ett år gör P/E missvisande. Titta på flera år." }, { title: "Skuld syns inte", text: "P/E ignorerar skulder. Två bolag med samma P/E kan ha helt olika risk – därför används EV/EBITDA också." }],
+    related: ["ev-ebitda", "pb", "comps"], learn: "valuation",
+  },
+  {
+    id: "pb", title: "P/B-tal", en: "price/book", kind: "Mått",
+    what: "Börsvärdet delat med det egna kapitalet i balansräkningen (tillgångar minus skulder).",
+    why: "Viktigt för banker och investmentbolag där tillgångarna är finansiella och lätta att värdera. Mindre relevant för bolag vars värde sitter i varumärken och kunskap.",
+    interpret: ["Under 1: börsen värderar bolaget lägre än bokfört värde – billigt eller problem.", "Banker: 0,8–1,5 är vanligt.", "Kvalitetsbolag med hög ROE kan motivera P/B på 5–10."],
+    formula: String.raw`\text{P/B} = \frac{\text{Börsvärde}}{\text{Eget kapital}}`,
+    related: ["roe", "pe"], learn: "valuation",
+  },
+  {
+    id: "roe", title: "Avkastning på eget kapital (ROE)", en: "return on equity", kind: "Mått",
+    what: "Hur mycket vinst bolaget gör per krona som ägarna har i bolaget.",
+    why: "Ett av de bästa måtten på kvalitet: ett bolag som kan återinvestera vinsten till hög avkastning växer värdet snabbt.",
+    interpret: ["Över 15 %: bra. Över 25 %: utmärkt.", "Hög ROE med mycket skuld är mindre imponerande – hävstången blåser upp den.", "P/B ≈ ROE / avkastningskrav: hög ROE motiverar hög P/B."],
+    formula: String.raw`\text{ROE} = \frac{\text{Nettovinst}}{\text{Eget kapital}}`,
+    example: (c) => has(c, "name", "roe") ? `${c.name} har ROE ${fmtPct(c.roe, 0)}: varje 100 kr ägarna har i bolaget gav ${fmt(c.roe * 100, 0)} kr i vinst förra året.` : null,
+    related: ["pb", "quality-score"], learn: "valuation",
+  },
+  {
+    id: "div-yield", title: "Direktavkastning", en: "dividend yield", kind: "Mått",
+    what: "Årets utdelning delat med aktiekursen. Hur stor del av ditt investerade belopp du får tillbaka i kontanter varje år.",
+    why: "Viktig för investerare som vill ha löpande inkomst. Utdelningar har historiskt stått för en stor del av börsens totala avkastning.",
+    interpret: ["2–4 %: normalt för svenska storbolag.", "Över 7 %: hög – kolla att utdelningen är hållbar (utdelningsandel under ~80 %).", "Låg direktavkastning är ofta ett tecken på att bolaget återinvesterar för tillväxt."],
+    formula: String.raw`\text{Direktavkastning} = \frac{\text{Utdelning per aktie}}{\text{Kurs}}`,
+    example: (c) => has(c, "name", "divYield") ? `${c.name} har en direktavkastning på ${fmtPct(c.divYield, 1)}.` : null,
+    pitfalls: [{ title: "Utdelningsfällan", text: "Hög direktavkastning beror ibland på att kursen rasat inför en utdelningssänkning." }],
+    related: ["pe", "fcf-yield"],
+  },
+  {
+    id: "fcf-yield", title: "Kassaflödesavkastning (FCF yield)", en: "free cash flow yield", kind: "Mått",
+    what: "Fritt kassaflöde delat med börsvärdet – hur mycket riktiga pengar bolaget genererar per krona du betalar.",
+    why: "Kassaflöde är svårare att trixa med än vinst. Det är pengarna som kan gå till utdelning, återköp eller att betala skulder.",
+    interpret: ["Över 6 %: billigt (om kassaflödet håller).", "2–5 %: normalt.", "Negativt: bolaget förbrukar pengar – vanligt i tillväxtfas."],
+    formula: String.raw`\frac{\text{Operativt kassaflöde} - \text{Investeringar}}{\text{Börsvärde}}`,
+    related: ["dcf", "div-yield"], learn: "valuation",
+  },
+  {
+    id: "margins", title: "Marginaler", en: "margins", kind: "Mått",
+    what: "Hur stor del av varje försäljningskrona som blir kvar som vinst på olika nivåer: bruttomarginal (efter varukostnad), rörelsemarginal (efter alla rörelsekostnader), nettomarginal (efter räntor och skatt).",
+    why: "Visar prissättningsmakt och effektivitet. Stigande marginaler är ofta det som driver aktien.",
+    interpret: ["Jämför inom branschen: 5 % rörelsemarginal är bra för byggbolag men svagt för mjukvara.", "Stabila marginaler genom en lågkonjunktur = starkt bolag."],
+    formula: String.raw`\text{Rörelsemarginal} = \frac{\text{Rörelseresultat (EBIT)}}{\text{Omsättning}}`,
+    related: ["ebitda", "quality-score"],
+  },
+  {
+    id: "analyst-target", title: "Analytikernas riktkurs", en: "consensus price target", kind: "Mått",
+    what: "Genomsnittet av de kurser som bankernas analytiker tror att aktien når inom 12 månader.",
+    why: "Visar marknadens professionella förväntningar och hur mycket uppsida de ser. Spridningen mellan högsta och lägsta säger hur oeniga de är.",
+    interpret: ["Riktkurser följer ofta kursen – de höjs när aktien stiger.", "Stor spridning = osäkert case.", "Rekommendationsskala: 1 = köp, 3 = behåll, 5 = sälj."],
+    example: (c) => has(c, "name", "target", "price") ? `Analytikerna (${fmt(c.analysts, 0)} st) har i snitt riktkurs ${fmt(c.target, 0)} kr för ${c.name} – ${fmtPct(c.target / c.price - 1, 0, true)} från dagens kurs.` : null,
+    pitfalls: [{ title: "Flockbeteende", text: "Analytiker avviker ogärna från varandra. Konsensus är en bra bild av förväntningarna – inte en sanning." }],
+    related: ["dcf"],
+  },
+  {
+    id: "quality-score", title: "Kvalitetskort", en: "quality checklist", kind: "Modell",
+    what: "En enkel checklista över sådant som brukar kännetecknas bra bolag: hög lönsamhet, låg skuld, tillväxt, starka kassaflöden och rimlig värdering.",
+    why: "Strukturerar analysen så att man inte bara tittar på det som stödjer det man redan tror. Liknar hur kvalitetsfonder screenar.",
+    interpret: ["Inget kort ersätter att förstå affären: vad säljer bolaget, till vem, och varför kan konkurrenter inte ta det?", "Ett högt betyg till ett högt pris kan ändå vara en dålig investering."],
+    related: ["roe", "margins", "pe"],
+  },
+  {
+    id: "dcf", title: "DCF-värdering", en: "discounted cash flow", kind: "Modell",
+    what: "Ett bolag är värt summan av alla framtida kassaflöden, räknade om till dagens pengar. En krona om tio år är värd mindre än en krona idag.",
+    why: "Den teoretiskt mest korrekta värderingsmetoden och standard inom investment banking och aktieanalys. Tvingar fram tydliga antaganden om tillväxt och risk.",
+    interpret: ["Värdet är extremt känsligt för WACC och terminal tillväxt – se 3D-ytan.", "Ofta står terminalvärdet för 60–80 % av värdet: det mesta du betalar för ligger mer än fem år bort.", "Använd DCF för att förstå vad kursen förutsätter, inte för att hitta \"rätt\" värde."],
+    formula: String.raw`\text{EV} = \sum_{t=1}^{N}\frac{\text{FCF}_t}{(1+\text{WACC})^t} + \frac{\text{TV}}{(1+\text{WACC})^N}`,
+    symbols: [[String.raw`\text{FCF}_t`, "fritt kassaflöde år t"], [String.raw`\text{TV}`, "terminalvärde – värdet av allt efter år N"], [String.raw`\text{WACC}`, "avkastningskravet"]],
+    example: (c) => has(c, "name", "perShare", "price") ? `Med dina antaganden är ${c.name} värd ${fmt(c.perShare, 0)} kr per aktie mot kursen ${fmt(c.price, 0)} kr (${fmtPct(c.perShare / c.price - 1, 0, true)}).` : null,
+    pitfalls: [{ title: "Skräp in, skräp ut", text: "En liten ändring i antagandena ger ett helt annat värde. En DCF som visar +50 % uppsida betyder oftast att antagandena är för optimistiska." }],
+    related: ["wacc", "terminal-value", "fcf-yield"], learn: "valuation",
+  },
+  {
+    id: "wacc", title: "WACC", en: "weighted average cost of capital", kind: "Parameter",
+    what: "Avkastningskravet för hela bolaget: ett viktat snitt av vad aktieägarna kräver (via CAPM) och vad långivarna kräver (räntan efter skatt).",
+    why: "Diskonteringsräntan i en DCF. Högre risk = högre WACC = lägre värde idag.",
+    interpret: ["Svenska storbolag: oftast 7–10 %.", "1 procentenhet högre WACC kan sänka värdet 15–25 %.", "När räntorna stiger, stiger WACC – därför faller tillväxtaktier mest när räntan går upp."],
+    formula: String.raw`\text{WACC} = \tfrac{E}{D+E}\,k_E + \tfrac{D}{D+E}\,k_D\,(1-t)`,
+    symbols: [[String.raw`k_E`, "avkastningskrav på eget kapital (CAPM)"], [String.raw`k_D`, "låneränta"], [String.raw`t`, "skattesats (räntor är avdragsgilla)"]],
+    example: (c) => has(c, "wacc", "ke") ? `Här blir avkastningskravet på eget kapital ${fmtPct(c.ke, 1)} och WACC ${fmtPct(c.wacc, 1)}.` : null,
+    related: ["capm", "dcf"], learn: "valuation",
+  },
+  {
+    id: "capm", title: "CAPM", en: "capital asset pricing model", kind: "Modell",
+    what: "Modellen för vilken avkastning aktieägare kräver: riskfri ränta plus beta gånger marknadens riskpremie.",
+    why: "Ger ett systematiskt sätt att sätta avkastningskravet: aktier som svänger mer med marknaden måste ge mer.",
+    interpret: ["Riskfri ränta: svensk 10-årig statsobligation (ca 2–3 %).", "Marknadens riskpremie: oftast 5–6 % i svenska värderingar.", "Beta 1,2 → krav ≈ 2,5 % + 1,2 × 5,5 % ≈ 9 %."],
+    formula: String.raw`k_E = r_f + \beta\,(E[r_m] - r_f)`,
+    related: ["beta", "wacc"], learn: "valuation",
+  },
+  {
+    id: "terminal-value", title: "Terminalvärde", en: "terminal value", kind: "Modell",
+    what: "Värdet av alla kassaflöden efter prognosperioden, under antagandet att bolaget växer med en konstant takt för evigt (Gordons formel).",
+    why: "Ett bolag lever längre än fem år. Terminalvärdet fångar det – och står därför ofta för större delen av värdet.",
+    interpret: ["Terminal tillväxt bör ligga nära långsiktig inflation/BNP-tillväxt: 1,5–3 %.", "Om terminal tillväxt närmar sig WACC exploderar värdet – det är en varningssignal."],
+    formula: String.raw`\text{TV} = \frac{\text{FCF}_{N}\,(1+g)}{\text{WACC} - g}`,
+    example: (c) => has(c, "tvShare") ? `Terminalvärdet står för ${fmtPct(c.tvShare, 0)} av hela värdet i din kalkyl.` : null,
+    related: ["dcf", "wacc"], learn: "valuation",
+  },
+  {
+    id: "comps", title: "Relativvärdering (multiplar)", en: "comparable companies", kind: "Modell",
+    what: "Att värdera ett bolag genom att jämföra dess multiplar (P/E, EV/EBITDA) med liknande bolag.",
+    why: "Snabbt och marknadsbaserat. Används av banker vid börsnoteringar och uppköp som komplement till DCF.",
+    interpret: ["Högre multipel kan motiveras av högre marginal, snabbare tillväxt eller lägre risk – 3D-grafen visar sambandet.", "Ett bolag som ligger långt under linjen för sina jämförelsebolag kan vara billigt – eller ha ett problem marknaden ser."],
+    related: ["ev-ebitda", "pe", "dcf"], learn: "valuation",
+  },
+  {
+    id: "range-52w", title: "52-veckorsintervall", en: "52-week range", kind: "Mått",
+    what: "Högsta och lägsta kurs det senaste året, och var kursen ligger idag i det intervallet.",
+    why: "Ger snabbt sammanhang: handlas aktien nära årets topp eller botten? Används också i värderingsöversikter (football field).",
+    interpret: ["Nära toppen: momentum, men mindre säkerhetsmarginal.", "Nära botten: kan vara billigt – eller i en negativ trend."],
+    related: ["volatility"],
+  },
+];
+
+export const AKTIE_EXTRAS: Record<string, Extra> = {
+  pe: { track: "aktie", view: BOLAG, analogy: "Som att köpa en kiosk: betalar du 10 gånger årsvinsten tar det 10 år att tjäna tillbaka pengarna om inget ändras.", worked: "Börsvärde 100 mdkr, nettovinst 8 mdkr → P/E 12,5. Växer vinsten till 10 mdkr på samma kurs blir P/E 10." },
+  pb: { track: "aktie", view: BOLAG, analogy: "Som att betala för en bostadsrätt i förhållande till vad föreningen äger netto – betalar du mer än det tror du på framtiden.", worked: "Banken har eget kapital 150 mdkr och börsvärde 180 mdkr → P/B 1,2." },
+  roe: { track: "aktie", view: BOLAG, analogy: "Räntan som ägarnas pengar i bolaget ger – som ett sparkonto där bolaget är banken.", worked: "Eget kapital 50 mdkr, vinst 10 mdkr → ROE 20 %. Om vinsten återinvesteras till samma avkastning växer det egna kapitalet 20 % per år." },
+  "div-yield": { track: "aktie", view: BOLAG, analogy: "Som hyran från en lägenhet du äger, i procent av vad lägenheten kostar.", worked: "Kurs 200 kr, utdelning 8 kr → 4 % direktavkastning. Äger du aktier för 50 000 kr får du 2 000 kr per år." },
+  "fcf-yield": { track: "aktie", view: COMPS, analogy: "Hur mycket kontanter verksamheten faktiskt lägger i kassan per år, i förhållande till priset du betalar.", worked: "Fritt kassaflöde 5 mdkr, börsvärde 100 mdkr → 5 %." },
+  margins: { track: "aktie", view: BOLAG, analogy: "Av varje hundralapp en restaurang tar in: hur mycket blir kvar efter maten (brutto), efter personal och hyra (rörelse), efter lån och skatt (netto).", worked: "Omsättning 100, varukostnad 60, övriga kostnader 25 → bruttomarginal 40 %, rörelsemarginal 15 %." },
+  "analyst-target": { track: "aktie", view: BOLAG, analogy: "Som tipsen inför en match: bra att veta vad experterna tror, men de har fel ofta och tycker gärna likadant.", worked: "Kurs 300 kr, snittriktkurs 345 kr (lägsta 260, högsta 420) → 15 % uppsida, men stor oenighet." },
+  "quality-score": { track: "aktie", view: BOLAG, analogy: "En besiktningsprotokoll för en begagnad bil – det säger inte om bilen är rolig att köra, men det avslöjar de vanligaste problemen.", worked: "ROE 22 % ✓, nettoskuld 0,8× EBITDA ✓, tillväxt 6 % ✓, marginal 18 % ✓, P/E 35 ✕ → 4 av 5, men dyr." },
+  dcf: { track: "aktie", view: DCF, analogy: "Hur mycket skulle du betala idag för en äppelodling som ger äpplen för evigt? Det beror på hur många äpplen, hur säkert, och vad pengarna annars hade kunnat ge.", worked: "Kassaflöde 100 kr nästa år, växer 3 % för evigt, krav 8 %: värde = 100 / (0,08 − 0,03) = 2 000 kr." },
+  wacc: { track: "aktie", view: DCF, analogy: "Räntan du skulle kräva för att låna ut pengar till bolaget, viktat mellan vad ägarna och bankerna kräver.", worked: "80 % eget kapital á 9 %, 20 % lån á 5 % före skatt (4 % efter) → WACC = 0,8·9 + 0,2·4 = 8,0 %." },
+  capm: { track: "aktie", view: DCF, analogy: "Ju mer en aktie svänger med börsen, desto mer ränta vill du ha för att våga äga den.", worked: "Riskfri 2,5 %, beta 1,1, marknadspremie 5,5 % → krav 2,5 + 1,1·5,5 = 8,55 %." },
+  "terminal-value": { track: "aktie", view: DCF, analogy: "Värdet av allt bortom horisonten. Som att värdera ett hus: de närmaste fem årens hyror är en liten del, resten är vad huset är värt därefter.", worked: "FCF år 5 = 150, tillväxt 2 %, WACC 8 % → TV = 150·1,02 / 0,06 = 2 550, nuvärde ≈ 1 735." },
+  comps: { track: "aktie", view: COMPS, analogy: "Som att värdera en bostad genom att titta på vad liknande lägenheter i samma område sålts för.", worked: "Tre jämförbara bolag handlas till 10×, 12× och 14× EBITDA. Målbolaget har EBITDA 2 mdkr → värde ca 24 mdkr (12×)." },
+  "range-52w": { track: "aktie", view: BOLAG, analogy: "Årets högsta och lägsta temperatur – och var vi är idag.", worked: "Lägst 240 kr, högst 380 kr, idag 310 kr → 50 % upp i intervallet." },
+};

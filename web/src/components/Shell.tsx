@@ -20,6 +20,11 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
     { to: "/backtest", label: "Backtest", ready: false },
     { to: "/pca", label: "PCA / faktorer", ready: false },
   ] },
+  { group: "Aktieanalys", items: [
+    { to: "/aktie/bolag", label: "Bolagsanalys", ready: true },
+    { to: "/aktie/dcf", label: "DCF-värdering", ready: true },
+    { to: "/aktie/jamfor", label: "Jämförelse", ready: true },
+  ] },
   { group: "Private equity", items: [
     { to: "/pe/oversikt", label: "PE-översikt", ready: true },
     { to: "/pe/lbo", label: "LBO-modell", ready: true },

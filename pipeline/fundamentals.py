@@ -97,6 +97,12 @@ def main() -> None:
                 capex_est = True
             hist = history_rows(tk, fx)
             lbo = s["sector"] not in NOT_LBO and ebitda is not None and ebitda > 0
+            ni = conv(clean(i.get("netIncomeToCommon")))
+            book_ps = clean(i.get("bookValue"))  # per aktie i rapportvaluta
+            equity = book_ps * fx * shares if book_ps is not None and shares else None
+            div_rate = clean(i.get("trailingAnnualDividendRate"))  # anges i rapportvalutan (EUR/USD för vissa)
+            div_rate = div_rate * fx if div_rate is not None else None
+            tgt = clean(i.get("targetMeanPrice"))
             out[t] = {
                 "name": s["name"], "sector": s["sector"], "currency": fin_cur, "fx": fx,
                 "price": price, "shares": shares, "marketCap": mcap, "ev": ev, "netDebt": net_debt,
@@ -108,6 +114,19 @@ def main() -> None:
                 "netDebtEbitda": net_debt / ebitda if net_debt is not None and ebitda and ebitda > 0 else None,
                 "fcfYield": fcf / mcap if fcf is not None and mcap else None,
                 "high52": clean(i.get("fiftyTwoWeekHigh")), "low52": clean(i.get("fiftyTwoWeekLow")),
+                # Aktieanalys – egna beräkningar i SEK i stället för Yahoos färdiga kvoter (som kan blanda valutor)
+                "netIncome": ni, "equity": equity,
+                "pe": mcap / ni if mcap and ni and ni > 0 else None,
+                "pb": mcap / equity if mcap and equity and equity > 0 else None,
+                "roe": ni / equity if ni is not None and equity and equity > 0 else None,
+                "profitMargin": clean(i.get("profitMargins")), "operatingMargin": clean(i.get("operatingMargins")),
+                "grossMargin": clean(i.get("grossMargins")), "earningsGrowth": clean(i.get("earningsGrowth")),
+                "divYield": div_rate / price if div_rate and price else None, "divPerShare": div_rate,
+                "payout": clean(i.get("payoutRatio")),
+                "targetMean": tgt, "targetHigh": clean(i.get("targetHighPrice")), "targetLow": clean(i.get("targetLowPrice")),
+                "analysts": clean(i.get("numberOfAnalystOpinions")), "recommendation": clean(i.get("recommendationMean")),
+                "employees": clean(i.get("fullTimeEmployees")), "summary": (i.get("longBusinessSummary") or "")[:600],
+                "industry": i.get("industry"), "website": i.get("website"),
                 "lbo": lbo,
                 "lboNote": None if lbo else ("Bank, investmentbolag eller kapitalförvaltare – skulden är en del av affären, så en LBO-analys är inte meningsfull."
                                              if s["sector"] in NOT_LBO else "Saknar positiv EBITDA i datan."),

@@ -58,6 +58,11 @@ export interface Fundamentals {
   evEbitda: number | null; netDebtEbitda: number | null; fcfYield: number | null;
   high52: number | null; low52: number | null; lbo: boolean; lboNote: string | null;
   history: { year: number; revenue: number; ebitda: number | null; ebit: number | null }[];
+  netIncome: number | null; equity: number | null; pe: number | null; pb: number | null; roe: number | null;
+  profitMargin: number | null; operatingMargin: number | null; grossMargin: number | null; earningsGrowth: number | null;
+  divYield: number | null; divPerShare: number | null; payout: number | null;
+  targetMean: number | null; targetHigh: number | null; targetLow: number | null; analysts: number | null; recommendation: number | null;
+  employees: number | null; summary: string; industry: string | null; website: string | null;
 }
 export interface FundamentalsFile { fetchedAt: string; fx: Record<string, number>; source: string; items: Record<string, Fundamentals> }
 export const useFundamentals = () => useFile<FundamentalsFile>("fundamentals.json");

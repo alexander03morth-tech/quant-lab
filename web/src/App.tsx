@@ -6,6 +6,7 @@ import { Glossary } from "./views/Glossary";
 import { NewsView } from "./views/NewsView";
 import { PortfolioView } from "./views/PortfolioView";
 import { PeView } from "./views/pe/PeView";
+import { AktieView } from "./views/aktie/AktieView";
 import { PairRedirect, PairView } from "./views/PairView";
 import { Placeholder } from "./views/Placeholder";
 
@@ -20,6 +21,7 @@ export default function App() {
               <Route path="/nyheter" element={<NewsView />} />
               <Route path="/portfolj" element={<PortfolioView />} />
               <Route path="/pe/*" element={<PeView />} />
+              <Route path="/aktie/*" element={<AktieView />} />
               <Route path="/par" element={<PairRedirect />} />
               <Route path="/par/:a/:b" element={<PairView />} />
               <Route path="/ordlista" element={<Glossary />} />

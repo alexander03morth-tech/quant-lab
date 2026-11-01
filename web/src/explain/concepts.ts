@@ -6,6 +6,7 @@ import { fmt, fmtDays, fmtP, fmtPct } from "../lib/format";
 import type { Concept, Ctx } from "./types";
 import { MARKET_CONCEPTS } from "./concepts-market";
 import { PE_CONCEPTS } from "./concepts-pe";
+import { AKTIE_CONCEPTS } from "./concepts-aktie";
 
 const has = (c: Ctx, ...keys: string[]) => keys.every((k) => c[k] !== undefined && c[k] !== null);
 const pair = (c: Ctx) => `${c.A}/${c.B}`;
@@ -603,6 +604,6 @@ ight)`,
   },
 ];
 
-const all = [...list, ...MARKET_CONCEPTS, ...PE_CONCEPTS];
+const all = [...list, ...MARKET_CONCEPTS, ...PE_CONCEPTS, ...AKTIE_CONCEPTS];
 export const CONCEPTS: Record<string, Concept> = Object.fromEntries(all.map((c) => [c.id, c]));
 export const CONCEPT_LIST = all;
