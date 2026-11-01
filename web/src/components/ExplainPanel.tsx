@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CONCEPTS } from "../explain/concepts";
+import { EXTRAS } from "../explain/extras";
 import { useSettings } from "../lib/settings";
 import { RichText } from "./RichText";
 import { Tex } from "./Tex";
@@ -20,6 +21,7 @@ export function ExplainPanel() {
   }, [explain, closeExplain]);
 
   if (!c || !explain) return null;
+  const ex = EXTRAS[c.id];
   let example: string | null = null;
   try { example = c.example && explain.ctx ? c.example(explain.ctx) : null; } catch { example = null; }
 
@@ -41,6 +43,12 @@ export function ExplainPanel() {
             <h3>Vad är det?</h3>
             <p><RichText text={c.what} /></p>
           </section>
+          {ex?.analogy && (
+            <section className="explain-sec">
+              <h3>Som i vardagen</h3>
+              <p className="analogy">{ex.analogy}</p>
+            </section>
+          )}
           <section className="explain-sec">
             <h3>Varför tittar man på det?</h3>
             <p><RichText text={c.why} /></p>
@@ -65,6 +73,12 @@ export function ExplainPanel() {
               )}
             </section>
           )}
+          {ex?.worked && (
+            <section className="explain-sec">
+              <h3>Räkneexempel</h3>
+              <div className="worked"><RichText text={ex.worked} /></div>
+            </section>
+          )}
           {example && (
             <section className="explain-sec">
               <h3>I den aktuella datan</h3>
@@ -84,6 +98,7 @@ export function ExplainPanel() {
                 {c.related.filter((r) => CONCEPTS[r]).map((r) => (
                   <button key={r} className="chip" onClick={() => openExplain(r, explain.ctx)}>{CONCEPTS[r].title}</button>
                 ))}
+                {ex?.view && <Link className="chip" to={ex.view.to} onClick={closeExplain} style={{ borderColor: "var(--primary)", color: "var(--text)" }}>Se det i {ex.view.label} →</Link>}
                 <Link className="chip" to={`/ordlista?q=${encodeURIComponent(c.title)}`} onClick={closeExplain}>Ordlistan →</Link>
               </div>
             </section>

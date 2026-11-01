@@ -421,3 +421,16 @@ details.eli5 summary { cursor: pointer; color: var(--primary); font-weight: 600;
 tr.row-link { cursor: pointer; } tr.row-link:hover td { background: var(--surface-hover); }
 @media (max-width: 900px) { .pe-steps { grid-template-columns: 1fr 1fr; } .pe-arrow { display: none; } }
 @media (max-width: 560px) { .pe-steps { grid-template-columns: 1fr; } }
+
+/* ordlista och panelens extra sektioner */
+.gloss-card { text-align: left; cursor: pointer; padding: 14px 16px; display: grid; gap: 6px; align-content: start; transition: border-color .15s, transform .15s; }
+.gloss-card:hover { border-color: var(--primary); transform: translateY(-1px); }
+@media (prefers-reduced-motion: reduce) { .gloss-card:hover { transform: none; } }
+.gloss-title { font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em; }
+.gloss-title .dim { font-weight: 400; font-size: 13.5px; }
+.gloss-analogy { font-size: 13px; color: var(--text-2); font-style: italic; border-left: 2px solid var(--primary); padding-left: 10px; margin-top: 2px; }
+.track-tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em; padding: 1px 7px; border-radius: 99px; border: 1px solid var(--border-strong); color: var(--text-2); }
+.t-kvant { border-color: var(--series-a); color: var(--series-a); } .t-pe { border-color: var(--accent); color: var(--accent); }
+.t-portfolj { border-color: var(--series-b); color: var(--series-b); } .t-marknad { border-color: var(--pos); color: var(--pos); }
+.analogy { font-size: 15.5px; font-style: italic; color: var(--text); border-left: 3px solid var(--accent); padding: 2px 0 2px 12px; }
+.worked { background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-family: var(--font); font-variant-numeric: tabular-nums; }
