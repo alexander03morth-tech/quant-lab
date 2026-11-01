@@ -8,6 +8,7 @@ import { PortfolioView } from "./views/PortfolioView";
 import { PeView } from "./views/pe/PeView";
 import { AktieView } from "./views/aktie/AktieView";
 import { IbView } from "./views/ib/IbView";
+import { CareerView } from "./views/CareerView";
 import { PairRedirect, PairView } from "./views/PairView";
 import { Placeholder } from "./views/Placeholder";
 
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/pe/*" element={<PeView />} />
               <Route path="/aktie/*" element={<AktieView />} />
               <Route path="/ib/*" element={<IbView />} />
+              <Route path="/kvant/jobbet" element={<div className="page"><CareerView track="kvant" /></div>} />
               <Route path="/par" element={<PairRedirect />} />
               <Route path="/par/:a/:b" element={<PairView />} />
               <Route path="/ordlista" element={<Glossary />} />

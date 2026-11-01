@@ -5,6 +5,7 @@
  *   Fondekonomi – J-kurva, avgifter, carry och brutto mot netto
  */
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { CareerView } from "../CareerView";
 import { LboView } from "./LboView";
 import { PeOverview } from "./PeOverview";
 import { FundView } from "./FundView";
@@ -16,11 +17,13 @@ export function PeView() {
         <NavLink to="/pe/oversikt">Översikt & nyheter</NavLink>
         <NavLink to="/pe/lbo">LBO-modell</NavLink>
         <NavLink to="/pe/fond">Fondekonomi</NavLink>
+        <NavLink to="/pe/jobbet">Så funkar jobbet</NavLink>
       </nav>
       <Routes>
         <Route path="oversikt" element={<PeOverview />} />
         <Route path="lbo" element={<LboView />} />
         <Route path="fond" element={<FundView />} />
+        <Route path="jobbet" element={<CareerView track="pe" />} />
         <Route path="*" element={<Navigate to="oversikt" replace />} />
       </Routes>
     </div>

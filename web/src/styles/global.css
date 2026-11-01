@@ -467,3 +467,27 @@ a.btn { text-decoration: none; }
 .tl-when { font-family: var(--mono); font-size: 11.5px; color: var(--primary); letter-spacing: .06em; }
 .tl-title { font-size: 17px; font-weight: 600; margin: 2px 0 4px; display: flex; gap: 6px; align-items: center; }
 .tl-card p { margin: 0; color: var(--text-2); font-size: 14px; }
+
+/* Så funkar jobbet */
+.task-card { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); }
+.task-n { font-family: var(--mono); font-size: 13px; color: var(--accent); width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--primary-soft); border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent); }
+.task-title { font-size: 16.5px; font-weight: 600; display: flex; gap: 6px; align-items: center; }
+.task-card p { margin: 4px 0 8px; color: var(--text-2); }
+.check-list, .plain-list, .channel-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 7px; font-size: 14px; }
+.check-list li { display: flex; gap: 8px; } .check-list li::before { content: "✓"; color: var(--pos); font-weight: 700; }
+.plain-list li { padding-left: 14px; position: relative; } .plain-list li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 2px; background: var(--primary); }
+.channel-list li { display: grid; gap: 2px; padding: 8px 10px; border-radius: 8px; background: var(--surface-1); border: 1px solid var(--border); }
+.channel-list li span { color: var(--text-2); font-size: 13.5px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.facts > div { background: var(--surface-1); padding: 10px 12px; }
+.ladder { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ladder li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; }
+.ladder-bar { height: 12px; border-radius: 99px; width: calc(20% + var(--step) * 20%); background: linear-gradient(90deg, var(--primary-strong), var(--accent)); box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 40%, transparent); }
+.ladder-title { font-weight: 600; font-size: 16px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.ladder-title .mono { font-size: 12px; font-weight: 400; }
+.ladder-body p { margin: 2px 0 0; color: var(--text-2); font-size: 14px; }
+.daylist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.daylist li { display: grid; grid-template-columns: 74px 1fr; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--border); }
+.daylist li:last-child { border-bottom: 0; }
+.day-time { font-family: var(--mono); color: var(--accent); font-size: 14px; }
+@media (max-width: 560px) { .ladder li { grid-template-columns: 1fr; gap: 6px; } }

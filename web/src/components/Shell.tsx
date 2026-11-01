@@ -19,6 +19,7 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
     { to: "/par", label: "Paranalys", ready: true },
     { to: "/backtest", label: "Backtest", ready: false },
     { to: "/pca", label: "PCA / faktorer", ready: false },
+    { to: "/kvant/jobbet", label: "Kvant som yrke", ready: true },
   ] },
   { group: "Aktieanalys", items: [
     { to: "/aktie/bolag", label: "Bolagsanalys", ready: true },
