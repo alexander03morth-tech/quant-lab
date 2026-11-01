@@ -1,0 +1,86 @@
+# Uppdaterar data varje vardagskväll efter att Stockholmsbörsen stängt (17:30) och deployar till GitHub Pages.
+# Körs också vid push till main (bara bygg + deploy) och manuellt via "Run workflow".
+name: Uppdatera data och deploya
+
+on:
+  schedule:
+    # 16:45 UTC = 17:45 svensk vintertid / 18:45 sommartid, måndag–fredag
+    - cron: "45 16 * * 1-5"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  data:
+    name: Hämta kurser, nyheter och nyckeltal
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Testa statistiken mot statsmodels
+        run: python -m pytest -q pipeline/tests
+      - name: Kör datapipelinen
+        run: bash pipeline/update.sh
+        env:
+          PYTHON: python
+      - name: Committa ny data
+        run: |
+          git config user.name "quant-lab-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data web/public/data
+          if git diff --cached --quiet; then
+            echo "Ingen ny data."
+          else
+            git commit -m "Data: $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+  deploy:
+    name: Bygg och publicera
+    needs: data
+    if: always() && (needs.data.result == 'success' || needs.data.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main # hämta senaste commit, inklusive data som just pushats
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci
+        working-directory: web
+      - name: Testa (statistik mot golden-filer, LBO, fond, portfölj)
+        run: npm test
+        working-directory: web
+      - name: Bygg
+        run: npm run build
+        working-directory: web
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
