@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "pipeline"))
 from stats.core import half_life, hurst, kalman_hedge, kalman_init, ols  # noqa
 warnings.filterwarnings("ignore")
 
-df = pd.read_csv(ROOT / "data/prices.csv.gz", parse_dates=["date"])
+df = pd.read_csv(ROOT / "data/prices.csv", parse_dates=["date"])
 close = df.pivot(index="date", columns="ticker", values="close")
 # Fast slutdatum så att golden-filen inte ändras när ny data hämtas
 close = close.loc[:"2026-10-30"]

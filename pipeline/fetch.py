@@ -2,7 +2,7 @@
 
 Rensar datan enligt config/corrections.yaml (avknoppningar, felaktiga tick) och skriver:
   web/public/data/prices.json  – kolumnärt format: {dates, series: {ticker: {close, volume}}}
-  data/prices.csv.gz           – samma data i långt format för Python-steget
+  data/prices.csv           – samma data i långt format för Python-steget
   data/quality.json            – vilka korrigeringar som gjordes + kvarvarande varningar
 
 Kör:  python pipeline/fetch.py
@@ -116,7 +116,8 @@ def main() -> None:
 
     long = close.stack().rename("close").to_frame().join(volume.stack().rename("volume"))
     long.index.names = ["date", "ticker"]
-    long.reset_index().to_csv(DATA_DIR / "prices.csv.gz", index=False, compression="gzip")
+    # Okomprimerad och sorterad på datum: en daglig commit lägger bara till rader, så git kan lagra skillnaden.
+    long.reset_index().sort_values(["date", "ticker"]).to_csv(DATA_DIR / "prices.csv", index=False, float_format="%.4f")
 
     def num(v, nd):
         return None if v is None or (isinstance(v, float) and math.isnan(v)) else round(float(v), nd)
@@ -131,7 +132,13 @@ def main() -> None:
             for t in close.columns
         },
     }
-    (WEB_DATA / "prices.json").write_text(json.dumps(out, separators=(",", ":")))
+    # En rad per serie → små diffar i git när nya dagar läggs till
+    lines = ['{"dates":' + json.dumps(out["dates"], separators=(",", ":")) + ',"series":{']
+    keys = list(out["series"])
+    for k, t in enumerate(keys):
+        lines.append(json.dumps(t) + ":" + json.dumps(out["series"][t], separators=(",", ":")) + ("," if k < len(keys) - 1 else ""))
+    lines.append("}}")
+    (WEB_DATA / "prices.json").write_text("\n".join(lines))
     print(f"prices.json: {len(out['dates'])} dagar, {len(out['series'])} serier, "
           f"{out['dates'][0]} → {out['dates'][-1]}")
 

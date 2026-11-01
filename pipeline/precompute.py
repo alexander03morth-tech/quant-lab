@@ -90,7 +90,7 @@ def stability(la_full: np.ndarray, lb_full: np.ndarray) -> float | None:
 def main() -> None:
     t0 = time.time()
     uni = load_universe()
-    df = pd.read_csv(DATA_DIR / "prices.csv.gz", parse_dates=["date"])
+    df = pd.read_csv(DATA_DIR / "prices.csv", parse_dates=["date"])
     close = df.pivot(index="date", columns="ticker", values="close").sort_index()
     stocks = [s["ticker"] for s in uni["stocks"] if s["ticker"] in close.columns]
     logp = np.log(close[stocks])

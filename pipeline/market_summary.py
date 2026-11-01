@@ -60,7 +60,7 @@ def main() -> None:
     bench = uni["benchmark"]["ticker"]
     names = {s["ticker"]: s["name"] for s in uni["stocks"]}
     sectors = {s["ticker"]: uni["sectors"][s["sector"]] for s in uni["stocks"]}
-    df = pd.read_csv(DATA_DIR / "prices.csv.gz", parse_dates=["date"])
+    df = pd.read_csv(DATA_DIR / "prices.csv", parse_dates=["date"])
     close = df.pivot(index="date", columns="ticker", values="close").sort_index()
     vol = df.pivot(index="date", columns="ticker", values="volume").sort_index()
     news = json.loads((WEB_DATA / "news.json").read_text()) if (WEB_DATA / "news.json").exists() else {"items": {}, "market": {}}
