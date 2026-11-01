@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-01T20:17:33+00:00",
+ "updatedAt": "2026-11-01T21:38:39+00:00",
  "lastTradingDay": "2026-10-30",
  "firstDate": "2010-01-04",
  "universeAsOf": "2026-06-01",
@@ -21,152 +21,182 @@
   {
    "ticker": "ABB.ST",
    "name": "ABB",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"ABB\" (aktie OR koncernen OR order OR rapport)"
   },
   {
    "ticker": "ADDT-B.ST",
    "name": "Addtech B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Addtech\""
   },
   {
    "ticker": "ALFA.ST",
    "name": "Alfa Laval",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Alfa Laval\""
   },
   {
    "ticker": "ASSA-B.ST",
    "name": "Assa Abloy B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Assa Abloy\""
   },
   {
    "ticker": "AZN.ST",
    "name": "AstraZeneca",
-   "sector": "halsovard"
+   "sector": "halsovard",
+   "news": "\"AstraZeneca\""
   },
   {
    "ticker": "ATCO-A.ST",
    "name": "Atlas Copco A",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Atlas Copco\""
   },
   {
    "ticker": "BOL.ST",
    "name": "Boliden",
-   "sector": "material"
+   "sector": "material",
+   "news": "\"Boliden\""
   },
   {
    "ticker": "EPI-A.ST",
    "name": "Epiroc A",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Epiroc\""
   },
   {
    "ticker": "EQT.ST",
    "name": "EQT",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"EQT\" (aktie OR riskkapital OR fond OR förvärv)"
   },
   {
    "ticker": "ERIC-B.ST",
    "name": "Ericsson B",
-   "sector": "it"
+   "sector": "it",
+   "news": "\"Ericsson\""
   },
   {
    "ticker": "ESSITY-B.ST",
    "name": "Essity B",
-   "sector": "dagligvaror"
+   "sector": "dagligvaror",
+   "news": "\"Essity\""
   },
   {
    "ticker": "EVO.ST",
    "name": "Evolution",
-   "sector": "sallanskop"
+   "sector": "sallanskop",
+   "news": "\"Evolution\" (Gaming OR casino OR aktie) -\"Evolution Mining\""
   },
   {
    "ticker": "SHB-A.ST",
    "name": "Handelsbanken A",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"Handelsbanken\""
   },
   {
    "ticker": "HM-B.ST",
    "name": "H&M B",
-   "sector": "sallanskop"
+   "sector": "sallanskop",
+   "news": "\"H&M\" OR \"Hennes & Mauritz\""
   },
   {
    "ticker": "HEXA-B.ST",
    "name": "Hexagon B",
-   "sector": "it"
+   "sector": "it",
+   "news": "\"Hexagon\" (aktie OR Octave OR rapport OR AB)"
   },
   {
    "ticker": "INDU-C.ST",
    "name": "Industrivärden C",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"Industrivärden\""
   },
   {
    "ticker": "INVE-B.ST",
    "name": "Investor B",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"Investor AB\" OR \"Investor\" Wallenberg"
   },
   {
    "ticker": "LIFCO-B.ST",
    "name": "Lifco B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Lifco\""
   },
   {
    "ticker": "NIBE-B.ST",
    "name": "Nibe B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Nibe\""
   },
   {
    "ticker": "NDA-SE.ST",
    "name": "Nordea",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"Nordea\""
   },
   {
    "ticker": "SAAB-B.ST",
    "name": "Saab B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Saab\" (aktie OR försvar OR order OR Gripen)"
   },
   {
    "ticker": "SAND.ST",
    "name": "Sandvik",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Sandvik\""
   },
   {
    "ticker": "SCA-B.ST",
    "name": "SCA B",
-   "sector": "material"
+   "sector": "material",
+   "news": "\"SCA\" (skog OR Svenska Cellulosa OR aktie) OR \"Svenska Cellulosa\""
   },
   {
    "ticker": "SEB-A.ST",
    "name": "SEB A",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"SEB\" (bank OR aktie OR banken)"
   },
   {
    "ticker": "SKA-B.ST",
    "name": "Skanska B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"Skanska\""
   },
   {
    "ticker": "SKF-B.ST",
    "name": "SKF B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "\"SKF\""
   },
   {
    "ticker": "SWED-A.ST",
    "name": "Swedbank A",
-   "sector": "finans"
+   "sector": "finans",
+   "news": "\"Swedbank\""
   },
   {
    "ticker": "TEL2-B.ST",
    "name": "Tele2 B",
-   "sector": "telekom"
+   "sector": "telekom",
+   "news": "\"Tele2\""
   },
   {
    "ticker": "TELIA.ST",
    "name": "Telia",
-   "sector": "telekom"
+   "sector": "telekom",
+   "news": "\"Telia\""
   },
   {
    "ticker": "VOLV-B.ST",
    "name": "Volvo B",
-   "sector": "industri"
+   "sector": "industri",
+   "news": "(\"AB Volvo\" OR Volvokoncernen OR \"Volvo lastvagnar\" OR \"Volvo Group\") -\"Volvo Cars\" -\"Volvo Car\""
   }
  ],
  "quality": {
@@ -180,7 +210,7 @@
    {
     "ticker": "TEL2-B.ST",
     "date": "2013-05-16",
-    "factor": 0.76686,
+    "factor": 0.76687,
     "note": "Extrautdelning 2013 saknas i Yahoos justering."
    }
   ],
@@ -193,11 +223,6 @@
    }
   ],
   "warnings": [
-   {
-    "ticker": "ERIC-B.ST",
-    "date": "2016-10-12",
-    "return": -0.2021
-   },
    {
     "ticker": "EVO.ST",
     "date": "2015-08-27",
