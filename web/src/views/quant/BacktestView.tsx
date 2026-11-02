@@ -166,6 +166,28 @@ function PairBacktest({ a, b, p, splitDate }: { a: string; b: string; p: Params;
     return { ents, x: idx.map((t) => base.dates[t]), z };
   }, [base, p.hedge, p.hw, p.delta, p.zw, p.exit, p.stop, p.cost, p.borrow, warm, n]);
 
+
+  // månadskarta och affärsfördelning
+  const monthly = (() => {
+    const map = new Map<string, number>();
+    for (let t = warm + 1; t < n; t++) { const k = base.dates[t].slice(0, 7); map.set(k, (map.get(k) ?? 1) * (1 + res.ret[t])); }
+    const years = [...new Set([...map.keys()].map((k) => k.slice(0, 4)))];
+    const z = years.map((y) => Array.from({ length: 12 }, (_, m) => { const v = map.get(`${y}-${String(m + 1).padStart(2, "0")}`); return v == null ? null : v - 1; }));
+    const vals = [...map.values()].map((v) => v - 1);
+    return { years, z, pos: vals.filter((v) => v > 0).length, tot: vals.length, best: Math.max(...vals), worst: Math.min(...vals) };
+  })();
+  const lim = Math.max(0.02, ...monthly.z.flat().filter((v): v is number => v != null).map(Math.abs)) * 0.7;
+  const heat: Data[] = [{
+    type: "heatmap", x: ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"], y: monthly.years, z: monthly.z as any, zmid: 0, zmin: -lim, zmax: lim,
+    colorscale: [[0, cssVar("--neg")], [0.5, cssVar("--surface-2")], [1, cssVar("--pos")]] as any, showscale: false, xgap: 2, ygap: 2,
+    text: monthly.z.map((r) => r.map((v) => (v == null ? "" : fmtPct(v, 1, true)))) as any, texttemplate: "%{text}", textfont: { family: cssVar("--mono"), size: 9.5 },
+    hovertemplate: "%{y} %{x}: %{text}<extra></extra>",
+  } as any];
+  const trHist: Data[] = [{ type: "histogram", x: trades.filter((t) => !t.open).map((t) => t.ret * 100), marker: { color: cssVar("--accent") }, opacity: 0.85, xbins: { size: 0.5 }, hovertemplate: "%{x} %: %{y} affärer<extra></extra>" } as any];
+  const closed = trades.filter((t) => !t.open);
+  const avgWin = closed.filter((t) => t.ret > 0).reduce((a, t) => a + t.ret, 0) / Math.max(1, closed.filter((t) => t.ret > 0).length);
+  const avgLoss = closed.filter((t) => t.ret <= 0).reduce((a, t) => a + t.ret, 0) / Math.max(1, closed.filter((t) => t.ret <= 0).length);
+  const tradesPerYear = closed.length / Math.max(0.5, pAll.years);
   const ctx = { srIn: pIn?.sharpe, srOut: pOut?.sharpe, costBps: p.cost, breakEvenBps: be, A, B };
   const eq0 = res.equity[warm];
   const eq = Array.from(res.equity, (v, i) => (i < warm ? null : v / eq0));
@@ -229,8 +251,30 @@ function PairBacktest({ a, b, p, splitDate }: { a: string; b: string; p: Params;
           <Caption>Samma strategi med nio olika ingångströsklar. En <b>jämn yta som lutar uppåt</b> betyder att resultatet inte hänger på exakt vilken tröskel man valde. En enda topp mitt i en dal är ett varningstecken.</Caption>
         </section>
 
+
         <section className="card span-12">
-          <div className="card-head"><h2 className="card-title"><span className="idx">06</span>Affärer</h2><span className="dim" style={{ fontSize: 12 }}>senaste 12 · inkl. kostnader</span></div>
+          <div className="card-head"><h2 className="card-title"><span className="idx">06</span>Så ska resultatet läsas</h2><span className="dim" style={{ fontSize: 12 }}>automatisk tolkning</span></div>
+          <div className="card-body">
+            <ul className="insights">
+              <li><b>Träning mot test:</b> Sharpe {fmt(pIn?.sharpe, 2)} i träning och {fmt(pOut?.sharpe, 2)} i test. {pIn && pOut ? (pOut.sharpe < pIn.sharpe * 0.5 ? "Ett stort tapp – typiskt tecken på att reglerna passade historiken bättre än framtiden." : pOut.sharpe > pIn.sharpe * 1.5 && pOut.sharpe > 0.3 ? "Bättre i test än i träning – kul, men troligen delvis tur. Testperioden är kort." : "Ungefär samma nivå – ett gott tecken på robusthet.") : ""} <Info id="out-of-sample" /></li>
+              <li><b>Affärerna:</b> {closed.length} avslutade affärer (~{fmt(tradesPerYear, 0)} per år), {fmtPct(win(closed), 0)} vinnande. Snittvinst {fmtPct(avgWin, 2, true)}, snittförlust {fmtPct(avgLoss, 2, true)}. {Math.abs(avgLoss) > avgWin * 1.5 ? "Förlusterna är mycket större än vinsterna – typiskt för pairs trading: många små vinster, några stora förluster när sambandet bryts." : "Vinster och förluster är ungefär lika stora."}</li>
+              <li><b>Kostnader:</b> varje affär kostar ungefär {fmt(p.cost * 4, 0)} bp (fyra transaktioner). Strategin tål {Number.isFinite(be) ? `upp till ca ${fmt(be, 0)} bp per sida` : sens[0].srOut <= 0 ? "inga kostnader alls i testperioden" : "över 40 bp per sida"}. <Info id="transaction-costs" /></li>
+              <li><b>Månader:</b> {monthly.pos} av {monthly.tot} månader var positiva. Bästa månaden {fmtPct(monthly.best, 1, true)}, sämsta {fmtPct(monthly.worst, 1, true)}.</li>
+            </ul>
+          </div>
+        </section>
+        <section className="card span-7">
+          <div className="card-head"><h2 className="card-title"><span className="idx">07</span>Månad för månad</h2></div>
+          <div className="card-body"><Plot ariaLabel="Månadsavkastning per år" data={heat} height={Math.max(200, monthly.years.length * 22 + 40)} layout={{ hovermode: "closest", xaxis: { side: "top", showspikes: false } as any, yaxis: { autorange: "reversed", side: "left", type: "category" } as any }} /></div>
+          <Caption>Varje ruta är en månad. Grått = ingen position eller nästan noll. En bra strategi har jämnt spridda gröna rutor; en dålig har några få stora gröna och resten rött.</Caption>
+        </section>
+        <section className="card span-5">
+          <div className="card-head"><h2 className="card-title"><span className="idx">08</span>Hur gick affärerna?</h2></div>
+          <div className="card-body"><Plot ariaLabel="Fördelning av affärernas resultat" data={trHist} height={260} layout={{ hovermode: "closest", xaxis: { ticksuffix: " %", zeroline: true, showspikes: false } as any, yaxis: { title: { text: "Antal affärer" } } as any }} /></div>
+          <Caption>Varje stapel är hur många affärer som slutade med ett visst resultat. Pairs trading har ofta en lång vänstersvans – affärer där sambandet bröts och stop-loss löste ut.</Caption>
+        </section>
+        <section className="card span-12">
+          <div className="card-head"><h2 className="card-title"><span className="idx">09</span>Affärer</h2><span className="dim" style={{ fontSize: 12 }}>senaste 12 · inkl. kostnader</span></div>
           <div className="card-body" style={{ overflowX: "auto" }}>
             <table className="data">
               <thead><tr><th>Öppnad</th><th>Stängd</th><th>Riktning</th><th className="num">Dagar</th><th className="num">Resultat</th><th>Period</th></tr></thead>

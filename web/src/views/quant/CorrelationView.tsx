@@ -25,7 +25,10 @@ export function CorrelationView() {
   const m = useMemo(() => {
     const M = returnMatrix(prices, tickers, meta.benchmark.ticker, win);
     const C = corrMatrix(M.R);
-    return { C, M };
+    // föregående lika långa period (för att se vad som förändrats)
+    const M2 = returnMatrix(prices, tickers, meta.benchmark.ticker, win * 2);
+    const prev = M2.R[0].length >= win * 2 ? corrMatrix(M2.R.map((r) => r.subarray(0, win))) : null;
+    return { C, M, prev };
   }, [prices, tickers, meta, win]);
 
   const ord = useMemo(() => {
@@ -69,14 +72,52 @@ export function CorrelationView() {
       customdata: roll.count as any, hovertemplate: "ρ̄ = %{y:.2f} <span style='color:#888'>(%{customdata} aktier)</span><extra></extra>" },
   ];
 
+  const idxs = ord.map((_, k) => k);
   const surf: Data[] = [{
-    type: "surface", z, x: labels, y: labels, colorscale: scale as any, cmin: -0.3, cmax: 1, showscale: false,
+    type: "surface", z, x: idxs, y: idxs, colorscale: scale as any, cmin: -0.3, cmax: 1, showscale: false,
     text: hover as any, hovertemplate: "%{text}<extra></extra>",
     contours: { z: { show: true, usecolormap: true, highlightcolor: cssVar("--text"), project: { z: false } } } as any,
     lighting: { ambient: 0.6, diffuse: 0.7, specular: 0.25, roughness: 0.6 },
   } as any];
 
+  // ── fördjupning: sektorer, förändring mot föregående period, fördelning ──
+  const N = tickers.length;
+  const secs = Object.keys(meta.sectors).filter((k) => tickers.some((t) => sector(t) === k));
+  const secAvg = secs.map((a) => secs.map((b) => {
+    let sum = 0, c = 0;
+    for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) if (i !== j && sector(tickers[i]) === a && sector(tickers[j]) === b) { sum += m.C[i][j]; c++; }
+    return c ? sum / c : null;
+  }));
+  const intra = secs.map((k, i) => ({ k, v: secAvg[i][i] })).filter((x) => x.v != null).sort((a, b) => (b.v as number) - (a.v as number));
+  const stockAvg = (C: number[][], i: number) => C[i].reduce((a, v, j) => a + (j === i ? 0 : v), 0) / (N - 1);
+  const avgBy = tickers.map((t, i) => ({ t, now: stockAvg(m.C, i), prev: m.prev ? stockAvg(m.prev, i) : NaN })).sort((a, b) => b.now - a.now);
+  const loner = avgBy[avgBy.length - 1], social = avgBy[0];
+  const prevAvg = m.prev ? (() => { let s2 = 0; for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) s2 += m.prev![i][j]; return s2 / (N * (N - 1) / 2); })() : NaN;
+  const changes = m.prev ? pairsSorted.map((p) => ({ ...p, d: p.r - m.prev![p.i][p.j] })).sort((a, b) => b.d - a.d) : [];
+  const winLabel = WINDOWS.find((w) => w.value === win)?.label ?? "";
+  const secHeat: Data[] = [{
+    type: "heatmap", x: secs.map((k) => meta.sectors[k]), y: secs.map((k) => meta.sectors[k]), z: secAvg as any, zmin: -0.3, zmax: 1, colorscale: scale as any, showscale: false,
+    text: secAvg.map((r) => r.map((v) => (v == null ? "" : fmt(v, 2)))) as any, texttemplate: "%{text}", textfont: { family: cssVar("--mono"), size: 11, color: cssVar("--text") },
+    hovertemplate: "%{y} × %{x}: snitt ρ = %{text}<extra></extra>", xgap: 2, ygap: 2,
+  } as any];
+  const dumb: Data[] = m.prev ? [
+    ...avgBy.map((a) => ({ type: "scatter", mode: "lines", x: [a.prev, a.now], y: [name(a.t), name(a.t)], line: { color: cssVar("--border-strong"), width: 2 }, hoverinfo: "skip", showlegend: false } as Data)),
+    { type: "scatter", mode: "markers", name: "Föregående period", x: avgBy.map((a) => a.prev), y: avgBy.map((a) => name(a.t)), marker: { color: cssVar("--text-3"), size: 7 }, hovertemplate: "%{y}: %{x:.2f} (före)<extra></extra>" },
+    { type: "scatter", mode: "markers", name: "Nu", x: avgBy.map((a) => a.now), y: avgBy.map((a) => name(a.t)), marker: { color: cssVar("--accent"), size: 8 }, hovertemplate: "%{y}: %{x:.2f} (nu)<extra></extra>" },
+  ] : [];
+  const hist: Data[] = [
+    ...(m.prev ? [{ type: "histogram", x: pairsSorted.map((p) => m.prev![p.i][p.j]), name: "Föregående period", xbins: { start: -0.4, end: 1, size: 0.05 }, marker: { color: cssVar("--text-3") }, opacity: 0.45 } as Data] : []),
+    { type: "histogram", x: pairsSorted.map((p) => p.r), name: "Nu", xbins: { start: -0.4, end: 1, size: 0.05 }, marker: { color: cssVar("--accent") }, opacity: 0.75 } as Data,
+  ];
+
   const go = (a: number, b: number) => nav(`/par/${tickers[a]}/${tickers[b]}`);
+  // 3D-ytan har numeriska axlar (0..29) i vald ordning → översätt tillbaka till aktier
+  const on3d = (pt: any) => {
+    if (!pt) return;
+    const xi = Math.round(Number(pt.x)), yi = Math.round(Number(pt.y));
+    const a = ord[yi], b = ord[xi];
+    if (a != null && b != null && a !== b) go(a, b);
+  };
   const onHeat = (pt: any) => {
     if (!pt) return;
     const a = tickers.findIndex((t) => short(t) === pt.y), b = tickers.findIndex((t) => short(t) === pt.x);
@@ -141,16 +182,47 @@ export function CorrelationView() {
             </div></section>
           </aside>
 
+
           <section className="card span-12">
-            <div className="card-head"><h2 className="card-title"><span className="idx">02</span>När allt faller samtidigt <Info id="avg-correlation" ctx={ctx} /></h2><span className="dim" style={{ fontSize: 12 }}>snittkorrelation, rullande 3 mån</span></div>
+            <div className="card-head"><h2 className="card-title"><span className="idx">02</span>Vad matrisen säger just nu</h2><span className="dim" style={{ fontSize: 12 }}>automatisk tolkning · {winLabel}</span></div>
+            <div className="card-body">
+              <ul className="insights">
+                <li><b>Tätaste gruppen:</b> {intra[0] ? <>{meta.sectors[intra[0].k]} – aktierna inom sektorn har i snitt korrelation {fmt(intra[0].v, 2)}{intra[1] ? <>, följt av {meta.sectors[intra[1].k].toLowerCase()} ({fmt(intra[1].v, 2)})</> : null}. Bolag i samma bransch påverkas av samma saker (räntor, konjunktur, råvarupriser).</> : "–"}</li>
+                <li><b>Mest "social" aktie:</b> {name(social.t)} rör sig mest med de andra (snitt {fmt(social.now, 2)}). <b>Mest ensam:</b> {name(loner.t)} (snitt {fmt(loner.now, 2)}) – den sprider risken mest i en portfölj.</li>
+                {m.prev && <li><b>Jämfört med föregående {winLabel}:</b> snittkorrelationen har {avgNow > prevAvg + 0.02 ? "stigit" : avgNow < prevAvg - 0.02 ? "sjunkit" : "legat still"} från {fmt(prevAvg, 2)} till {fmt(avgNow, 2)}. {avgNow > prevAvg + 0.02 ? "Aktierna rör sig mer i flock – diversifiering hjälper mindre." : avgNow < prevAvg - 0.02 ? "Aktierna går mer sina egna vägar – bra för aktieval och parstrategier." : "Marknadens \"flockbeteende\" är ungefär oförändrat."}</li>}
+                {changes.length > 0 && <li><b>Största förändringen:</b> {name(tickers[changes[0].i])}–{name(tickers[changes[0].j])} har närmat sig varandra mest (+{fmt(changes[0].d, 2)}, nu {fmt(changes[0].r, 2)}), medan {name(tickers[changes[changes.length - 1].i])}–{name(tickers[changes[changes.length - 1].j])} har glidit isär mest ({fmt(changes[changes.length - 1].d, 2)}, nu {fmt(changes[changes.length - 1].r, 2)}). Ändrade samband kan betyda att något hänt i bolagen.</li>}
+                <li><b>För pairs trading:</b> hög korrelation är en bra <i>startpunkt</i>, men det som avgör är om avståndet mellan aktierna är stabilt. Testa toppkandidaterna i <a href="#/scanner">Parscannern</a>. <Info id="corr-vs-coint" /></li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="card span-6">
+            <div className="card-head"><h2 className="card-title"><span className="idx">03</span>Sektor mot sektor</h2></div>
+            <div className="card-body"><Plot ariaLabel="Snittkorrelation mellan sektorer" data={secHeat} height={340} layout={{ hovermode: "closest", xaxis: { tickangle: -35, showspikes: false, tickfont: { size: 10 } } as any, yaxis: { side: "left", autorange: "reversed", tickfont: { size: 10 } } as any }} /></div>
+            <Caption>Varje ruta är snittet av alla par mellan två sektorer. Diagonalen visar hur tätt sektorn hänger ihop internt. <b>Låga värden mellan två sektorer</b> = de kompletterar varandra i en portfölj.</Caption>
+          </section>
+          <section className="card span-6">
+            <div className="card-head"><h2 className="card-title"><span className="idx">04</span>Alla {pairsSorted.length} par i ett diagram</h2></div>
+            <div className="card-body"><Plot ariaLabel="Fördelning av parvisa korrelationer nu och föregående period" data={hist} height={340} layout={{ barmode: "overlay", hovermode: "closest", xaxis: { title: { text: "Korrelation" }, showspikes: false } as any, yaxis: { title: { text: "Antal par" } } as any }} /></div>
+            <Caption>Hur korrelationerna fördelar sig. Om hela "berget" flyttar åt höger rör sig marknaden mer i flock; åt vänster går aktierna mer isär. Grått är föregående lika långa period.</Caption>
+          </section>
+          {m.prev && (
+            <section className="card span-12">
+              <div className="card-head"><h2 className="card-title"><span className="idx">05</span>Varje akties koppling till resten – nu och förut</h2></div>
+              <div className="card-body"><Plot ariaLabel="Snittkorrelation per aktie nu jämfört med föregående period" data={dumb} height={620} layout={{ hovermode: "closest", xaxis: { title: { text: "Snittkorrelation med övriga aktier" }, showspikes: false } as any, yaxis: { side: "left", autorange: "reversed", tickfont: { size: 11 } } as any, margin: { l: 8, r: 8, t: 24, b: 8 } }} /></div>
+              <Caption>Guld prick = nu, grå = föregående {winLabel}. En lång linje betyder att aktien har bytt beteende – t.ex. efter ett bud, en strategiändring eller en avknoppning. Aktier längst ner är de bästa "diversifierarna".</Caption>
+            </section>
+          )}
+          <section className="card span-12">
+            <div className="card-head"><h2 className="card-title"><span className="idx">06</span>När allt faller samtidigt <Info id="avg-correlation" ctx={ctx} /></h2><span className="dim" style={{ fontSize: 12 }}>snittkorrelation, rullande 3 mån</span></div>
             <div className="card-body"><Plot ariaLabel="Rullande genomsnittlig korrelation över tid" data={rollData} height={260} layout={{ yaxis: { tickformat: ".1f" } as any }} /></div>
             <Caption>Topparna sammanfaller med kriser (euro­krisen 2011, covid i mars 2020, räntechocken 2022). Då rör sig alla aktier som en – <b>diversifieringen försvinner precis när man behöver den mest</b>. Låga perioder är bra för aktieval och stat arb.</Caption>
           </section>
 
           <section className="card span-12 lab3d">
-            <div className="card-head"><h2 className="card-title"><span className="idx">03</span>Korrelationslandskapet i 3D</h2><span className="dim" style={{ fontSize: 12 }}>dra för att rotera</span></div>
-            <div className="card-body"><Plot ariaLabel="3D-yta av korrelationsmatrisen" data={surf} height={520}
-              layout={scene3d({ x: "", y: "", z: "Korrelation" }, { xaxis: { tickfont: { size: 9 } }, yaxis: { tickfont: { size: 9 } }, zaxis: { range: [-0.3, 1] }, camera: { eye: { x: 1.5, y: 1.5, z: 1.0 } } } as any)} /></div>
+            <div className="card-head"><h2 className="card-title"><span className="idx">07</span>Korrelationslandskapet i 3D</h2><span className="dim" style={{ fontSize: 12 }}>dra för att rotera · klicka på ytan för paranalys</span></div>
+            <div className="card-body"><Plot ariaLabel="3D-yta av korrelationsmatrisen" data={surf} height={520} onClick={on3d}
+              layout={scene3d({ x: "", y: "", z: "Korrelation" }, { xaxis: { tickfont: { size: 9 }, tickmode: "array", tickvals: idxs.filter((k) => k % 2 === 0), ticktext: labels.filter((_, k) => k % 2 === 0) }, yaxis: { tickfont: { size: 9 }, tickmode: "array", tickvals: idxs.filter((k) => k % 2 === 1), ticktext: labels.filter((_, k) => k % 2 === 1) }, zaxis: { range: [-0.3, 1] }, camera: { eye: { x: 1.5, y: 1.5, z: 1.0 } } } as any)} /></div>
             <Caption>Samma matris som ett berglandskap. <b>Bergskedjor</b> = grupper som rör sig ihop (ofta banker och investmentbolag). <b>Dalar</b> = aktier som går sin egen väg – det är de som sprider risken i en portfölj. Diagonalen är en ås på höjd 1.</Caption>
           </section>
         </div>

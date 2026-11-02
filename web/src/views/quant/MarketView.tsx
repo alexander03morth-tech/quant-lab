@@ -86,6 +86,42 @@ export function MarketView() {
     lighting: { ambient: 0.65, diffuse: 0.6, specular: 0.2 },
   } as any];
 
+
+  // ── fördjupning: insikter, sektorer, nedgångar, svängningar, fördelning ──
+  const full = useMemo(() => {
+    const idxs: number[] = [], vals: number[] = [];
+    ic.forEach((v, i) => { if (v != null) { idxs.push(i); vals.push(v); } });
+    const dates = idxs.map((i) => prices.dates[i]);
+    const r = vals.slice(1).map((v, i) => Math.log(v / vals[i]));
+    let peak = -Infinity; const dd = vals.map((v) => { peak = Math.max(peak, v); return v / peak - 1; });
+    const L = 63, rv: (number | null)[] = r.map((_, i) => {
+      if (i < L) return null;
+      const w = r.slice(i - L + 1, i + 1), m = w.reduce((a, b) => a + b, 0) / L;
+      return Math.sqrt(w.reduce((a, b) => a + (b - m) ** 2, 0) / (L - 1) * 252);
+    });
+    const m = r.reduce((a, b) => a + b, 0) / r.length, sd = Math.sqrt(r.reduce((a, b) => a + (b - m) ** 2, 0) / (r.length - 1));
+    return { dates, dd, r, rv, m, sd };
+  }, [ic, prices]);
+  const secPerf = sectors.map((k) => ({ k, v: secRet(k) })).sort((a, b) => b.v - a.v);
+  const contribTop = [...rows].map((r) => ({ name: r.name, c: (mcap(r.ticker) / rows.reduce((s2, x) => s2 + mcap(x.ticker), 0)) * (r.r[period] ?? 0) })).sort((a, b) => Math.abs(b.c) - Math.abs(a.c))[0];
+  const nDown20 = rows.filter((r) => { const c = prices.series[r.ticker].close.slice(-252).filter((v) => v != null) as number[]; return c.length && c[c.length - 1] / Math.max(...c) - 1 < -0.2; }).length;
+  const ddNow = full.dd[full.dd.length - 1], volNow = full.rv[full.rv.length - 1] ?? NaN;
+  const volMed = (() => { const v = (full.rv.filter((x) => x != null) as number[]).sort((a, b) => a - b); return v[Math.floor(v.length / 2)]; })();
+  const nP = period === "1D" ? 1 : period === "1V" ? 5 : period === "1M" ? 21 : period === "3M" ? 63 : period === "1Y" ? 252 : period === "3Y" ? 756 : last - periodStart(prices.dates, last, "YTD");
+  const zP = (idxR[period] ?? 0) / (full.sd * Math.sqrt(nP));
+  const tail = full.r.filter((x) => Math.abs(x - full.m) > 3 * full.sd).length;
+  const tailExp = full.r.length * 0.0027;
+  const histX = full.r.map((x) => x * 100);
+  const gx = Array.from({ length: 121 }, (_, i) => -6 + i * 0.1);
+  const binW = 0.25;
+  const normY = gx.map((x) => (full.r.length * binW) / (full.sd * 100 * Math.sqrt(2 * Math.PI)) * Math.exp(-0.5 * ((x - full.m * 100) / (full.sd * 100)) ** 2));
+  const secBar: Data[] = [{ type: "bar", orientation: "h", y: secPerf.map((x) => meta.sectors[x.k]).reverse(), x: secPerf.map((x) => x.v).reverse(), marker: { color: secPerf.map((x) => (x.v >= 0 ? cssVar("--pos") : cssVar("--neg"))).reverse() }, text: secPerf.map((x) => fmtPct(x.v, 1, true)).reverse() as any, textposition: "outside", cliponaxis: false, textfont: { family: cssVar("--mono"), size: 11 }, hovertemplate: "%{y}: %{x:+.2%}<extra></extra>" } as any];
+  const ddData: Data[] = [{ x: full.dates, y: full.dd, type: "scatter", mode: "lines", fill: "tozeroy", line: { color: cssVar("--neg"), width: 1 }, fillcolor: `${cssVar("--neg")}30`, hovertemplate: "%{y:.1%} från toppen<extra></extra>" }];
+  const rvData: Data[] = [{ x: full.dates.slice(1), y: full.rv, type: "scatter", mode: "lines", line: { color: cssVar("--accent"), width: 1.3 }, hovertemplate: "%{y:.0%} per år<extra></extra>" }];
+  const histData: Data[] = [
+    { type: "histogram", x: histX, xbins: { start: -10, end: 10, size: binW }, marker: { color: cssVar("--primary") }, opacity: 0.8, name: "Verkliga dagar", hovertemplate: "%{x} %: %{y} dagar<extra></extra>" } as any,
+    { type: "scatter", mode: "lines", x: gx, y: normY, name: "Normalfördelning", line: { color: cssVar("--text"), width: 1.4, dash: "dot" }, hoverinfo: "skip" },
+  ];
   const ctx = { up, n: rows.length };
   const th = (k: SortKey, label: string, info?: string) => (
     <th className="num"><span className="row" style={{ gap: 4, justifyContent: "flex-end" }}><button className="th-sort" aria-pressed={sort === k} onClick={() => setSort(k)}>{label}{sort === k ? " ↓" : ""}</button>{info && <Info id={info} />}</span></th>
@@ -159,8 +195,42 @@ export function MarketView() {
             </div>
           </section>
 
+
+          <section className="card span-12">
+            <div className="card-head"><h2 className="card-title"><span className="idx">05</span>Det här ska du ta med dig</h2><span className="dim" style={{ fontSize: 12 }}>automatisk tolkning · {periodLabel}</span></div>
+            <div className="card-body">
+              <ul className="insights">
+                <li><b>Hur stor var rörelsen?</b> Index {(idxR[period] ?? 0) >= 0 ? "steg" : "föll"} {fmtPct(Math.abs(idxR[period] ?? 0), 1)}. En normal period av den här längden svänger ungefär ±{fmtPct(full.sd * Math.sqrt(nP), 1)}, så det var {Math.abs(zP) >= 2 ? "ovanligt mycket" : Math.abs(zP) >= 1 ? "lite mer än vanligt" : "inom det normala"} ({fmt(Math.abs(zP), 1)} standardavvikelser). <Info id="sigma-move" /></li>
+                <li><b>Bred eller smal?</b> {up} av {rows.length} aktier steg. {up / rows.length >= 0.65 ? "Uppgången är bred – det är inte bara några få bolag som drar." : up / rows.length <= 0.35 ? "De flesta aktier föll." : "Ungefär hälften upp och hälften ner – marknaden är splittrad."} Mest påverkan på index hade {contribTop.name} ({fmt(contribTop.c * 100, 2)} procentenheter).</li>
+                <li><b>Sektorerna:</b> {meta.sectors[secPerf[0].k]} gick bäst ({fmtPct(secPerf[0].v, 1, true)}) och {meta.sectors[secPerf[secPerf.length - 1].k].toLowerCase()} sämst ({fmtPct(secPerf[secPerf.length - 1].v, 1, true)}). Stor skillnad mellan sektorerna betyder att det spelade roll <i>vad</i> man ägde.</li>
+                <li><b>Risknivån:</b> indexets svängningar senaste kvartalet motsvarar {fmtPct(volNow, 0)} per år (mittvärdet sedan 2010 är {fmtPct(volMed, 0)}). {volNow > volMed * 1.25 ? "Det är förhöjt – räkna med större dagsrörelser." : volNow < volMed * 0.8 ? "Det är lugnare än vanligt." : "Det är ungefär normalt."} <Info id="vol-clustering" /></li>
+                <li><b>Från toppen:</b> index ligger {fmtPct(Math.abs(ddNow), 1)} under sin högsta nivå någonsin, och {nDown20} av {rows.length} aktier ligger mer än 20 % under sin högsta nivå det senaste året. <Info id="max-drawdown" /></li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="card span-5">
+            <div className="card-head"><h2 className="card-title"><span className="idx">06</span>Sektorer {periodLabel}</h2></div>
+            <div className="card-body"><Plot ariaLabel="Avkastning per sektor" data={secBar} height={300} layout={{ hovermode: "closest", xaxis: { tickformat: ".0%", zeroline: true, showspikes: false } as any, yaxis: { side: "left", automargin: true } as any, margin: { l: 8, r: 50, t: 4, b: 8 } }} /></div>
+            <Caption>Viktat efter börsvärde. Sektorer rör sig ofta i flock eftersom de påverkas av samma saker – räntor för banker, världskonjunkturen för verkstad, kronan för exportörer.</Caption>
+          </section>
+          <section className="card span-7">
+            <div className="card-head"><h2 className="card-title"><span className="idx">07</span>Börsens dagar: inte så normala som man tror <Info id="fat-tails" /></h2></div>
+            <div className="card-body"><Plot ariaLabel="Fördelning av indexets dagliga avkastning jämfört med normalfördelning" data={histData} height={300} layout={{ hovermode: "closest", barmode: "overlay", xaxis: { range: [-6, 6], ticksuffix: " %", showspikes: false } as any, yaxis: { type: "log", title: { text: "Antal dagar (log)" } } as any }} /></div>
+            <Caption>Staplarna är alla handelsdagar sedan 2010, linjen är vad en normalfördelning förutsäger. Om börsen vore "normal" skulle rörelser större än 3 standardavvikelser hända ungefär {fmt(tailExp, 0)} gånger – i verkligheten hände det <b>{tail} gånger</b>. Stora dagar är mycket vanligare än teorin säger (feta svansar).</Caption>
+          </section>
+          <section className="card span-6">
+            <div className="card-head"><h2 className="card-title"><span className="idx">08</span>Hur långt under toppen?</h2></div>
+            <div className="card-body"><Plot ariaLabel="Indexets nedgång från tidigare topp" data={ddData} height={240} layout={{ showlegend: false, yaxis: { tickformat: ".0%" } as any }} /></div>
+            <Caption>Varje dal är en börsnedgång – djupet visar hur mycket man förlorat från toppen och bredden hur lång tid det tog att komma tillbaka. Index räknas utan utdelningar, så verkligheten för en ägare var något bättre.</Caption>
+          </section>
+          <section className="card span-6">
+            <div className="card-head"><h2 className="card-title"><span className="idx">09</span>Indexets svängningar över tid <Info id="volatility" /></h2></div>
+            <div className="card-body"><Plot ariaLabel="Indexets rullande volatilitet" data={rvData} height={240} layout={{ showlegend: false, yaxis: { tickformat: ".0%" } as any }} /></div>
+            <Caption>Rullande 3-månadersvolatilitet. Toppar kommer plötsligt och ebbar ut långsamt – samma mönster som i 3D-landskapet nedan, fast för hela indexet.</Caption>
+          </section>
           <section className="card span-12 lab3d">
-            <div className="card-head"><h2 className="card-title"><span className="idx">05</span>Volatilitetslandskapet i 3D <Info id="vol-clustering" ctx={ctx} /></h2><span className="dim" style={{ fontSize: 12 }}>42-dagars volatilitet, 10 år · dra för att rotera</span></div>
+            <div className="card-head"><h2 className="card-title"><span className="idx">10</span>Volatilitetslandskapet i 3D <Info id="vol-clustering" ctx={ctx} /></h2><span className="dim" style={{ fontSize: 12 }}>42-dagars volatilitet, 10 år · dra för att rotera</span></div>
             <div className="card-body"><Plot ariaLabel="3D: rullande volatilitet per aktie över tid" data={surf} height={520}
               layout={scene3d({ x: "", y: "", z: "Volatilitet/år" }, { zaxis: { tickformat: ".0%" }, yaxis: { tickfont: { size: 9 } }, aspectratio: { x: 2, y: 1.1, z: 0.6 }, camera: { eye: { x: 0.4, y: -2.0, z: 0.9 } } } as any)} /></div>
             <Caption>Varje rad är en aktie (sorterade efter sektor), tiden går från vänster till höger och höjden är hur mycket aktien svängt. <b>Bergskedjor som går tvärs över alla aktier</b> är marknadskriser – tydligast covid i mars 2020. Enskilda toppar är bolagshändelser som rapporter eller bud. Notera att stormarna kommer i kluster.</Caption>

@@ -10,6 +10,7 @@ import { timeAgo, tradingDayFor, useNews, useSummary, type NewsItem } from "../l
 import { fmt, fmtDate, fmtPct } from "../lib/format";
 import { useSettings } from "../lib/settings";
 import { usePortfolios } from "../lib/portfolio/store";
+import { Briefing } from "./news/Briefing";
 
 type Feed = "alla" | "bolag" | "borsen" | "makro" | "portfolj";
 
@@ -131,8 +132,9 @@ export function NewsView() {
       </div>
 
       <div className="grid">
+        <Briefing />
         <section className="card span-7">
-          <div className="card-head"><h2 className="card-title"><span className="idx">01</span>Vad hände på börsen?</h2><span className="dim" style={{ fontSize: 12 }}>skriven {summary.generatedAt.slice(11, 16)}</span></div>
+          <div className="card-head"><h2 className="card-title"><span className="idx">01</span>Dagens detaljer</h2><span className="dim" style={{ fontSize: 12 }}>skriven {summary.generatedAt.slice(11, 16)}</span></div>
           <div>
             {summary.sections.map((s) => (
               <div className="summary-sec" key={s.id}>

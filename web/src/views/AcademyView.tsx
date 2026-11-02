@@ -34,6 +34,7 @@ export function AcademyView() {
           <h1 className="hero-title">Lär dig kvant, aktieanalys, IB och PE</h1>
           <p className="hero-sub" style={{ maxWidth: "74ch" }}>Korta steg i rätt ordning. Varje steg tar några minuter: läs tre meningar, prova själv i verktyget och svara på en kontrollfråga. Begreppen öppnas med exempel när du klickar på dem.</p>
           <div className="academy-progress"><div style={{ width: `${(nDone / total) * 100}%` }} /></div>
+          <div className="row" style={{ gap: 8, marginTop: 12 }}><Link className="btn" to="/ova">Öva fritt: intervju, begrepp, räkning och case →</Link></div>
         </div>
       </div>
 

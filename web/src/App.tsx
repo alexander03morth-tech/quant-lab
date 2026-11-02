@@ -11,6 +11,7 @@ import { IbView } from "./views/ib/IbView";
 import { CareerView } from "./views/CareerView";
 import { PairRedirect, PairView } from "./views/PairView";
 import { AcademyView } from "./views/AcademyView";
+import { PracticeHub } from "./views/PracticeHub";
 import { CorrelationView } from "./views/quant/CorrelationView";
 import { ScannerView } from "./views/quant/ScannerView";
 import { BacktestView } from "./views/quant/BacktestView";
@@ -40,6 +41,7 @@ export default function App() {
               <Route path="/backtest" element={<BacktestView />} />
               <Route path="/pca" element={<PcaView />} />
               <Route path="/kurs" element={<AcademyView />} />
+              <Route path="/ova" element={<PracticeHub />} />
               <Route path="*" element={<Navigate to="/par" replace />} />
             </Routes>
           </Shell>

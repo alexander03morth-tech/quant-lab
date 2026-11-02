@@ -10,6 +10,7 @@ import { useData } from "../../lib/data";
 import { fmt, fmtDays, fmtP, fmtPct, fmtSigned } from "../../lib/format";
 
 import type { WindowKey } from "../../lib/types";
+import { NextSteps, PairNetwork, PHistogram, RobustPairs, ScannerGuide, SignalCards } from "./ScannerExtras";
 
 type SortKey = "p" | "q" | "hl" | "hurst" | "corr" | "stab" | "z";
 const COLS: { key: SortKey; label: string; info: string; asc: boolean }[] = [
@@ -100,6 +101,7 @@ export function ScannerView() {
       </div>
 
       <div className="stack">
+        <section className="card"><div className="card-head"><h2 className="card-title"><span className="idx">00</span>Så använder du scannern</h2></div><div className="card-body"><ScannerGuide /></div></section>
         <div className="notice"><span className="icon">!</span>
           <span><b>{nSig} par</b> har p &lt; 0,05 på {winLabel}. Om inga par alls var samintegrerade skulle man ändå vänta sig ungefär <b>{fmt(expected, 0)}</b> sådana av ren slump. Efter korrigering för många test (q &lt; 0,05) återstår <b>{nQ}</b>. Se listan som en lista över kandidater att undersöka – inte som färdiga affärer. <Info id="multiple-testing" ctx={ctx} /></span>
         </div>
@@ -112,7 +114,13 @@ export function ScannerView() {
         </div>
 
         <section className="card">
-          <div className="card-head"><h2 className="card-title"><span className="idx">01</span>Filter</h2>
+          <div className="card-head"><h2 className="card-title"><span className="idx">01</span>Dagens signaler <Info id="zscore" /></h2><span className="dim" style={{ fontSize: 12 }}>kvalitetspar med |z| ≥ 1,5 · {winLabel} · klicka för analys</span></div>
+          <div className="card-body"><SignalCards rows={rows} w={w} /></div>
+          <Caption>Par som klarar grundkraven (p &lt; 0,05, half-life 3–60 dagar, β ≥ 0,3) och där avståndet just nu är ovanligt stort. Kurvan visar z-scoren de senaste sex månaderna; streckade linjer är ±2. <b>Det är inga köpråd</b> – det är utgångspunkter för egen analys.</Caption>
+        </section>
+
+        <section className="card">
+          <div className="card-head"><h2 className="card-title"><span className="idx">02</span>Filter</h2>
             <div className="card-tools">
               <Seg label="Fönster" value={w} onChange={(v) => { setW(v); setShown(25); }} options={[{ value: "1Y", label: "1 år" }, { value: "3Y", label: "3 år" }, { value: "5Y", label: "5 år" }]} />
             </div>
@@ -139,7 +147,7 @@ export function ScannerView() {
         )}
 
         <section className="card">
-          <div className="card-head"><h2 className="card-title"><span className="idx">02</span>Kandidater</h2><span className="dim" style={{ fontSize: 12 }}>klicka på en rad för full analys · klicka på en rubrik för att sortera</span></div>
+          <div className="card-head"><h2 className="card-title"><span className="idx">03</span>Kandidater</h2><span className="dim" style={{ fontSize: 12 }}>klicka på en rad för full analys · klicka på en rubrik för att sortera</span></div>
           <div className="card-body" style={{ overflowX: "auto" }}>
             {sorted.length === 0 ? <p className="muted">Inga par klarar filtret. Lätta på kraven, t.ex. högre p-värde eller längre half-life.</p> : (
               <table className="data">
@@ -170,20 +178,38 @@ export function ScannerView() {
           <Caption>Grönt = bra värde. <b>Stabilitet</b> är andelen ettårsfönster de senaste fem åren där paret var signifikant – det bästa skyddet mot slumpträffar. <b>z nu</b> visar om spreaden just nu är ovanligt långt från sitt medel (grönt = köp spreaden, rött = sälj).</Caption>
         </section>
 
+
         <div className="grid">
           <section className="card span-6">
-            <div className="card-head"><h2 className="card-title"><span className="idx">03</span>Alla par: p-värde mot half-life</h2></div>
+            <div className="card-head"><h2 className="card-title"><span className="idx">04</span>Hur mycket är slump? <Info id="multiple-testing" /></h2></div>
+            <div className="card-body"><PHistogram rows={rows} /></div>
+            <Caption>Om inga par alls hängde ihop skulle p-värdena spridas jämnt – alla staplar ungefär lika höga (den streckade linjen). Ju mer första stapeln sticker upp, desto fler verkliga samband finns det troligen.</Caption>
+          </section>
+          <section className="card span-6">
+            <div className="card-head"><h2 className="card-title"><span className="idx">05</span>Parnätverket</h2><span className="dim" style={{ fontSize: 12 }}>linje = par som klarar ditt filter</span></div>
+            <div className="card-body"><PairNetwork pass={pass} /></div>
+          </section>
+          <section className="card span-12">
+            <div className="card-head"><h2 className="card-title"><span className="idx">08</span>Robusta par: signifikanta i flera tidsfönster <Info id="stability" /></h2></div>
+            <div className="card-body" style={{ overflowX: "auto" }}><RobustPairs /></div>
+            <Caption>Ett par som klarar testet i tre olika tidsfönster är mycket mindre sannolikt en slumpträff än ett som bara klarar ett. Det här är de mest seriösa kandidaterna i datan.</Caption>
+          </section>
+        </div>
+        <div className="grid">
+          <section className="card span-6">
+            <div className="card-head"><h2 className="card-title"><span className="idx">06</span>Alla par: p-värde mot half-life</h2></div>
             <div className="card-body"><Plot ariaLabel="Spridningsdiagram: p-värde mot half-life för alla par" data={scatter} height={380} onClick={open}
               layout={{ hovermode: "closest", xaxis: { type: "log", title: { text: "EG p-värde (log)" }, showspikes: false } as any, yaxis: { type: "log", title: { text: "Half-life, dagar (log)" }, side: "left" } as any, shapes: [vline(0.05, cssVar("--primary"), "dash"), vline(0.05 / nTested, cssVar("--pos"), "dot")] as any }} /></div>
             <Caption>Varje prick är ett par; ljusa prickar klarar dina filter, större prick = större |z| just nu. Bästa hörnet är <b>nere till vänster</b>: lågt p och snabb återgång. Streckad linje = p 0,05; prickad = den mycket hårdare gränsen 0,05/{nTested} (Bonferroni).</Caption>
           </section>
           <section className="card span-6 lab3d">
-            <div className="card-head"><h2 className="card-title"><span className="idx">04</span>Parrymden i 3D</h2><span className="dim" style={{ fontSize: 12 }}>dra för att rotera · klicka på ett par</span></div>
+            <div className="card-head"><h2 className="card-title"><span className="idx">07</span>Parrymden i 3D</h2><span className="dim" style={{ fontSize: 12 }}>dra för att rotera · klicka på ett par</span></div>
             <div className="card-body"><Plot ariaLabel="3D: styrka, half-life och stabilitet för alla par" data={s3d} height={380} onClick={open}
               layout={scene3d({ x: "Styrka (−log₁₀ p)", y: "Half-life (d)", z: "Stabilitet" }, { zaxis: { tickformat: ".0%" }, camera: { eye: { x: 1.6, y: -1.5, z: 0.8 } } } as any)} /></div>
             <Caption>Samma par i tre dimensioner. Leta efter prickar <b>långt ut på styrka, lågt på half-life och högt på stabilitet</b> – de är signifikanta, snabba och har hållit i flera år.</Caption>
           </section>
         </div>
+        <NextSteps />
         <p className="dim" style={{ fontSize: 12.5 }}>Statistiken räknas varje kväll i Python (statsmodels) på data t.o.m. {pairs.asOf}. Riktning (vilken aktie som är y) väljs efter lägst p.</p>
       </div>
     </div>

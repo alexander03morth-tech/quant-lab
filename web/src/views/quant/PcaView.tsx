@@ -9,7 +9,7 @@ import { useData } from "../../lib/data";
 import { fmt, fmtDays, fmtPct, fmtSigned } from "../../lib/format";
 import { sectorColor, short } from "../../lib/market";
 import { returnMatrix } from "../../lib/portfolio/engine";
-import { eigenReturns, pca, sScores } from "../../lib/stats/pca";
+import { corrMatrix, eigenReturns, jacobiEigen, pca, sScores } from "../../lib/stats/pca";
 
 const WINDOWS = [{ value: 252, label: "1 år" }, { value: 504, label: "2 år" }, { value: 756, label: "3 år" }];
 const ENTRY = 1.25;
@@ -85,6 +85,27 @@ export function PcaView() {
     customdata: sRows.map((r) => [name(r.t), fmtDays(r.halfLife), !fast(r) ? "för långsam återgång – ingen signal" : r.s <= -ENTRY ? "billig mot faktorerna → köp" : r.s >= ENTRY ? "dyr mot faktorerna → blanka" : "ingen signal"]) as any,
     hovertemplate: "<b>%{customdata[0]}</b><br>s = %{y:.2f} · half-life %{customdata[1]}<br><i>%{customdata[2]}</i><extra></extra>",
   }];
+
+  // ── marknadens grepp över tid: andel varians PC1 förklarar, rullande 1 år, steg 21 dagar ──
+  const grip = useMemo(() => {
+    const T0 = prices.dates.length, L = 252, out: { d: string; v: number; n: number }[] = [];
+    const lr = tickers.map((t) => { const c = prices.series[t].close; return c.map((v, i) => (i > 0 && v != null && c[i - 1] != null ? (v as number) / (c[i - 1] as number) - 1 : NaN)); });
+    for (let end = T0 - 1; end >= L + 1; end -= 21) {
+      const R = lr.filter((r) => { for (let t = end - L + 1; t <= end; t++) if (!Number.isFinite(r[t])) return false; return true; }).map((r) => r.slice(end - L + 1, end + 1));
+      if (R.length < 15) continue;
+      const ev = jacobiEigen(corrMatrix(R)).values;
+      out.push({ d: prices.dates[end], v: ev[0] / R.length, n: R.length });
+    }
+    return out.reverse();
+  }, [prices, tickers]);
+  const gripNow = grip[grip.length - 1]?.v ?? NaN;
+  const gripPct = grip.filter((g) => g.v < gripNow).length / Math.max(1, grip.length);
+  const gripMax = grip.reduce((a, b) => (b.v > a.v ? b : a), grip[0] ?? { d: "", v: 0, n: 0 });
+  const gripData: Data[] = [
+    { x: grip.map((g) => g.d), y: grip.map((g) => g.v), type: "scatter", mode: "lines", line: { color: cssVar("--primary"), width: 7 }, opacity: 0.15, hoverinfo: "skip", showlegend: false },
+    { x: grip.map((g) => g.d), y: grip.map((g) => g.v), type: "scatter", mode: "lines", line: { color: cssVar("--accent"), width: 1.6 }, customdata: grip.map((g) => g.n) as any, hovertemplate: "PC1 förklarar %{y:.0%} <span style='color:#888'>(%{customdata} aktier)</span><extra></extra>", showlegend: false },
+  ];
+  const buys = sRows.filter((r) => fast(r) && r.s <= -ENTRY), sells = sRows.filter((r) => fast(r) && r.s >= ENTRY);
   const hl = (y: number, c: string) => ({ type: "line", xref: "paper", x0: 0, x1: 1, y0: y, y1: y, line: { color: c, width: 1, dash: "dash" } });
   const selT = sel && tickers.includes(sel) ? sel : sRows[0]?.t;
   const si = tickers.indexOf(selT);
@@ -117,6 +138,18 @@ export function PcaView() {
         </div>
 
         <div className="grid">
+          <section className="card span-12">
+            <div className="card-head"><h2 className="card-title"><span className="idx">00</span>Vad PCA säger just nu</h2><span className="dim" style={{ fontSize: 12 }}>automatisk tolkning</span></div>
+            <div className="card-body">
+              <ul className="insights">
+                <li><b>Marknadens grepp:</b> den gemensamma marknadsrörelsen (PC1) förklarar {fmtPct(P.explained[0], 0)} av alla rörelser i valt fönster. Räknat på ett år är det {fmtPct(gripNow, 0)}, mer än {fmtPct(gripPct, 0)} av alla perioder sedan 2011. {gripPct > 0.75 ? "Aktierna styrs ovanligt mycket av helheten – aktieval spelar mindre roll." : gripPct < 0.3 ? "Aktierna går ovanligt mycket sina egna vägar – bra läge för aktieval och stat arb." : "Det är ungefär normalt."}</li>
+                <li><b>Antal verkliga krafter:</b> {nSig} {nSig === 1 ? "komponent" : "komponenter"} ligger över slumpgränsen. Resten av de {N} komponenterna går inte att skilja från brus – det är därför man bara använder några få faktorer. <Info id="marchenko-pastur" ctx={ctx} /></li>
+                <li><b>PC2 ställer</b> {(() => { const v2 = P.vectors[1]; const o = tickers.map((_, i) => i).sort((a, b) => v2[a] - v2[b]); return <>{o.slice(-3).reverse().map((i) => name(tickers[i])).join(", ")} mot {o.slice(0, 3).map((i) => name(tickers[i])).join(", ")}</>; })()} – den näst viktigaste kraften på börsen just nu.</li>
+                <li><b>Signaler (Avellaneda–Lee, {k} faktorer):</b> {buys.length ? <>billiga mot faktorerna: {buys.map((r) => name(r.t)).join(", ")}. </> : "inga aktier är tydligt billiga. "}{sells.length ? <>Dyra: {sells.map((r) => name(r.t)).join(", ")}.</> : "Inga är tydligt dyra."} Det är inga köpråd – modellen säger bara att aktiens egen rörelse är ovanligt långt från det normala. <Info id="s-score" /></li>
+              </ul>
+            </div>
+          </section>
+
           <section className="card span-5">
             <div className="card-head"><h2 className="card-title"><span className="idx">01</span>Hur många krafter finns det? <Info id="marchenko-pastur" ctx={ctx} /></h2></div>
             <div className="card-body"><Plot ariaLabel="Egenvärden per huvudkomponent med Marchenko–Pastur-gräns" data={scree} height={300}
@@ -149,8 +182,14 @@ export function PcaView() {
             <Caption>Om man köper aktierna i proportion till PC1:s laddningar får man en portfölj som följer indexet nästan exakt, trots att PCA aldrig fått se indexet. Det visar att den största gemensamma kraften är marknaden.</Caption>
           </section>
 
+
           <section className="card span-12">
-            <div className="card-head"><h2 className="card-title"><span className="idx">05</span>Avellaneda–Lee: vilka aktier är billiga mot faktorerna? <Info id="s-score" ctx={sObj ? { name: name(selT), s: sObj.s } : undefined} /></h2>
+            <div className="card-head"><h2 className="card-title"><span className="idx">05</span>Hur hårt styr marknaden? Över tid</h2><span className="dim" style={{ fontSize: 12 }}>andel som PC1 förklarar, rullande 1 år</span></div>
+            <div className="card-body"><Plot ariaLabel="Andel av variationen som PC1 förklarar över tid" data={gripData} height={240} layout={{ yaxis: { tickformat: ".0%" } as any }} /></div>
+            <Caption>När linjen är hög rör sig alla aktier som en klump – typiskt i kriser (högst {gripMax.d.slice(0, 7)}: {fmtPct(gripMax.v, 0)}). När den är låg avgörs avkastningen mer av vilka bolag man äger. Samma fenomen som snittkorrelationen i Korrelationsmatrisen, men mätt med PCA.</Caption>
+          </section>
+          <section className="card span-12">
+            <div className="card-head"><h2 className="card-title"><span className="idx">06</span>Avellaneda–Lee: vilka aktier är billiga mot faktorerna? <Info id="s-score" ctx={sObj ? { name: name(selT), s: sObj.s } : undefined} /></h2>
               <div className="card-tools"><span className="dim" style={{ fontSize: 13, display: "inline-flex", gap: 6, alignItems: "center" }}>Antal faktorer <Info id="factor-model" /></span>
                 <Seg label="Antal faktorer" value={k} onChange={setK} options={[1, 2, 3, 4, 5].map((i) => ({ value: i, label: String(i) }))} /></div>
             </div>
@@ -161,7 +200,7 @@ export function PcaView() {
 
           {sObj && (
             <section className="card span-12">
-              <div className="card-head"><h2 className="card-title"><span className="idx">06</span>{name(selT)}: den egna rörelsen</h2>
+              <div className="card-head"><h2 className="card-title"><span className="idx">07</span>{name(selT)}: den egna rörelsen</h2>
                 <span className="dim mono" style={{ fontSize: 12 }}>s = {fmtSigned(sObj.s, 2)} · κ = {fmt(sObj.kappa, 1)}/år · half-life {fmtDays(sObj.halfLife)}</span></div>
               <div className="card-body"><Plot ariaLabel={`Kumulerad residual för ${name(selT)}`} data={resData} height={240} layout={{ yaxis: { tickformat: ".1%" } as any }} /></div>
               <Caption>Linjen är summan av {name(selT)}s egna rörelser, efter att marknaden och sektorerna dragits bort, de senaste 60 dagarna. Den antas svänga kring jämviktsnivån (prickad linje). Står linjen långt under det nedre bandet är aktien billig relativt resten av börsen.</Caption>

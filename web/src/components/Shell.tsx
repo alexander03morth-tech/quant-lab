@@ -38,6 +38,7 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
   ] },
   { group: "Lär dig", items: [
     { to: "/kurs", label: "Akademin", ready: true },
+    { to: "/ova", label: "Öva", ready: true },
     { to: "/ordlista", label: "Ordlista", ready: true },
   ] },
 ];

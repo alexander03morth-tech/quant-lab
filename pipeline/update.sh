@@ -9,3 +9,5 @@ $PY pipeline/precompute.py
 $PY pipeline/news.py || echo "nyhetshämtning misslyckades – fortsätter"
 $PY pipeline/market_summary.py
 $PY pipeline/fundamentals.py || echo "nyckeltal misslyckades – behåller gårdagens"
+# "Det här behöver du veta" (dag/vecka/månad). Hämtar global marknadsdata; får aldrig stoppa uppdateringen
+$PY pipeline/briefing.py || echo "briefing misslyckades – behåller gårdagens"

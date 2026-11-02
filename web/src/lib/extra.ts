@@ -66,3 +66,17 @@ export interface Fundamentals {
 }
 export interface FundamentalsFile { fetchedAt: string; fx: Record<string, number>; source: string; items: Record<string, Fundamentals> }
 export const useFundamentals = () => useFile<FundamentalsFile>("fundamentals.json");
+
+export interface BriefingSection { id: "vad" | "varfor" | "problem" | "fordelar" | "framtid"; title: string; text?: string; bullets?: string[]; explain: string }
+export interface BriefingPeriod {
+  label: string; from: string; to: string; days: number; headline: string;
+  stats: { ret: number; z: number; sigma: number; up: number; total: number; vol: number; volPct: number; corr: number; corrPct: number; drawdown: number; cycMinusDef: number };
+  contrib: { ticker: string; name: string; ret: number; c: number }[];
+  sectors: { id: string; name: string; ret: number }[];
+  global: { ticker: string; label: string; desc: string; level: number; chg: number; isRate: boolean }[];
+  baseRates: { n: number; bucket: number; hit: number; median: number; p10: number; p90: number; allHit: number; allMedian: number };
+  news: (NewsItem & { kind: string })[];
+  sections: BriefingSection[];
+}
+export interface Briefing { date: string; generatedAt: string; periods: Record<"day" | "week" | "month", BriefingPeriod> }
+export const useBriefing = () => useFile<Briefing>("briefing.json");

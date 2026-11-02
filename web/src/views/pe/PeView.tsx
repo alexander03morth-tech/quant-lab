@@ -9,6 +9,8 @@ import { CareerView } from "../CareerView";
 import { LboView } from "./LboView";
 import { PeOverview } from "./PeOverview";
 import { FundView } from "./FundView";
+import { MethodView, ModelTabs, Practice } from "../../components/Learn";
+import { FUND_EX, FUND_METHOD, LBO_EX, LBO_METHOD } from "../../content/models";
 
 export function PeView() {
   return (
@@ -21,8 +23,8 @@ export function PeView() {
       </nav>
       <Routes>
         <Route path="oversikt" element={<PeOverview />} />
-        <Route path="lbo" element={<LboView />} />
-        <Route path="fond" element={<FundView />} />
+        <Route path="lbo" element={<ModelTabs name="LBO-modell" tool={<LboView />} method={<MethodView m={LBO_METHOD} question="Vad är en LBO?" />} practice={<Practice exercises={LBO_EX} />} />} />
+        <Route path="fond" element={<ModelTabs name="Fondekonomi" tool={<FundView />} method={<MethodView m={FUND_METHOD} question="Hur fungerar en PE-fond ekonomiskt?" />} practice={<Practice exercises={FUND_EX} />} />} />
         <Route path="jobbet" element={<CareerView track="pe" />} />
         <Route path="*" element={<Navigate to="oversikt" replace />} />
       </Routes>
