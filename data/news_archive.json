@@ -1,5 +1,54 @@
 [
 {
+"t": "2026-11-02T17:14+00:00",
+"title": "Jonathan Axelsson: God prognos för Stockholmsbörsen i AI-frossan",
+"source": "EFN",
+"url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOb1U0S0hHaXg5eEJGZFpCRUxLVW04MWd6TEFKc0RuMXlNTzRlQkVwYjBCcmpMNW55Zk83bmtuV2huYjlmOC04Q2Q2RDkwUmF3eEp1VEtkNEg1OW0yUEl2dFV0d2RjenF1MUFlREFBcGNQVEYyM2ZiaXJiSDU4cGpJMXNhTWg?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-11-02T16:39+00:00",
+"title": "Svagt nedåt på Stockholmsbörsen – Studsvik faller efter plötsligt avhopp",
+"source": "EFN",
+"url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTzNIV1diRHB0RzdnNy1YZzVXcjlVTlRGbExQSWZ3OTE1azROZVhFRFYxYXN0aW11bjJtNGpkT0dqZDZSdDE0XzRFQkl5ZFRiUExNUmg0d2h3UlZDLUVXSmk1Y1lraHFyUXhHQUtEQXEtUzZnREh4dGFSLVdMN3VMUDFPTkRDQWpyUWdTSkJ3?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-11-02T12:19+00:00",
+"title": "Stockholmsbörsen mot plus: ”Riskaptiten har återvänt”",
+"source": "EFN",
+"url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1wRE5CSC11b09uR00tdFFwWC1xT2xoZ1VMV0t2RVlHQ1lEbDdWLVhQTmduQlZqWGtNTG4wek43emxrclU1Q3dhdUM5eWhRNlR1Z3h5ZVB4VUUyNXJIRFQybWVBQ1NselFuQVN4bmdXdGlEaGc?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-11-02T12:19+00:00",
+"title": "Stockholmsbörsen fortsatt nedåt vid lunchtid",
+"source": "Affärsvärlden",
+"url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxON2RJYzczcHBRenRTQ2F6U1FHa0VWd2RFb1o3SUVQN3pEVV9xWGJRbTFnU1JnYkJva2tQcXlFUGp5bURzMmd3eV8xdGZYUUdVMEFoSUdmNFdiTHQzbGVaZE1Eb1NNSUt3MktBWE1XZXZNbmNzUHhDOW1HUzUwVDlNOG1tVG1ZZWVG?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-11-02T12:08+00:00",
+"title": "Stockholmsbörsen backar – SBB faller efter sänkt råd",
+"source": "Placera.se",
+"url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNY1lFcTJkRUkzUk5WSUIzYUVMNHhrT2o5TjFBam93aHJOTFNXaUJvU1BRREJlb0pDOXZOOUw5SHJCeVZrel9CYVAtY3BUbUJnVWUteW55RkQyU1pILWtCZ040clZDYUttd3VDcVBfUk01RzRNMktMRE9qb2x4X0FldU15NVE0NjRqUDZyMVhmcGExTnZydHZv?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-11-02T11:24+00:00",
+"title": "Stockholmsbörsen inleder måndagen nedåt",
+"source": "EFN",
+"url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9PN1daNWx2YVRPMVVjZEtaQTlzU1ByMmZ0N0p2eXpwQy1FaElOYkk3b2Q3cVZzeUVobUotZmlZUEEta2pEU2dzcUVWamxGWVpfX3pIQU1rcHVQQTMzUVVrLW53TFg?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-11-02T09:19+00:00",
+"title": "Het inflationssignal till Riksbanken",
+"source": "DI",
+"url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1lRFJ0RXlNUjEtRkZOeTR3RENxUXVjT1owVnBLYnRaWkh1cGJ6UkI3U0JVLS11S0wwSUphaTF1ZkJFVW9ZeGFoZkM3OGFUb2c2Ml9xcFlTZFR1ZVItN21aTDZCa0ZqZC1iT2kxLVFEaw?oc=5",
+"kind": "makro"
+},
+{
 "t": "2026-10-31T16:00+00:00",
 "title": "Facken vädjar: höj inte styrräntan!",
 "source": "Svenska Dagbladet",
@@ -154,10 +203,73 @@
 "kind": "borsen"
 },
 {
+"t": "2026-10-29T13:20+00:00",
+"title": "ECB lämnar som väntat styrräntan oförändrad",
+"source": "EFN",
+"url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9Mc29HRU4wSzh4a3RhNnNaakNIbDR2SFkySERYUTlZWGpoV3JOLXNGRFFoSHFzMW5SMkozekRoOVFCbXVweElpN1F3dnp2OXdmNDdWN2U5R3ZSSlRRaGtNbGVDWUtrSlIyMFE?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-29T13:19+00:00",
+"title": "ECB lämnar styrräntan oförändrad",
+"source": "Sveriges Radio",
+"url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNMTdhNjhGWHhFd2VnelZJRWdzajBNY2RKZmpGUmx0RTlldGJjc3JVYThSMU53OHNvSmQzVmhxQzdqbzBsbDJLY2kxdFFud3lOdHlwLXRjVWVocjRXMkUtdHM1dGs3RWFaVDBVQmJwYnpsZl9RTkJqelRNeExJZWhpbjh1TlZZTWNYSF9mTEIxUU1Ya3Z5Z0RVT092TTEwb3NxNTFNRmJPWjFJZw?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-29T08:56+00:00",
+"title": "Experten: ”Det skickar en varningssignal till Riksbanken”",
+"source": "DI",
+"url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOVnpVN29jcU9mS3ZiMTBBTlFGbDVjTFl1bmJseExWa0JZbzBYOFQ0dWE4Q0lUbFZHcGFVUmpTLVVZSVdqOFg1bEZwRUgwQXFqLXlneWpwd1ZjcnhwVkFyTjFsUGNIZ3Rpdjhzbjh4bk0xbFRlSEIycGRyOUFNSGdSYnhYT0RXMVRKc3k4cVplaw?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-29T08:35+00:00",
+"title": "Börslyft för femte dagen i rad – Engcon rapportrasade",
+"source": "Privata Affärer",
+"url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOYWpZd1Y5a2R2SHdnOWoybzJYYUc0c3ZhdEVBc0FHVkpqak1BNW16b2F3X1c0VndRRW50ck9LWE16UlA2bUF4LUtoU0M0VWk1eE5Qamp4SldFak5iQll0RkRGTGhMeUJ4ZDFReDdKWTV4Z3k1cW9FUXBiTXUwUldUSjc0ZDVMLUJjOFBUX2U4Uzk1cXdZVW5BUTVncUY3VnBBSUszR2ZMQ1RWZVV3?oc=5",
+"kind": "borsen"
+},
+{
 "t": "2026-10-29T00:58+00:00",
 "title": "Ljusgrönt på Stockholmsbörsen – Engcon rapportrasar",
 "source": "Privata Affärer",
 "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNkZ4U2N4eXVYbzh6THNQYmJ0VFU3UWtuYU1SLXZqZUtodkx4RDdBM1VQazVFaUNCVmJyM3lnT1BnSDFEMG9EaXRmXzJ6em9pcTh6Yi1tal9haHNxZkVYeFlQUTk5aWY5UU96MHFjZHhyVVRHdDdRT0RDT09iWk42UDQtaGpYSFh2R1BnaTVOOHdNZ0FLZ0pUVjlrWDh5bEFKOFdlLTdzMW9BUQ?oc=5",
+"kind": "borsen"
+},
+{
+"t": "2026-10-28T21:32+00:00",
+"title": "Fed lämnar styrräntan oförändrad trots inflationspress",
+"source": "Sveriges Radio",
+"url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZHROWmZ1NjRJcmJ5Tl9sLVRxZ1FFT04teG1iSWNaXzUxeHBrcHhjMGJkQUhrbTQ3dTJteUc2cU1lOXdEX3V2Wkl1ZGVSa2Zrd3BNa0N6T3BGVDdjS3puVlpKNzJJY0xMbXQ1T1JkcE81NENlZ1A4RjdPeWlFblo0UVBWX0FPTHdTZTJrWFRSekF1dDgyeVE?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-28T19:09+00:00",
+"title": "Fed rör inte räntan – fokus: Få ned inflationen",
+"source": "DI",
+"url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPME5XQVNKZ1AxYkU3LUdZd0RlQ21OdFh2RWwzd3MyWUtvWGdzck56N2F6alNzcUxyYlZ4RUZCcjFoQnNZTHh6am1kZ0dHX3hNRkxUdWU4cHloUHFhZlJZeTViMER0OHM4OTJsTVNoQ21nMXF0a1pEanpIcS13YnQ5T21n?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-28T18:37+00:00",
+"title": "Warsh: Mer fokuserade på att få ned inflationen",
+"source": "DI",
+"url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBtTWkzU05XN0oyaXA3bXJiVTZGV1A1UHlWUWN0S3d6M3lTeUZ5N2U2ME13STN6bWtTdjRVaGUwMXFKbmllVkJLVll0RWtUR25ZZVM4d0tJS0JQenVYdGpIU2xqM0swcnFQMEJIS3dORnRINk5rVWhXU0Nn?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-28T18:09+00:00",
+"title": "Fed lämnar styrräntan oförändrad",
+"source": "Sveriges Radio",
+"url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9LcUtZMXp1Qk5HaXNrM3BqQzJYNG9iZDhtdXd5WUxoWkdZNF96RGRPLXBrOTV3Q3p5bXdhTW9ybGwxOXZBMHlIbmhkQTFjN1ZzaV9acnFtNXVtMkQ3N2R2a0gzc0NqVlVMS0xqVnZzQVJ3LWJsNDllUHM3c3Q?oc=5",
+"kind": "makro"
+},
+{
+"t": "2026-10-28T16:43+00:00",
+"title": "Stockholmsbörsen stängde med mindre uppgång",
+"source": "Affärsvärlden",
+"url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSEhXTTMwcEFLM190NldhanFjN0xvX0RleWhpVlRUVF9fbmVqajRFNm1yWXlmZkpsU0xBUFBoM2tIT3dFRWw4TjV2V3FaeWRCQ3luTXZJeGdvRW9wcU5EeWpxQUc1bnhBc1lMVzJ2M0QtbUh4WG1ETVpmYWtyeUJOQVByY2xKMU0?oc=5",
 "kind": "borsen"
 },
 {
