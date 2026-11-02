@@ -46,3 +46,19 @@ describe("signaler", () => {
     expect(events.map((e) => e.kind)).toEqual(["long", "exit", "short", "stop", "short", "exit"]);
   });
 });
+
+import { pairReturns, tradesFrom } from "./backtest";
+describe("affärslista", () => {
+  it("summerar till samma totalavkastning som equity-kurvan", () => {
+    const n = 40;
+    const ly = Float64Array.from({ length: n }, (_, t) => Math.log(100 + 3 * Math.sin(t / 3)));
+    const lx = Float64Array.from({ length: n }, () => Math.log(100));
+    const pos = Int8Array.from({ length: n }, (_, t) => (t >= 5 && t < 12 ? 1 : t >= 20 && t < 30 ? -1 : 0));
+    const beta = new Float64Array(n).fill(1);
+    const r = pairReturns(ly, lx, beta, pos, 10, 0);
+    const tr = tradesFrom(pos, r.ret);
+    expect(tr.length).toBe(2);
+    const g = tr.reduce((a, t) => a * (1 + t.ret), 1);
+    expect(g).toBeCloseTo(r.equity[n - 1], 12);
+  });
+});

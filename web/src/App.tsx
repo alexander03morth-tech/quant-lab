@@ -10,7 +10,12 @@ import { AktieView } from "./views/aktie/AktieView";
 import { IbView } from "./views/ib/IbView";
 import { CareerView } from "./views/CareerView";
 import { PairRedirect, PairView } from "./views/PairView";
-import { Placeholder } from "./views/Placeholder";
+import { AcademyView } from "./views/AcademyView";
+import { CorrelationView } from "./views/quant/CorrelationView";
+import { ScannerView } from "./views/quant/ScannerView";
+import { BacktestView } from "./views/quant/BacktestView";
+import { MarketView } from "./views/quant/MarketView";
+import { PcaView } from "./views/quant/PcaView";
 
 export default function App() {
   return (
@@ -29,12 +34,12 @@ export default function App() {
               <Route path="/par" element={<PairRedirect />} />
               <Route path="/par/:a/:b" element={<PairView />} />
               <Route path="/ordlista" element={<Glossary />} />
-              <Route path="/marknad" element={<Placeholder title="Marknadsöversikt" />} />
-              <Route path="/korrelation" element={<Placeholder title="Korrelationsmatris" />} />
-              <Route path="/scanner" element={<Placeholder title="Parscanner" />} />
-              <Route path="/backtest" element={<Placeholder title="Backtest" />} />
-              <Route path="/pca" element={<Placeholder title="PCA / faktorbaserad stat arb" />} />
-              <Route path="/kurs" element={<Placeholder title="Lär dig quant" />} />
+              <Route path="/marknad" element={<MarketView />} />
+              <Route path="/korrelation" element={<CorrelationView />} />
+              <Route path="/scanner" element={<ScannerView />} />
+              <Route path="/backtest" element={<BacktestView />} />
+              <Route path="/pca" element={<PcaView />} />
+              <Route path="/kurs" element={<AcademyView />} />
               <Route path="*" element={<Navigate to="/par" replace />} />
             </Routes>
           </Shell>

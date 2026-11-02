@@ -226,7 +226,7 @@ table.data tr:last-child td { border-bottom: 0; }
 .close-btn:hover { color: var(--text); }
 
 /* plot */
-.plot { width: 100%; min-height: 200px; }
+.plot { width: 100%; }
 .plot-loading { display: grid; place-items: center; color: var(--text-3); font-size: 13px; }
 
 /* misc */
@@ -491,3 +491,23 @@ a.btn { text-decoration: none; }
 .daylist li:last-child { border-bottom: 0; }
 .day-time { font-family: var(--mono); color: var(--accent); font-size: 14px; }
 @media (max-width: 560px) { .ladder li { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Akademin */
+.academy-progress { height: 6px; border-radius: 99px; background: var(--surface-2); overflow: hidden; max-width: 420px; }
+.academy-progress div { height: 100%; background: linear-gradient(90deg, var(--primary-strong), var(--accent)); box-shadow: 0 0 12px var(--accent); transition: width .4s ease; }
+.path-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+.path-card { align-content: start; }
+.path-meter { display: block; height: 4px; border-radius: 99px; background: var(--surface-2); overflow: hidden; margin-top: 6px; }
+.path-meter i { display: block; height: 100%; background: var(--accent); transition: width .4s ease; }
+.tl-dot.done { background: var(--primary-soft); color: var(--pos); border-color: var(--pos); }
+.step-collapsed { display: flex; justify-content: space-between; align-items: center; gap: 10px; width: 100%; text-align: left; cursor: pointer; color: inherit; font: inherit; }
+.step-collapsed:hover { border-color: var(--border-strong); }
+.step-open { border-color: color-mix(in srgb, var(--primary) 55%, var(--border)); box-shadow: 0 0 24px color-mix(in srgb, var(--primary) 14%, transparent); }
+.step-task, .step-quiz { display: grid; gap: 6px; margin-top: 12px; padding: 12px 14px; border-radius: 10px; background: var(--surface-1); border: 1px solid var(--border); }
+.step-task .btn { justify-self: start; }
+.quiz-opts { display: grid; gap: 6px; margin-top: 4px; }
+.quiz-opt { text-align: left; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; cursor: pointer; }
+.quiz-opt:hover:not(:disabled) { border-color: var(--border-strong); }
+.quiz-opt.right { border-color: var(--pos); background: color-mix(in srgb, var(--pos) 14%, transparent); }
+.quiz-opt.wrong { border-color: var(--neg); background: color-mix(in srgb, var(--neg) 12%, transparent); }
+.quiz-opt.dimmed { opacity: .6; }

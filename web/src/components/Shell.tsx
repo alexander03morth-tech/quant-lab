@@ -10,15 +10,15 @@ import { TickerTape } from "./TickerTape";
 const NAV: { group: string; items: { to: string; label: string; ready: boolean }[] }[] = [
   { group: "Utforska", items: [
     { to: "/nyheter", label: "Börsen idag", ready: true },
-    { to: "/marknad", label: "Marknadsöversikt", ready: false },
-    { to: "/korrelation", label: "Korrelationsmatris", ready: false },
-    { to: "/scanner", label: "Parscanner", ready: false },
+    { to: "/marknad", label: "Marknadsöversikt", ready: true },
+    { to: "/korrelation", label: "Korrelationsmatris", ready: true },
+    { to: "/scanner", label: "Parscanner", ready: true },
   ] },
   { group: "Analys", items: [
     { to: "/portfolj", label: "Portföljlabb", ready: true },
     { to: "/par", label: "Paranalys", ready: true },
-    { to: "/backtest", label: "Backtest", ready: false },
-    { to: "/pca", label: "PCA / faktorer", ready: false },
+    { to: "/backtest", label: "Backtest", ready: true },
+    { to: "/pca", label: "PCA / faktorer", ready: true },
     { to: "/kvant/jobbet", label: "Kvant som yrke", ready: true },
   ] },
   { group: "Aktieanalys", items: [
@@ -37,7 +37,7 @@ const NAV: { group: string; items: { to: string; label: string; ready: boolean }
     { to: "/pe/fond", label: "Fondekonomi", ready: true },
   ] },
   { group: "Lär dig", items: [
-    { to: "/kurs", label: "Lär dig quant", ready: false },
+    { to: "/kurs", label: "Akademin", ready: true },
     { to: "/ordlista", label: "Ordlista", ready: true },
   ] },
 ];
