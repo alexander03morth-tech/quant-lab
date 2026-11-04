@@ -1,248 +1,248 @@
 {
- "date": "2026-11-03",
- "generatedAt": "2026-11-03T18:39+01:00",
+ "date": "2026-11-04",
+ "generatedAt": "2026-11-04T18:39+01:00",
  "periods": {
   "day": {
    "label": "Dagen",
-   "from": "2026-11-02",
-   "to": "2026-11-03",
+   "from": "2026-11-03",
+   "to": "2026-11-04",
    "days": 1,
-   "headline": "OMXS30 stod nästan still idag",
+   "headline": "OMXS30 steg 0,8 % idag – råvaror & material ledde",
    "stats": {
-    "ret": -0.0007835973008986086,
-    "z": -0.08118634096754619,
-    "sigma": 0.009651836645918645,
-    "up": 18,
+    "ret": 0.008290545977108543,
+    "z": 0.8589393179312033,
+    "sigma": 0.009652074138458026,
+    "up": 23,
     "total": 30,
-    "vol": 0.1640036551707623,
-    "volPct": 0.6301587301587301,
-    "corr": 0.21369655243817862,
-    "corrPct": 0.38461538461538464,
-    "drawdown": -0.015436609034832904,
-    "cycMinusDef": -0.004469299675523142
+    "vol": 0.16429825825975478,
+    "volPct": 0.6333333333333333,
+    "corr": 0.21940575098327103,
+    "corrPct": 0.46153846153846156,
+    "drawdown": -0.007275370878234377,
+    "cycMinusDef": -0.0005205866098966783
    },
    "contrib": [
     {
-     "ticker": "EQT.ST",
-     "name": "EQT",
-     "ret": -0.016300940438871425,
-     "c": -0.0004648957017069488
-    },
-    {
-     "ticker": "ERIC-B.ST",
-     "name": "Ericsson B",
-     "ret": -0.015165441176470562,
-     "c": -0.0003841046886501307
-    },
-    {
-     "ticker": "BOL.ST",
-     "name": "Boliden",
-     "ret": -0.033333333333333326,
-     "c": -0.00034440150358527335
-    },
-    {
-     "ticker": "AZN.ST",
-     "name": "AstraZeneca",
-     "ret": -0.001653803748621785,
-     "c": -0.0003388364219799784
-    },
-    {
-     "ticker": "ASSA-B.ST",
-     "name": "Assa Abloy B",
-     "ret": -0.009336361342417332,
-     "c": -0.0002969979965913017
-    },
-    {
-     "ticker": "SAND.ST",
-     "name": "Sandvik",
-     "ret": -0.007690195001373246,
-     "c": -0.0002542350463670046
-    },
-    {
-     "ticker": "SKF-B.ST",
-     "name": "SKF B",
-     "ret": -0.01571989996427292,
-     "c": -0.00014385226460456577
-    },
-    {
-     "ticker": "VOLV-B.ST",
-     "name": "Volvo B",
-     "ret": -0.002912621359223211,
-     "c": -0.0001331093685619717
-    },
-    {
-     "ticker": "EPI-A.ST",
-     "name": "Epiroc A",
-     "ret": -0.005668016194331993,
-     "c": -0.00012283824851101597
-    },
-    {
-     "ticker": "HEXA-B.ST",
-     "name": "Hexagon B",
-     "ret": -0.004100227790432842,
-     "c": -8.775477437747711e-05
-    },
-    {
-     "ticker": "HM-B.ST",
-     "name": "H&M B",
-     "ret": -0.0036506599269868767,
-     "c": -7.54150963646774e-05
-    },
-    {
-     "ticker": "SHB-A.ST",
-     "name": "Handelsbanken A",
-     "ret": -0.000640820249920071,
-     "c": -1.461450929181207e-05
-    },
-    {
-     "ticker": "TEL2-B.ST",
-     "name": "Tele2 B",
-     "ret": 0.0025220680958386588,
-     "c": 2.0287779080091385e-05
-    },
-    {
-     "ticker": "SKA-B.ST",
-     "name": "Skanska B",
-     "ret": 0.002465656921451398,
-     "c": 2.1195866581256707e-05
-    },
-    {
-     "ticker": "SEB-A.ST",
-     "name": "SEB A",
-     "ret": 0.0009578544061301653,
-     "c": 2.8391576252613867e-05
-    },
-    {
-     "ticker": "ALFA.ST",
-     "name": "Alfa Laval",
-     "ret": 0.0022132054592400863,
-     "c": 3.6260465351387614e-05
-    },
-    {
-     "ticker": "ESSITY-B.ST",
-     "name": "Essity B",
-     "ret": 0.0028571428571428914,
-     "c": 3.939661792578459e-05
-    },
-    {
-     "ticker": "TELIA.ST",
-     "name": "Telia",
-     "ret": 0.0030687397708673014,
-     "c": 4.315652537547488e-05
-    },
-    {
-     "ticker": "LIFCO-B.ST",
-     "name": "Lifco B",
-     "ret": 0.005035971223021463,
-     "c": 4.661989499329877e-05
-    },
-    {
-     "ticker": "NIBE-B.ST",
-     "name": "Nibe B",
-     "ret": 0.007446342531756578,
-     "c": 5.0373791865830564e-05
-    },
-    {
-     "ticker": "INDU-C.ST",
-     "name": "Industrivärden C",
-     "ret": 0.0030651340996168397,
-     "c": 5.05627092591208e-05
-    },
-    {
-     "ticker": "ADDT-B.ST",
-     "name": "Addtech B",
-     "ret": 0.008290816326530503,
-     "c": 5.16484198536654e-05
-    },
-    {
-     "ticker": "SCA-B.ST",
-     "name": "SCA B",
-     "ret": 0.009162848812994673,
-     "c": 5.687243278999861e-05
-    },
-    {
-     "ticker": "INVE-B.ST",
-     "name": "Investor B",
-     "ret": 0.0007006071929005486,
-     "c": 6.70927594920438e-05
-    },
-    {
-     "ticker": "EVO.ST",
-     "name": "Evolution",
-     "ret": 0.006162597771983913,
-     "c": 6.878461544241644e-05
-    },
-    {
-     "ticker": "NDA-SE.ST",
-     "name": "Nordea",
-     "ret": 0.003176436615651035,
-     "c": 0.00013659011528179146
-    },
-    {
-     "ticker": "SAAB-B.ST",
-     "name": "Saab B",
-     "ret": 0.005502063273727709,
-     "c": 0.00014233524343276038
-    },
-    {
-     "ticker": "SWED-A.ST",
-     "name": "Swedbank A",
-     "ret": 0.008230452674897082,
-     "c": 0.0002644629237546388
+     "ticker": "ABB.ST",
+     "name": "ABB",
+     "ret": -0.02147310090048493,
+     "c": -0.0023793935348946473
     },
     {
      "ticker": "ATCO-A.ST",
      "name": "Atlas Copco A",
-     "ret": 0.008282126636387943,
-     "c": 0.0005561728267294437
+     "ret": -0.01483836777954417,
+     "c": -0.0009740595170690924
     },
     {
-     "ticker": "ABB.ST",
-     "name": "ABB",
-     "ret": 0.017383133662203454,
-     "c": 0.0019838226586132175
+     "ticker": "SAAB-B.ST",
+     "name": "Saab B",
+     "ret": -0.023863809089527233,
+     "c": -0.000597944696023959
+    },
+    {
+     "ticker": "EPI-A.ST",
+     "name": "Epiroc A",
+     "ret": -0.009364820846905486,
+     "c": -0.00019949855164113335
+    },
+    {
+     "ticker": "NIBE-B.ST",
+     "name": "Nibe B",
+     "ret": -0.020000000000000018,
+     "c": -0.00013156540096323613
+    },
+    {
+     "ticker": "SKF-B.ST",
+     "name": "SKF B",
+     "ret": -0.002540834845734974,
+     "c": -2.301242792274536e-05
+    },
+    {
+     "ticker": "ALFA.ST",
+     "name": "Alfa Laval",
+     "ret": -0.0007361059992638808,
+     "c": -1.1957935104956739e-05
+    },
+    {
+     "ticker": "ERIC-B.ST",
+     "name": "Ericsson B",
+     "ret": 0.0018665422305179646,
+     "c": 4.6996579567600606e-05
+    },
+    {
+     "ticker": "SKA-B.ST",
+     "name": "Skanska B",
+     "ret": 0.006324666198172624,
+     "c": 5.4289800111818564e-05
+    },
+    {
+     "ticker": "HEXA-B.ST",
+     "name": "Hexagon B",
+     "ret": 0.0027447392497712553,
+     "c": 5.844915587196282e-05
+    },
+    {
+     "ticker": "ADDT-B.ST",
+     "name": "Addtech B",
+     "ret": 0.009487666034155628,
+     "c": 5.9203061043593766e-05
+    },
+    {
+     "ticker": "TEL2-B.ST",
+     "name": "Tele2 B",
+     "ret": 0.007861635220125729,
+     "c": 6.324344114220712e-05
+    },
+    {
+     "ticker": "EVO.ST",
+     "name": "Evolution",
+     "ret": 0.005889281507656108,
+     "c": 6.560908534161866e-05
+    },
+    {
+     "ticker": "SAND.ST",
+     "name": "Sandvik",
+     "ret": 0.002214226404649855,
+     "c": 7.279552201882543e-05
+    },
+    {
+     "ticker": "SCA-B.ST",
+     "name": "SCA B",
+     "ret": 0.023937267849772903,
+     "c": 0.00015095350999426324
+    },
+    {
+     "ticker": "TELIA.ST",
+     "name": "Telia",
+     "ret": 0.011013665102998171,
+     "c": 0.00015538150590487827
+    },
+    {
+     "ticker": "INDU-C.ST",
+     "name": "Industrivärden C",
+     "ret": 0.014896867838044114,
+     "c": 0.000247469565014852
+    },
+    {
+     "ticker": "BOL.ST",
+     "name": "Boliden",
+     "ret": 0.025260625501202894,
+     "c": 0.0002655147827386823
+    },
+    {
+     "ticker": "ESSITY-B.ST",
+     "name": "Essity B",
+     "ret": 0.022079772079772075,
+     "c": 0.000308766627874524
+    },
+    {
+     "ticker": "LIFCO-B.ST",
+     "name": "Lifco B",
+     "ret": 0.03507516105941311,
+     "c": 0.00033349063246315496
+    },
+    {
+     "ticker": "ASSA-B.ST",
+     "name": "Assa Abloy B",
+     "ret": 0.015537442689760539,
+     "c": 0.0004980527546104388
+    },
+    {
+     "ticker": "VOLV-B.ST",
+     "name": "Volvo B",
+     "ret": 0.011035378123985584,
+     "c": 0.0005059436537899865
+    },
+    {
+     "ticker": "EQT.ST",
+     "name": "EQT",
+     "ret": 0.019439133205863435,
+     "c": 0.0005607962308601257
+    },
+    {
+     "ticker": "SHB-A.ST",
+     "name": "Handelsbanken A",
+     "ret": 0.025969862135299948,
+     "c": 0.0006029430353003369
+    },
+    {
+     "ticker": "HM-B.ST",
+     "name": "H&M B",
+     "ret": 0.0345125107851596,
+     "c": 0.0007172066496106772
+    },
+    {
+     "ticker": "SEB-A.ST",
+     "name": "SEB A",
+     "ret": 0.027272727272727115,
+     "c": 0.0008240021261673911
+    },
+    {
+     "ticker": "SWED-A.ST",
+     "name": "Swedbank A",
+     "ret": 0.02602040816326534,
+     "c": 0.0008512069732269186
+    },
+    {
+     "ticker": "INVE-B.ST",
+     "name": "Investor B",
+     "ret": 0.01376896149358231,
+     "c": 0.00132637177189051
+    },
+    {
+     "ticker": "NDA-SE.ST",
+     "name": "Nordea",
+     "ret": 0.03310305123776636,
+     "c": 0.0014591997106661121
+    },
+    {
+     "ticker": "AZN.ST",
+     "name": "AstraZeneca",
+     "ret": 0.017393705135284376,
+     "c": 0.003597586710756259
     }
    ],
    "sectors": [
     {
-     "id": "industri",
-     "name": "Industri",
-     "ret": 0.004895223443175473
-    },
-    {
-     "id": "telekom",
-     "name": "Telekom & kommunikation",
-     "ret": 0.002869824995270645
-    },
-    {
-     "id": "dagligvaror",
-     "name": "Dagligvaror",
-     "ret": 0.0028571428571428914
-    },
-    {
-     "id": "finans",
-     "name": "Finans",
-     "ret": 0.00025186323682522524
+     "id": "material",
+     "name": "Råvaror & material",
+     "ret": 0.02476438582123656
     },
     {
      "id": "sallanskop",
      "name": "Sällanköpsvaror",
-     "ret": -0.00020837750524096873
+     "ret": 0.024523161314040105
+    },
+    {
+     "id": "dagligvaror",
+     "name": "Dagligvaror",
+     "ret": 0.022079772079772075
+    },
+    {
+     "id": "finans",
+     "name": "Finans",
+     "ret": 0.021586959160854954
     },
     {
      "id": "halsovard",
      "name": "Hälsovård",
-     "ret": -0.001653803748621785
+     "ret": 0.017393705135284376
+    },
+    {
+     "id": "telekom",
+     "name": "Telekom & kommunikation",
+     "ret": 0.009869028532919252
     },
     {
      "id": "it",
      "name": "Informationsteknik",
-     "ret": -0.010097560682481512
+     "ret": 0.002268948487911264
     },
     {
-     "id": "material",
-     "name": "Råvaror & material",
-     "ret": -0.017385022405129964
+     "id": "industri",
+     "name": "Industri",
+     "ret": -0.007166845071750732
     }
    ],
    "global": [
@@ -250,131 +250,131 @@
      "ticker": "^GSPC",
      "label": "S&P 500",
      "desc": "USA:s storbolagsindex",
-     "level": 7541.39990234375,
-     "chg": -0.0051015258133173536,
+     "level": 7568.919921875,
+     "chg": 0.0036491924427315414,
      "isRate": false
     },
     {
      "ticker": "^STOXX50E",
      "label": "Euro Stoxx 50",
      "desc": "Europas storbolagsindex",
-     "level": 6144.56005859375,
-     "chg": -0.00510033900272211,
+     "level": 6265.7099609375,
+     "chg": 0.019716611309594123,
      "isRate": false
     },
     {
      "ticker": "^VIX",
      "label": "VIX",
      "desc": "\"rädsloindex\" – förväntade svängningar i USA",
-     "level": 21.149999618530273,
-     "chg": 0.08908339523376951,
+     "level": 20.829999923706055,
+     "chg": -0.015130009484437767,
      "isRate": false
     },
     {
      "ticker": "SEK=X",
      "label": "USD/SEK",
      "desc": "kronor per dollar",
-     "level": 9.789730072021484,
-     "chg": -0.0029850398358198804,
+     "level": 9.72616958618164,
+     "chg": -0.005614936346894361,
      "isRate": false
     },
     {
      "ticker": "EURSEK=X",
      "label": "EUR/SEK",
      "desc": "kronor per euro",
-     "level": 10.960200309753418,
-     "chg": 0.0004472701331408313,
+     "level": 10.929670333862305,
+     "chg": -0.0015976229141237974,
      "isRate": false
     },
     {
      "ticker": "BZ=F",
      "label": "Brentolja",
      "desc": "dollar per fat",
-     "level": 103.62000274658203,
-     "chg": -0.01097636664437629,
+     "level": 94.12999725341797,
+     "chg": -0.09140927953844225,
      "isRate": false
     },
     {
      "ticker": "^TNX",
      "label": "USA 10 år",
      "desc": "amerikansk 10-årsränta, %",
-     "level": 4.894000053405762,
-     "chg": -0.034999847412109375,
+     "level": 4.952000141143799,
+     "chg": 0.05800008773803711,
      "isRate": true
     },
     {
      "ticker": "GC=F",
      "label": "Guld",
      "desc": "dollar per uns",
-     "level": 3938.699951171875,
-     "chg": -0.007784196323105452,
+     "level": 4075.89990234375,
+     "chg": 0.034387372692656015,
      "isRate": false
     }
    ],
    "baseRates": {
-    "n": 844,
-    "bucket": 2,
-    "hit": 0.5390995260663507,
-    "median": 0.0007887900776361034,
-    "p10": -0.010589999161491214,
-    "p90": 0.011350127968185755,
-    "allHit": 0.529592803030303,
-    "allMedian": 0.0006838128838362323
+    "n": 845,
+    "bucket": 4,
+    "hit": 0.48520710059171596,
+    "median": -0.00027508110212326464,
+    "p10": -0.012784986437618516,
+    "p90": 0.012282007501140103,
+    "allHit": 0.5297041420118344,
+    "allMedian": 0.0006849017549273029
    },
    "news": [
     {
-     "t": "2026-11-03T17:03+00:00",
-     "title": "Oljepriset dyker – Stockholmsbörsen lyfter",
+     "t": "2026-11-04T16:51+00:00",
+     "title": "Stockholmsbörsen vänder upp – utdelningspress på H&M",
      "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAzaUYxekpNUXJibEptNUFwR2pSdHo1UVFXbDJNcWVuM1hVV29EREplSHZqTkFXdTJSaUQ5VlBzM2ZsaTl4ZzVyMlVhOHdmNkdmUVR0Z3hrNW00dGdtZHBxY0wtZnMyZw?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE83ZjRiVDI2aV9Ka3lMZnhuMDZCOW9nNFpQTDFzQUp1SWJJRWQzZktManZoRmhNM21QaTdKT1pUeERFVXdUc2xHejZWRGw4b1ZmWEhTdU90dVNaUlI0MUFza2VnWUU4NHRHcUtocnJ3dnVBNkNNc3BoQXJqNA?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:46+00:00",
-     "title": "Blandad utveckling på Stockholmsbörsen – OMXS30 backade",
+     "t": "2026-11-04T16:47+00:00",
+     "title": "Stockholmsbörsen steg efter mellanårsvalet",
      "source": "Affärsvärlden",
-     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOclZoeGYyVFdCSGEyWHNkUGlhQWtSd1ZRVzVkUGJaSmwzQktGclBaVkQ2QXhzVXoxVkNORmtqa1ZSbmZ0dFhkLU0wdElmV00zVDRobEtjYkVSb2cxVEZBbzk0dXlFSlVOZlN1QlhPWmJFdXZwT1dONDRQaXRZOUFxR3JqZDNfTkRwZUdTR2V1VFZ4eEl5?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNazJ2djVfTmNIbEw2TXNaa1VVZEJJWGxDSXZFS1ZGTjRNS2t4TEpvSVdWUThWT2NabVFvSXVmaDh0VEdybzQ4SjNEZnZ1dk5ueFVqOWVNc3MxYzdiYWZmbElfSC1qTGwzUDN4VHRGWHlaaXZCeWRLSmlSSlRsSG9JakQtcFVndw?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:45+00:00",
-     "title": "Oregelbunden avslutning på Stockholmsbörsen",
-     "source": "Placera.se",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOYzdsZGpQbW5GYVlVR0J3MmNXLUpodHhNcEtnblZLSmZmSnJOazFwemlkX29GbzljS0Y4WGp4Y2NyTlJQZjJsVklpMWoxT3ktcnh0VzRmWXVaOXdDMkJkTWQ1QTQwbU5QTWtCSk51d2ludXQ0aFFRaDlORlc2Q2JGYlRqbldzd0l1X08zc0NR?oc=5",
+     "t": "2026-11-04T16:33+00:00",
+     "title": "Vallyft på Stockholmsbörsen – banker i topp",
+     "source": "DI",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1VTUF5WVRKOEx3QnRLRlNXYlJRV21YT0paUnNCTi1ZQTZqSTN6UUNIT1M0WURyOTRoTzZZaWhYdVM5U1BoS1dueVgtZnYxanJHMjBZbFRhajVvV3ZnMDd3YmpNZzlKeXZaNG5PU0FHcXhLZlU?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:40+00:00",
-     "title": "Stockholmsbörsen stänger på rött efter slagig dag",
-     "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpeDBVdnhya0sxYlhfNzFPN1NSNTkxYWl3Z0M5OUlTNEp1dVo2aFkzVV9scDVPdEt6OVFaZVYxLUt2WFM1bnJ5OVB1UTFsUmFfMUp3N0RYQWQ5Yno1OV95VFh4WERIYnlXb0ZkdUJNRUlhQQ?oc=5",
+     "t": "2026-11-04T16:02+00:00",
+     "title": "Stockholmsbörsen steg efter USA-valet",
+     "source": "Göteborgs-Posten",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVJZVURZdHdKamM1U0kwQVpNTXRqdDRYUGZTcHZ4TkR5aWxZR0J0S28ySW1XTmRMdmtHVlRZdzJNVG5adnJiU1JXRTlSV2xxWVJkc2I2WHljYjhDUDR6ZUxUN1kzbGpNVDR3SUJUVy1tblMwaUhaOUZadC12VnhRby14ZXdUaVNSZEZzNzNPTjB5RXN1d0o1SHJIT1Z3eU0?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:24+00:00",
-     "title": "Återhämtning på Stockholmsbörsen – men flera tunga rapportras",
-     "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBNQmFpcTBERXpzdUdSX2NMYU1lUzhrOG9YTEdyRmZBZ0wtNmxlM3pfMTlNZHpUdEN1bE0wRmdRelpjN3l4c1RXQ0pyYnpVR25QLVVCSEJ5MjJqNG9PcU9jVEFzSGgtcTh2bmQzRklWaFJoOUw0Y0swVG16c0h5WDQ?oc=5",
-     "kind": "borsen"
+     "t": "2026-11-04T15:33+00:00",
+     "title": "Kommentar: Riksbanken skickar en joker till nästa regering",
+     "source": "DI",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9ZN1k3TzNibDFVemZ6V3dkdmhFMUZUSVp5dWZkdHlsdWdzTHFCaHZQTVJTWnBrMEhiN3dMd0IxMmM0WlRWUWtTd3RCYjNZanpBa3piNzNtSjFveGdQOEsxYXI5Nm9EWUY0NmZCZU5yTQ?oc=5",
+     "kind": "makro"
     }
    ],
    "sections": [
     {
      "id": "vad",
      "title": "Vad hände?",
-     "text": "[[index|OMXS30]] stod nästan still idag (tisdag 3 november) och står på 3284 punkter. En vanlig dag rör sig index ungefär ±1,0 %, så rörelsen var inom det normala (0,1 [[sigma-move|standardavvikelser]]). **18 av 30** aktier gick upp. Bäst gick ABB (+1,7 %), SCA B (+0,9 %), Addtech B (+0,8 %); sämst Boliden (−3,3 %), EQT (−1,6 %), SKF B (−1,6 %).",
+     "text": "[[index|OMXS30]] steg 0,8 % idag (onsdag 4 november) och står på 3312 punkter. En vanlig dag rör sig index ungefär ±1,0 %, så rörelsen var inom det normala (0,9 [[sigma-move|standardavvikelser]]). **23 av 30** aktier gick upp. Bäst gick Lifco B (+3,5 %), H&M B (+3,5 %), Nordea (+3,3 %); sämst Saab B (−2,4 %), ABB (−2,1 %), Nibe B (−2,0 %).",
      "explain": "Index är ett snitt av de 30 största bolagen, där stora bolag väger mer. Att jämföra med en \"vanlig\" period visar om något särskilt hände eller om det bara var normalt brus. Under 1 standardavvikelse är vardag – det händer ungefär två gånger av tre."
     },
     {
      "id": "varfor",
      "title": "Varför?",
      "bullets": [
-      "**Största bidragen till indexet** kom från EQT (−1,6 %), Ericsson B (−1,5 %), Boliden (−3,3 %). De tre flyttade index ungefär −0,12 procentenheter av totalt −0,08. Stora bolag väger tyngst i indexet.",
-      "**Sektorer:** bäst gick industri (+0,5 %), sämst råvaror & material (−1,7 %).",
-      "**Riskaptit:** konjunkturkänsliga sektorer (industri, råvaror, banker) gick sämre än defensiva (hälsovård, dagligvaror, telekom) med 0,4 procentenheter. Det mönstret brukar betyda att investerarna söker trygghet.",
-      "**Omvärlden** samma period: S&P 500 −0,5 % (gårdagens handel i USA), Euro Stoxx 50 −0,5 %, dollarn föll 0,3 % mot kronan (starkare krona), oljan −1,1 %, USA:s 10-årsränta −3 punkter.",
-      "**Teman i nyheterna:** räntor och inflation, bolagsrapporter.",
-      "Boliden (−3,3 %) – i nyheterna under perioden: ”Så löste Jimmy i Boliden fågelspaningen på distans” (SVT Nyheter)."
+      "**Största bidragen till indexet** kom från AstraZeneca (+1,7 %), Nordea (+3,3 %), Investor B (+1,4 %). De tre flyttade index ungefär 0,64 procentenheter av totalt 0,83. Stora bolag väger tyngst i indexet.",
+      "**Sektorer:** bäst gick råvaror & material (+2,5 %), sämst industri (−0,7 %).",
+      "**Omvärlden** samma period: S&P 500 +0,4 % (gårdagens handel i USA), Euro Stoxx 50 +2,0 %, dollarn föll 0,6 % mot kronan (starkare krona), oljan −9,1 %, USA:s 10-årsränta +6 punkter.",
+      "**Teman i nyheterna:** räntor och inflation, olja och energi.",
+      "H&M B (+3,5 %) – i nyheterna under perioden: ”Stockholmsbörsen vänder upp – utdelningspress på H&M” (EFN).",
+      "Saab B (−2,4 %) – i nyheterna under perioden: ”Saab har testat AI-pilot i Gripen E” (Affärsvärlden)."
      ],
      "explain": "Börsen rör sig av många skäl samtidigt, och ingen vet exakt varför. Här visas det som syns i datan: vilka bolag som flyttade index mest, vilka branscher som drog och vad som hände i omvärlden. Nyheter visas som \"i nyheterna\" – att två saker händer samtidigt betyder inte att den ena orsakade den andra."
     },
@@ -382,7 +382,8 @@
      "id": "problem",
      "title": "Problem och risker",
      "bullets": [
-      "**Ingenting sticker ut som särskilt oroande** i datan just nu – men lugna perioder kan ta slut snabbt."
+      "**Koncentration:** tre bolag stod för ungefär 75 % av rörelsen. Indexet säger då mindre om hur börsen i stort gick.",
+      "**Starkare krona:** exportbolag som säljer i dollar och euro får mindre kvar räknat i kronor. Många OMXS30-bolag är stora exportörer."
      ],
      "explain": "Det här är saker i datan som kan vara svagheter eller risker. Det betyder inte att börsen kommer att falla – bara att det finns mer att vara uppmärksam på."
     },
@@ -390,7 +391,9 @@
      "id": "fordelar",
      "title": "Det som ser bra ut",
      "bullets": [
-      "**Nära toppen:** index är bara 1,5 % från sin högsta nivå det senaste året."
+      "**Bred uppgång:** 23 av 30 aktier steg – det är inte bara några få bolag som drar.",
+      "**Nära toppen:** index är bara 0,7 % från sin högsta nivå det senaste året.",
+      "**Billigare olja** (−9,1 %): lägre kostnader för industri och transporter, och mindre tryck på inflationen."
      ],
      "explain": "Ljuspunkter i datan. Precis som riskerna säger de något om läget just nu, inte om vad som händer i morgon."
     },
@@ -398,7 +401,7 @@
      "id": "framtid",
      "title": "Framtidspaning",
      "bullets": [
-      "**Vad historiken säger:** sedan 2010 har dagen efter en normal dag (844 tillfällen) slutat plus i **54 %** av fallen, med en mittenavkastning på +0,1 %. Det kan jämföras med 53 % och +0,1 % för alla perioder. Skillnaden är liten – **historiken ger ingen tydlig riktning**.",
+      "**Vad historiken säger:** sedan 2010 har dagen efter en mycket stark dag (845 tillfällen) slutat plus i **49 %** av fallen, med en mittenavkastning på −0,0 %. Det kan jämföras med 53 % och +0,1 % för alla perioder. Skillnaden är liten – **historiken ger ingen tydlig riktning**.",
       "**Svängningar:** de senaste veckornas svängningar är ungefär normala. Volatilitet är trögrörlig: när den legat på den här nivån har den nästa månad i snitt legat runt 16 % per år (normalt 15 %). Det säger något om *hur mycket* börsen kan röra sig – inte åt vilket håll.",
       "**Att hålla koll på:** nyheter om räntor och inflation, kronans utveckling (viktigt för exportbolagen), räntorna i USA och besked från Riksbanken.",
       "**Rapportsäsong för tredje kvartalet** (mitten av oktober–början av november): bolagens besked om framtiden brukar väga tyngre än själva siffrorna.",
@@ -410,245 +413,245 @@
   },
   "week": {
    "label": "Veckan",
-   "from": "2026-10-27",
-   "to": "2026-11-03",
+   "from": "2026-10-28",
+   "to": "2026-11-04",
    "days": 5,
-   "headline": "OMXS30 steg 0,9 % den här veckan – hälsovård ledde",
+   "headline": "OMXS30 steg 1,4 % den här veckan – hälsovård ledde",
    "stats": {
-    "ret": 0.008565598562896293,
-    "z": 0.3968832328448021,
-    "sigma": 0.02158216284799766,
+    "ret": 0.013570590862551635,
+    "z": 0.6287718728267188,
+    "sigma": 0.021582693897459867,
     "up": 21,
     "total": 30,
-    "vol": 0.1640036551707623,
-    "volPct": 0.6301587301587301,
-    "corr": 0.21369655243817862,
-    "corrPct": 0.38461538461538464,
-    "drawdown": -0.015436609034832904,
-    "cycMinusDef": -0.03679579411816008
+    "vol": 0.16429825825975478,
+    "volPct": 0.6333333333333333,
+    "corr": 0.21940575098327103,
+    "corrPct": 0.46153846153846156,
+    "drawdown": -0.007275370878234377,
+    "cycMinusDef": -0.033908854675354226
    },
    "contrib": [
     {
-     "ticker": "ERIC-B.ST",
-     "name": "Ericsson B",
-     "ret": -0.028998640688717603,
-     "c": -0.0007344668528534784
-    },
-    {
-     "ticker": "EPI-A.ST",
-     "name": "Epiroc A",
-     "ret": -0.025396825396825418,
-     "c": -0.0005504044876593365
-    },
-    {
-     "ticker": "ALFA.ST",
-     "name": "Alfa Laval",
-     "ret": -0.01842485549132955,
-     "c": -0.00030186706406239925
-    },
-    {
-     "ticker": "VOLV-B.ST",
-     "name": "Volvo B",
-     "ret": -0.0058083252662147755,
-     "c": -0.0002654455946153572
-    },
-    {
-     "ticker": "NDA-SE.ST",
-     "name": "Nordea",
-     "ret": -0.005154639175257714,
-     "c": -0.00022165490591418097
-    },
-    {
-     "ticker": "BOL.ST",
-     "name": "Boliden",
-     "ret": -0.01733648542159183,
-     "c": -0.000179121349382412
-    },
-    {
-     "ticker": "SCA-B.ST",
-     "name": "SCA B",
-     "ret": -0.027688603531300093,
-     "c": -0.0001718590228346375
-    },
-    {
-     "ticker": "LIFCO-B.ST",
-     "name": "Lifco B",
-     "ret": -0.014114326040931546,
-     "c": -0.0001306616675888433
-    },
-    {
-     "ticker": "HEXA-B.ST",
-     "name": "Hexagon B",
-     "ret": -0.0031919744642043835,
-     "c": -6.831596029335582e-05
-    },
-    {
-     "ticker": "SKF-B.ST",
-     "name": "SKF B",
-     "ret": 0.00036310820624563256,
-     "c": 3.322790722819457e-06
-    },
-    {
-     "ticker": "SAAB-B.ST",
-     "name": "Saab B",
-     "ret": 0.00136986301369868,
-     "c": 3.543757601904775e-05
-    },
-    {
-     "ticker": "SEB-A.ST",
-     "name": "SEB A",
-     "ret": 0.0023980815347721673,
-     "c": 7.108106860367357e-05
-    },
-    {
-     "ticker": "TEL2-B.ST",
-     "name": "Tele2 B",
-     "ret": 0.009844395046046506,
-     "c": 7.918934155698311e-05
-    },
-    {
-     "ticker": "NIBE-B.ST",
-     "name": "Nibe B",
-     "ret": 0.012101210121012063,
-     "c": 8.186352391940588e-05
-    },
-    {
-     "ticker": "HM-B.ST",
-     "name": "H&M B",
-     "ret": 0.0045300113250283935,
-     "c": 9.358068060096366e-05
-    },
-    {
-     "ticker": "ADDT-B.ST",
-     "name": "Addtech B",
-     "ret": 0.022639068564036302,
-     "c": 0.00014103220626774824
-    },
-    {
-     "ticker": "SKA-B.ST",
-     "name": "Skanska B",
-     "ret": 0.025216138328530313,
-     "c": 0.00021676896694590585
-    },
-    {
-     "ticker": "INDU-C.ST",
-     "name": "Industrivärden C",
-     "ret": 0.013942680092951187,
-     "c": 0.00022999962054545965
-    },
-    {
-     "ticker": "SHB-A.ST",
-     "name": "Handelsbanken A",
-     "ret": 0.010693454309786077,
-     "c": 0.00024387429609384076
-    },
-    {
-     "ticker": "EVO.ST",
-     "name": "Evolution",
-     "ret": 0.024867213906325514,
-     "c": 0.00027755855711482835
-    },
-    {
-     "ticker": "ESSITY-B.ST",
-     "name": "Essity B",
-     "ret": 0.022950819672131084,
-     "c": 0.0003164646357972814
-    },
-    {
-     "ticker": "SWED-A.ST",
-     "name": "Swedbank A",
-     "ret": 0.011091049780758366,
-     "c": 0.0003563803314821054
-    },
-    {
-     "ticker": "TELIA.ST",
-     "name": "Telia",
-     "ret": 0.034824820599409056,
-     "c": 0.0004897509616691921
-    },
-    {
      "ticker": "ABB.ST",
      "name": "ABB",
-     "ret": 0.005805852299117564,
-     "c": 0.0006625837186418491
+     "ret": -0.030427819720887705,
+     "c": -0.003371648923010698
     },
     {
      "ticker": "ATCO-A.ST",
      "name": "Atlas Copco A",
-     "ret": 0.010712372790573133,
-     "c": 0.000719372078873579
+     "ret": -0.008797653958944274,
+     "c": -0.0005775189491127101
+    },
+    {
+     "ticker": "SAAB-B.ST",
+     "name": "Saab B",
+     "ret": -0.019841269841269882,
+     "c": -0.0004971537452155549
+    },
+    {
+     "ticker": "ERIC-B.ST",
+     "name": "Ericsson B",
+     "ret": -0.018289894833104725,
+     "c": -0.00046051060820012906
+    },
+    {
+     "ticker": "EPI-A.ST",
+     "name": "Epiroc A",
+     "ret": -0.018159806295399483,
+     "c": -0.00038685791359402985
+    },
+    {
+     "ticker": "ALFA.ST",
+     "name": "Alfa Laval",
+     "ret": -0.015947807176513118,
+     "c": -0.0002590698126001058
+    },
+    {
+     "ticker": "SKF-B.ST",
+     "name": "SKF B",
+     "ret": -0.0132854578096947,
+     "c": -0.00012032684484765741
+    },
+    {
+     "ticker": "NIBE-B.ST",
+     "name": "Nibe B",
+     "ret": -0.012053473591935204,
+     "c": -7.92910043061366e-05
+    },
+    {
+     "ticker": "VOLV-B.ST",
+     "name": "Volvo B",
+     "ret": -0.0006416426050689372,
+     "c": -2.9417660218665606e-05
+    },
+    {
+     "ticker": "HEXA-B.ST",
+     "name": "Hexagon B",
+     "ret": 0.0013704888076746524,
+     "c": 2.9184525979009496e-05
     },
     {
      "ticker": "SAND.ST",
      "name": "Sandvik",
-     "ret": 0.022643645626945874,
-     "c": 0.0007485906787612805
+     "ret": 0.0019369120088545966,
+     "c": 6.367845695137886e-05
     },
     {
-     "ticker": "EQT.ST",
-     "name": "EQT",
-     "ret": 0.03291639236339705,
-     "c": 0.0009387611336185083
+     "ticker": "TEL2-B.ST",
+     "name": "Tele2 B",
+     "ret": 0.008178672538534215,
+     "c": 6.579386868370906e-05
+    },
+    {
+     "ticker": "SCA-B.ST",
+     "name": "SCA B",
+     "ret": 0.011002444987775029,
+     "c": 6.938376174953426e-05
+    },
+    {
+     "ticker": "ADDT-B.ST",
+     "name": "Addtech B",
+     "ret": 0.029677419354838586,
+     "c": 0.00018518717494435993
+    },
+    {
+     "ticker": "SKA-B.ST",
+     "name": "Skanska B",
+     "ret": 0.02947519769949669,
+     "c": 0.0002530098097231367
+    },
+    {
+     "ticker": "BOL.ST",
+     "name": "Boliden",
+     "ret": 0.024849699398797442,
+     "c": 0.0002611955328136699
+    },
+    {
+     "ticker": "INDU-C.ST",
+     "name": "Industrivärden C",
+     "ret": 0.018007662835249016,
+     "c": 0.00029914667547713763
+    },
+    {
+     "ticker": "EVO.ST",
+     "name": "Evolution",
+     "ret": 0.028915662650602414,
+     "c": 0.0003221327043182681
+    },
+    {
+     "ticker": "LIFCO-B.ST",
+     "name": "Lifco B",
+     "ret": 0.03507516105941311,
+     "c": 0.00033349063246315496
+    },
+    {
+     "ticker": "TELIA.ST",
+     "name": "Telia",
+     "ret": 0.03270833333333334,
+     "c": 0.0004614513008561111
+    },
+    {
+     "ticker": "ESSITY-B.ST",
+     "name": "Essity B",
+     "ret": 0.04553734061930781,
+     "c": 0.0006368005545799277
+    },
+    {
+     "ticker": "SHB-A.ST",
+     "name": "Handelsbanken A",
+     "ret": 0.027617212588310958,
+     "c": 0.0006411896180956971
+    },
+    {
+     "ticker": "HM-B.ST",
+     "name": "H&M B",
+     "ret": 0.04303800404804292,
+     "c": 0.0008943754594203709
+    },
+    {
+     "ticker": "SWED-A.ST",
+     "name": "Swedbank A",
+     "ret": 0.02785586506516724,
+     "c": 0.0009112503708613203
+    },
+    {
+     "ticker": "SEB-A.ST",
+     "name": "SEB A",
+     "ret": 0.03023032629558542,
+     "c": 0.0009133612818842058
+    },
+    {
+     "ticker": "NDA-SE.ST",
+     "name": "Nordea",
+     "ret": 0.025135675521279488,
+     "c": 0.001107993646404517
     },
     {
      "ticker": "ASSA-B.ST",
      "name": "Assa Abloy B",
-     "ret": 0.029635457644899166,
-     "c": 0.0009427303877596639
+     "ret": 0.04235294117647048,
+     "c": 0.0013576236089801533
     },
     {
      "ticker": "INVE-B.ST",
      "name": "Investor B",
-     "ret": 0.011686931885255492,
-     "c": 0.0011191842135264078
+     "ret": 0.016853932584269593,
+     "c": 0.001623548764773603
+    },
+    {
+     "ticker": "EQT.ST",
+     "name": "EQT",
+     "ret": 0.059622391520371076,
+     "c": 0.0017200361809036578
     },
     {
      "ticker": "AZN.ST",
      "name": "AstraZeneca",
-     "ret": 0.06654888103651357,
-     "c": 0.013634740371083993
+     "ret": 0.08959195742164394,
+     "c": 0.01853054498186865
     }
    ],
    "sectors": [
     {
      "id": "halsovard",
      "name": "Hälsovård",
-     "ret": 0.06654888103651357
-    },
-    {
-     "id": "telekom",
-     "name": "Telekom & kommunikation",
-     "ret": 0.025735314099926087
+     "ret": 0.08959195742164394
     },
     {
      "id": "dagligvaror",
      "name": "Dagligvaror",
-     "ret": 0.02295081967213108
+     "ret": 0.0455373406193078
     },
     {
      "id": "sallanskop",
      "name": "Sällanköpsvaror",
-     "ret": 0.011663870141395442
+     "ret": 0.03810938463191129
     },
     {
      "id": "finans",
      "name": "Finans",
-     "ret": 0.010201340135556076
+     "ret": 0.026529827066689306
     },
     {
-     "id": "industri",
-     "name": "Industri",
-     "ret": 0.005819811691479746
-    },
-    {
-     "id": "it",
-     "name": "Informationsteknik",
-     "ret": -0.017179157791160155
+     "id": "telekom",
+     "name": "Telekom & kommunikation",
+     "ret": 0.02380056664307242
     },
     {
      "id": "material",
      "name": "Råvaror & material",
-     "ret": -0.021221512029643914
+     "ret": 0.019657182402418653
+    },
+    {
+     "id": "industri",
+     "name": "Industri",
+     "ret": -0.008025326557070583
+    },
+    {
+     "id": "it",
+     "name": "Informationsteknik",
+     "ret": -0.009281140275352522
     }
    ],
    "global": [
@@ -656,64 +659,64 @@
      "ticker": "^GSPC",
      "label": "S&P 500",
      "desc": "USA:s storbolagsindex",
-     "level": 7572.4599609375,
-     "chg": -0.019441656284172493,
+     "level": 7703.16015625,
+     "chg": -0.00527116861377519,
      "isRate": false
     },
     {
      "ticker": "^STOXX50E",
      "label": "Euro Stoxx 50",
      "desc": "Europas storbolagsindex",
-     "level": 6144.56005859375,
-     "chg": -0.0032653520296769267,
+     "level": 6265.7099609375,
+     "chg": 0.015872716801216047,
      "isRate": false
     },
     {
      "ticker": "^VIX",
      "label": "VIX",
      "desc": "\"rädsloindex\" – förväntade svängningar i USA",
-     "level": 20.809999465942383,
-     "chg": 0.18778532661058267,
+     "level": 17.079999923706055,
+     "chg": 0.010053227547483612,
      "isRate": false
     },
     {
      "ticker": "SEK=X",
      "label": "USD/SEK",
      "desc": "kronor per dollar",
-     "level": 9.789730072021484,
-     "chg": -0.016412957857518506,
+     "level": 9.72616958618164,
+     "chg": -0.022693896544365266,
      "isRate": false
     },
     {
      "ticker": "EURSEK=X",
      "label": "EUR/SEK",
      "desc": "kronor per euro",
-     "level": 10.960200309753418,
-     "chg": -0.014444000897004372,
+     "level": 10.929670333862305,
+     "chg": -0.012982402623368028,
      "isRate": false
     },
     {
      "ticker": "BZ=F",
      "label": "Brentolja",
      "desc": "dollar per fat",
-     "level": 103.62000274658203,
-     "chg": -0.09009479060667958,
+     "level": 94.12999725341797,
+     "chg": -0.1837495880808374,
      "isRate": false
     },
     {
      "ticker": "^TNX",
      "label": "USA 10 år",
      "desc": "amerikansk 10-årsränta, %",
-     "level": 4.958000183105469,
-     "chg": -0.034999847412109375,
+     "level": 4.900000095367432,
+     "chg": -0.14499998092651367,
      "isRate": true
     },
     {
      "ticker": "GC=F",
      "label": "Guld",
      "desc": "dollar per uns",
-     "level": 3938.699951171875,
-     "chg": -0.03335300231366167,
+     "level": 4075.89990234375,
+     "chg": 0.0059975822148776725,
      "isRate": false
     }
    ],
@@ -724,64 +727,64 @@
     "median": 0.0018187204766526577,
     "p10": -0.02697702047823216,
     "p90": 0.02470951322442772,
-    "allHit": 0.5611954459203036,
-    "allMedian": 0.0029170117189517564
+    "allHit": 0.5612995020156509,
+    "allMedian": 0.0029329822043142606
    },
    "news": [
     {
-     "t": "2026-11-03T17:03+00:00",
-     "title": "Oljepriset dyker – Stockholmsbörsen lyfter",
+     "t": "2026-11-04T16:51+00:00",
+     "title": "Stockholmsbörsen vänder upp – utdelningspress på H&M",
      "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAzaUYxekpNUXJibEptNUFwR2pSdHo1UVFXbDJNcWVuM1hVV29EREplSHZqTkFXdTJSaUQ5VlBzM2ZsaTl4ZzVyMlVhOHdmNkdmUVR0Z3hrNW00dGdtZHBxY0wtZnMyZw?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE83ZjRiVDI2aV9Ka3lMZnhuMDZCOW9nNFpQTDFzQUp1SWJJRWQzZktManZoRmhNM21QaTdKT1pUeERFVXdUc2xHejZWRGw4b1ZmWEhTdU90dVNaUlI0MUFza2VnWUU4NHRHcUtocnJ3dnVBNkNNc3BoQXJqNA?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:46+00:00",
-     "title": "Blandad utveckling på Stockholmsbörsen – OMXS30 backade",
+     "t": "2026-11-04T16:47+00:00",
+     "title": "Stockholmsbörsen steg efter mellanårsvalet",
      "source": "Affärsvärlden",
-     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOclZoeGYyVFdCSGEyWHNkUGlhQWtSd1ZRVzVkUGJaSmwzQktGclBaVkQ2QXhzVXoxVkNORmtqa1ZSbmZ0dFhkLU0wdElmV00zVDRobEtjYkVSb2cxVEZBbzk0dXlFSlVOZlN1QlhPWmJFdXZwT1dONDRQaXRZOUFxR3JqZDNfTkRwZUdTR2V1VFZ4eEl5?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNazJ2djVfTmNIbEw2TXNaa1VVZEJJWGxDSXZFS1ZGTjRNS2t4TEpvSVdWUThWT2NabVFvSXVmaDh0VEdybzQ4SjNEZnZ1dk5ueFVqOWVNc3MxYzdiYWZmbElfSC1qTGwzUDN4VHRGWHlaaXZCeWRLSmlSSlRsSG9JakQtcFVndw?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:45+00:00",
-     "title": "Oregelbunden avslutning på Stockholmsbörsen",
-     "source": "Placera.se",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOYzdsZGpQbW5GYVlVR0J3MmNXLUpodHhNcEtnblZLSmZmSnJOazFwemlkX29GbzljS0Y4WGp4Y2NyTlJQZjJsVklpMWoxT3ktcnh0VzRmWXVaOXdDMkJkTWQ1QTQwbU5QTWtCSk51d2ludXQ0aFFRaDlORlc2Q2JGYlRqbldzd0l1X08zc0NR?oc=5",
+     "t": "2026-11-04T16:33+00:00",
+     "title": "Vallyft på Stockholmsbörsen – banker i topp",
+     "source": "DI",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1VTUF5WVRKOEx3QnRLRlNXYlJRV21YT0paUnNCTi1ZQTZqSTN6UUNIT1M0WURyOTRoTzZZaWhYdVM5U1BoS1dueVgtZnYxanJHMjBZbFRhajVvV3ZnMDd3YmpNZzlKeXZaNG5PU0FHcXhLZlU?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:40+00:00",
-     "title": "Stockholmsbörsen stänger på rött efter slagig dag",
-     "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpeDBVdnhya0sxYlhfNzFPN1NSNTkxYWl3Z0M5OUlTNEp1dVo2aFkzVV9scDVPdEt6OVFaZVYxLUt2WFM1bnJ5OVB1UTFsUmFfMUp3N0RYQWQ5Yno1OV95VFh4WERIYnlXb0ZkdUJNRUlhQQ?oc=5",
+     "t": "2026-11-04T16:02+00:00",
+     "title": "Stockholmsbörsen steg efter USA-valet",
+     "source": "Göteborgs-Posten",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVJZVURZdHdKamM1U0kwQVpNTXRqdDRYUGZTcHZ4TkR5aWxZR0J0S28ySW1XTmRMdmtHVlRZdzJNVG5adnJiU1JXRTlSV2xxWVJkc2I2WHljYjhDUDR6ZUxUN1kzbGpNVDR3SUJUVy1tblMwaUhaOUZadC12VnhRby14ZXdUaVNSZEZzNzNPTjB5RXN1d0o1SHJIT1Z3eU0?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:24+00:00",
-     "title": "Återhämtning på Stockholmsbörsen – men flera tunga rapportras",
-     "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBNQmFpcTBERXpzdUdSX2NMYU1lUzhrOG9YTEdyRmZBZ0wtNmxlM3pfMTlNZHpUdEN1bE0wRmdRelpjN3l4c1RXQ0pyYnpVR25QLVVCSEJ5MjJqNG9PcU9jVEFzSGgtcTh2bmQzRklWaFJoOUw0Y0swVG16c0h5WDQ?oc=5",
-     "kind": "borsen"
+     "t": "2026-11-04T15:33+00:00",
+     "title": "Kommentar: Riksbanken skickar en joker till nästa regering",
+     "source": "DI",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9ZN1k3TzNibDFVemZ6V3dkdmhFMUZUSVp5dWZkdHlsdWdzTHFCaHZQTVJTWnBrMEhiN3dMd0IxMmM0WlRWUWtTd3RCYjNZanpBa3piNzNtSjFveGdQOEsxYXI5Nm9EWUY0NmZCZU5yTQ?oc=5",
+     "kind": "makro"
     }
    ],
    "sections": [
     {
      "id": "vad",
      "title": "Vad hände?",
-     "text": "[[index|OMXS30]] steg 0,9 % den här veckan (27 oktober–3 november) och står på 3284 punkter. En vanlig vecka rör sig index ungefär ±2,2 %, så rörelsen var inom det normala (0,4 [[sigma-move|standardavvikelser]]). **21 av 30** aktier gick upp. Bäst gick AstraZeneca (+6,7 %), Telia (+3,5 %), EQT (+3,3 %); sämst Ericsson B (−2,9 %), SCA B (−2,8 %), Epiroc A (−2,5 %).",
+     "text": "[[index|OMXS30]] steg 1,4 % den här veckan (28 oktober–4 november) och står på 3312 punkter. En vanlig vecka rör sig index ungefär ±2,2 %, så rörelsen var inom det normala (0,6 [[sigma-move|standardavvikelser]]). **21 av 30** aktier gick upp. Bäst gick AstraZeneca (+9,0 %), EQT (+6,0 %), Essity B (+4,6 %); sämst ABB (−3,0 %), Saab B (−2,0 %), Ericsson B (−1,8 %).",
      "explain": "Index är ett snitt av de 30 största bolagen, där stora bolag väger mer. Att jämföra med en \"vanlig\" period visar om något särskilt hände eller om det bara var normalt brus. Under 1 standardavvikelse är vardag – det händer ungefär två gånger av tre."
     },
     {
      "id": "varfor",
      "title": "Varför?",
      "bullets": [
-      "**Största bidragen till indexet** kom från AstraZeneca (+6,7 %), Investor B (+1,2 %), Assa Abloy B (+3,0 %). De tre flyttade index ungefär 1,57 procentenheter av totalt 0,86 – övriga bolag drog tillsammans åt andra hållet (−0,71). Stora bolag väger tyngst i indexet.",
-      "**Sektorer:** bäst gick hälsovård (+6,7 %), sämst råvaror & material (−2,1 %).",
-      "**Riskaptit:** konjunkturkänsliga sektorer (industri, råvaror, banker) gick sämre än defensiva (hälsovård, dagligvaror, telekom) med 3,7 procentenheter. Det mönstret brukar betyda att investerarna söker trygghet.",
-      "**Omvärlden** samma period: S&P 500 −1,9 %, Euro Stoxx 50 −0,3 %, dollarn föll 1,6 % mot kronan (starkare krona), oljan −9,0 %, USA:s 10-årsränta −3 punkter.",
-      "**Teman i nyheterna:** räntor och inflation, bolagsrapporter.",
-      "AstraZeneca (+6,7 %) – i nyheterna under perioden: ”AstraZeneca och Loomis mot strömmen på röd börs” (Placera.se).",
-      "Telia (+3,5 %) – i nyheterna under perioden: ”Telia köpstämplas – dagens aktierekommendationer” (Placera.se)."
+      "**Största bidragen till indexet** kom från AstraZeneca (+9,0 %), EQT (+6,0 %), Investor B (+1,7 %). De tre flyttade index ungefär 2,19 procentenheter av totalt 1,36 – övriga bolag drog tillsammans åt andra hållet (−0,83). Stora bolag väger tyngst i indexet.",
+      "**Sektorer:** bäst gick hälsovård (+9,0 %), sämst informationsteknik (−0,9 %).",
+      "**Riskaptit:** konjunkturkänsliga sektorer (industri, råvaror, banker) gick sämre än defensiva (hälsovård, dagligvaror, telekom) med 3,4 procentenheter. Det mönstret brukar betyda att investerarna söker trygghet.",
+      "**Omvärlden** samma period: S&P 500 −0,5 %, Euro Stoxx 50 +1,6 %, dollarn föll 2,3 % mot kronan (starkare krona), oljan −18,4 %, USA:s 10-årsränta −14 punkter.",
+      "**Teman i nyheterna:** räntor och inflation, bolagsrapporter, olja och energi.",
+      "AstraZeneca (+9,0 %) – i nyheterna under perioden: ”AstraZeneca och Loomis mot strömmen på röd börs” (Placera.se).",
+      "ABB (−3,0 %) – i nyheterna under perioden: ”Efter fallet: SEB sätter köpstämpel på ABB” (EFN)."
      ],
      "explain": "Börsen rör sig av många skäl samtidigt, och ingen vet exakt varför. Här visas det som syns i datan: vilka bolag som flyttade index mest, vilka branscher som drog och vad som hände i omvärlden. Nyheter visas som \"i nyheterna\" – att två saker händer samtidigt betyder inte att den ena orsakade den andra."
     },
@@ -789,7 +792,7 @@
      "id": "problem",
      "title": "Problem och risker",
      "bullets": [
-      "**Koncentration:** tre bolag stod för ungefär 84 % av rörelsen. Indexet säger då mindre om hur börsen i stort gick.",
+      "**Koncentration:** tre bolag stod för ungefär 88 % av rörelsen. Indexet säger då mindre om hur börsen i stort gick.",
       "**Starkare krona:** exportbolag som säljer i dollar och euro får mindre kvar räknat i kronor. Många OMXS30-bolag är stora exportörer."
      ],
      "explain": "Det här är saker i datan som kan vara svagheter eller risker. Det betyder inte att börsen kommer att falla – bara att det finns mer att vara uppmärksam på."
@@ -799,8 +802,8 @@
      "title": "Det som ser bra ut",
      "bullets": [
       "**Bred uppgång:** 21 av 30 aktier steg – det är inte bara några få bolag som drar.",
-      "**Nära toppen:** index är bara 1,5 % från sin högsta nivå det senaste året.",
-      "**Billigare olja** (−9,0 %): lägre kostnader för industri och transporter, och mindre tryck på inflationen."
+      "**Nära toppen:** index är bara 0,7 % från sin högsta nivå det senaste året.",
+      "**Billigare olja** (−18,4 %): lägre kostnader för industri och transporter, och mindre tryck på inflationen."
      ],
      "explain": "Ljuspunkter i datan. Precis som riskerna säger de något om läget just nu, inte om vad som händer i morgon."
     },
@@ -821,245 +824,245 @@
   },
   "month": {
    "label": "Månaden",
-   "from": "2026-10-05",
-   "to": "2026-11-03",
+   "from": "2026-10-06",
+   "to": "2026-11-04",
    "days": 21,
-   "headline": "OMXS30 steg 0,8 % den senaste månaden – hälsovård ledde",
+   "headline": "OMXS30 steg 0,9 % den senaste månaden – hälsovård ledde",
    "stats": {
-    "ret": 0.008243578588969847,
-    "z": 0.18637865451652422,
-    "sigma": 0.04423027202527088,
-    "up": 18,
+    "ret": 0.008751241532018339,
+    "z": 0.1978515121898678,
+    "sigma": 0.04423136035280958,
+    "up": 16,
     "total": 30,
-    "vol": 0.1640036551707623,
-    "volPct": 0.6301587301587301,
-    "corr": 0.21369655243817862,
-    "corrPct": 0.38461538461538464,
-    "drawdown": -0.015436609034832904,
-    "cycMinusDef": -0.10854653007464596
+    "vol": 0.16429825825975478,
+    "volPct": 0.6333333333333333,
+    "corr": 0.21940575098327103,
+    "corrPct": 0.46153846153846156,
+    "drawdown": -0.007275370878234377,
+    "cycMinusDef": -0.11137307101702802
    },
    "contrib": [
     {
      "ticker": "ABB.ST",
      "name": "ABB",
-     "ret": -0.12381145053611164,
-     "c": -0.014129786133058679
+     "ret": -0.14796944109368715,
+     "c": -0.016396212784169542
     },
     {
      "ticker": "ATCO-A.ST",
      "name": "Atlas Copco A",
-     "ret": -0.08950982142426345,
-     "c": -0.006010887370745635
+     "ret": -0.12235520395209254,
+     "c": -0.008031965014155134
     },
     {
      "ticker": "NDA-SE.ST",
      "name": "Nordea",
-     "ret": -0.09789665022072203,
-     "c": -0.004209658922033614
+     "ret": -0.06512112529304503,
+     "c": -0.002870573062988582
     },
     {
      "ticker": "SEB-A.ST",
      "name": "SEB A",
-     "ret": -0.10146173688736027,
-     "c": -0.003007407619701103
+     "ret": -0.0677377333912289,
+     "c": -0.002046587998991537
     },
     {
      "ticker": "EPI-A.ST",
      "name": "Epiroc A",
-     "ret": -0.06989496932849903,
-     "c": -0.0015147761258391898
+     "ret": -0.08921943522620712,
+     "c": -0.0019006394673048966
     },
     {
      "ticker": "LIFCO-B.ST",
      "name": "Lifco B",
-     "ret": -0.13712168004941327,
-     "c": -0.0012693873817199754
-    },
-    {
-     "ticker": "SWED-A.ST",
-     "name": "Swedbank A",
-     "ret": -0.035670356703567,
-     "c": -0.0011461686492613445
+     "ret": -0.1074074074074074,
+     "c": -0.0010212173842010404
     },
     {
      "ticker": "ALFA.ST",
      "name": "Alfa Laval",
-     "ret": -0.042298202326401135,
-     "c": -0.0006930005045302354
-    },
-    {
-     "ticker": "VOLV-B.ST",
-     "name": "Volvo B",
-     "ret": -0.014395393474088247,
-     "c": -0.0006578821958677288
-    },
-    {
-     "ticker": "BOL.ST",
-     "name": "Boliden",
-     "ret": -0.04809160305343507,
-     "c": -0.000496884612042875
-    },
-    {
-     "ticker": "ADDT-B.ST",
-     "name": "Addtech B",
-     "ret": -0.07109283196239713,
-     "c": -0.00044287948124362066
+     "ret": -0.05892547660311953,
+     "c": -0.0009572358138004441
     },
     {
      "ticker": "SAND.ST",
      "name": "Sandvik",
-     "ret": -0.0027601435274634545,
-     "c": -9.1249339913871e-05
+     "ret": -0.0186991869918699,
+     "c": -0.0006147596630327667
+    },
+    {
+     "ticker": "SWED-A.ST",
+     "name": "Swedbank A",
+     "ret": -0.017826617826617874,
+     "c": -0.0005831630813728252
+    },
+    {
+     "ticker": "VOLV-B.ST",
+     "name": "Volvo B",
+     "ret": -0.011111111111111072,
+     "c": -0.0005094158161199221
+    },
+    {
+     "ticker": "ADDT-B.ST",
+     "name": "Addtech B",
+     "ret": -0.07852193995381063,
+     "c": -0.0004899771121381569
+    },
+    {
+     "ticker": "BOL.ST",
+     "name": "Boliden",
+     "ret": -0.02960151802656552,
+     "c": -0.00031114196389097574
     },
     {
      "ticker": "SKF-B.ST",
      "name": "SKF B",
-     "ret": 0.01530924182012705,
-     "c": 0.00014009434603333117
+     "ret": -0.005703455759412113,
+     "c": -5.1656393485926095e-05
     },
     {
      "ticker": "NIBE-B.ST",
      "name": "Nibe B",
-     "ret": 0.0217681030653043,
-     "c": 0.0001472591260003339
+     "ret": -0.005295675198587868,
+     "c": -3.483638154366387e-05
     },
     {
      "ticker": "SCA-B.ST",
      "name": "SCA B",
-     "ret": 0.027565733672603843,
-     "c": 0.0001710963879900345
-    },
-    {
-     "ticker": "TEL2-B.ST",
-     "name": "Tele2 B",
-     "ret": 0.024484536082474362,
-     "c": 0.00019695616456168167
+     "ret": 0.04156171284634769,
+     "c": 0.0002620970143670497
     },
     {
      "ticker": "INDU-C.ST",
      "name": "Industrivärden C",
-     "ret": 0.01748931208705784,
-     "c": 0.0002885051594677298
+     "ret": 0.023497688751925816,
+     "c": 0.00039034801661078165
     },
     {
-     "ticker": "SHB-A.ST",
-     "name": "Handelsbanken A",
-     "ret": 0.015630087919244362,
-     "c": 0.0003564588746315799
+     "ticker": "TEL2-B.ST",
+     "name": "Tele2 B",
+     "ret": 0.05756939206093703,
+     "c": 0.0004631207575082948
     },
     {
      "ticker": "EVO.ST",
      "name": "Evolution",
-     "ret": 0.04222931500122762,
-     "c": 0.00047134784716299866
+     "ret": 0.04759568204121689,
+     "c": 0.0005302360162059161
     },
     {
      "ticker": "SKA-B.ST",
      "name": "Skanska B",
-     "ret": 0.07843880257673375,
-     "c": 0.0006742942944516847
+     "ret": 0.08525956801818868,
+     "c": 0.0007318528378090266
     },
     {
-     "ticker": "ESSITY-B.ST",
-     "name": "Essity B",
-     "ret": 0.09644670050761417,
-     "c": 0.0013298858335353515
-    },
-    {
-     "ticker": "SAAB-B.ST",
-     "name": "Saab B",
-     "ret": 0.053145509844725325,
-     "c": 0.001374844072991208
+     "ticker": "SHB-A.ST",
+     "name": "Handelsbanken A",
+     "ret": 0.04677788681714112,
+     "c": 0.0010860435421459324
     },
     {
      "ticker": "HEXA-B.ST",
      "name": "Hexagon B",
-     "ret": 0.06999510523739594,
-     "c": 0.0014980642494955194
+     "ret": 0.0594490091831803,
+     "c": 0.0012659652112567842
+    },
+    {
+     "ticker": "ESSITY-B.ST",
+     "name": "Essity B",
+     "ret": 0.10342176086120713,
+     "c": 0.0014462644013982049
+    },
+    {
+     "ticker": "SAAB-B.ST",
+     "name": "Saab B",
+     "ret": 0.07158351409978314,
+     "c": 0.0017936358113720388
     },
     {
      "ticker": "TELIA.ST",
      "name": "Telia",
-     "ret": 0.1250341319247652,
-     "c": 0.001758389140206095
+     "ret": 0.1491641494168403,
+     "c": 0.002104417552799886
     },
     {
      "ticker": "HM-B.ST",
      "name": "H&M B",
-     "ret": 0.11537252436340761,
-     "c": 0.0023833581370817595
+     "ret": 0.14486906415468126,
+     "c": 0.003010533101500419
     },
     {
      "ticker": "EQT.ST",
      "name": "EQT",
-     "ret": 0.10726887791107997,
-     "c": 0.003059261547197037
-    },
-    {
-     "ticker": "ASSA-B.ST",
-     "name": "Assa Abloy B",
-     "ret": 0.11407491486946664,
-     "c": 0.0036288249709905515
+     "ret": 0.10922330097087385,
+     "c": 0.0031509643386821223
     },
     {
      "ticker": "ERIC-B.ST",
      "name": "Ericsson B",
-     "ret": 0.15463362068965525,
-     "c": 0.00391650318897386
+     "ret": 0.1451888201408149,
+     "c": 0.003655624730323073
+    },
+    {
+     "ticker": "ASSA-B.ST",
+     "name": "Assa Abloy B",
+     "ret": 0.12850268893291816,
+     "c": 0.004119153935162455
     },
     {
      "ticker": "INVE-B.ST",
      "name": "Investor B",
-     "ret": 0.06116889549281823,
-     "c": 0.005857761717665062
+     "ret": 0.05693430656934306,
+     "c": 0.005484513637498004
     },
     {
      "ticker": "AZN.ST",
      "name": "AstraZeneca",
-     "ret": 0.160897435897436,
-     "c": 0.03296516381140944
+     "ret": 0.16356173034417432,
+     "c": 0.03382991162020063
     }
    ],
    "sectors": [
     {
      "id": "halsovard",
      "name": "Hälsovård",
-     "ret": 0.160897435897436
-    },
-    {
-     "id": "it",
-     "name": "Informationsteknik",
-     "ret": 0.11586908298612238
-    },
-    {
-     "id": "dagligvaror",
-     "name": "Dagligvaror",
-     "ret": 0.09644670050761417
-    },
-    {
-     "id": "sallanskop",
-     "name": "Sällanköpsvaror",
-     "ret": 0.08971543967440374
+     "ret": 0.16356173034417432
     },
     {
      "id": "telekom",
      "name": "Telekom & kommunikation",
-     "ret": 0.08844763731215183
+     "ret": 0.11590218401899681
+    },
+    {
+     "id": "sallanskop",
+     "name": "Sällanköpsvaror",
+     "ret": 0.11092118920498617
+    },
+    {
+     "id": "it",
+     "name": "Informationsteknik",
+     "ret": 0.10590123924421024
+    },
+    {
+     "id": "dagligvaror",
+     "name": "Dagligvaror",
+     "ret": 0.10342176086120713
     },
     {
      "id": "finans",
      "name": "Finans",
-     "ret": 0.0044669648347773604
+     "ret": 0.016953239359392917
     },
     {
      "id": "material",
      "name": "Råvaror & material",
-     "ret": -0.019698305840242753
+     "ret": -0.0029163517938504903
     },
     {
      "id": "industri",
      "name": "Industri",
-     "ret": -0.04761452067791951
+     "ret": -0.05993612720613631
     }
    ],
    "global": [
@@ -1067,132 +1070,132 @@
      "ticker": "^GSPC",
      "label": "S&P 500",
      "desc": "USA:s storbolagsindex",
-     "level": 7572.4599609375,
-     "chg": -0.025918642300602035,
+     "level": 7703.16015625,
+     "chg": -0.014806375927213455,
      "isRate": false
     },
     {
      "ticker": "^STOXX50E",
      "label": "Euro Stoxx 50",
      "desc": "Europas storbolagsindex",
-     "level": 6144.56005859375,
-     "chg": -0.01563247155426628,
+     "level": 6265.7099609375,
+     "chg": -0.001039505813969277,
      "isRate": false
     },
     {
      "ticker": "^VIX",
      "label": "VIX",
      "desc": "\"rädsloindex\" – förväntade svängningar i USA",
-     "level": 20.809999465942383,
-     "chg": 0.34085044150449484,
+     "level": 17.079999923706055,
+     "chg": 0.13790803885806624,
      "isRate": false
     },
     {
      "ticker": "SEK=X",
      "label": "USD/SEK",
      "desc": "kronor per dollar",
-     "level": 9.789730072021484,
-     "chg": -0.02441130055829921,
+     "level": 9.72616958618164,
+     "chg": -0.030911524667712298,
      "isRate": false
     },
     {
      "ticker": "EURSEK=X",
      "label": "EUR/SEK",
      "desc": "kronor per euro",
-     "level": 10.960200309753418,
-     "chg": -0.0295297291413672,
+     "level": 10.929670333862305,
+     "chg": -0.029168428996687035,
      "isRate": false
     },
     {
      "ticker": "BZ=F",
      "label": "Brentolja",
      "desc": "dollar per fat",
-     "level": 103.62000274658203,
-     "chg": 0.032894767362405375,
+     "level": 94.12999725341797,
+     "chg": -0.06412810161279237,
      "isRate": false
     },
     {
      "ticker": "^TNX",
      "label": "USA 10 år",
      "desc": "amerikansk 10-årsränta, %",
-     "level": 4.958000183105469,
-     "chg": -0.3529996871948242,
+     "level": 4.900000095367432,
+     "chg": -0.3689999580383301,
      "isRate": true
     },
     {
      "ticker": "GC=F",
      "label": "Guld",
      "desc": "dollar per uns",
-     "level": 3938.699951171875,
-     "chg": -0.05246821202928276,
+     "level": 4075.89990234375,
+     "chg": -0.02655780676816033,
      "isRate": false
     }
    ],
    "baseRates": {
-    "n": 836,
+    "n": 837,
     "bucket": 2,
-    "hit": 0.583732057416268,
-    "median": 0.009162762807013003,
-    "p10": -0.04938584775178334,
-    "p90": 0.051759131444789164,
-    "allHit": 0.5975143403441683,
-    "allMedian": 0.00983617683893645
+    "hit": 0.5842293906810035,
+    "median": 0.009198168416350239,
+    "p10": -0.04938389772263933,
+    "p90": 0.051753421116566355,
+    "allHit": 0.597610513739546,
+    "allMedian": 0.009823630598329691
    },
    "news": [
     {
-     "t": "2026-11-03T17:03+00:00",
-     "title": "Oljepriset dyker – Stockholmsbörsen lyfter",
+     "t": "2026-11-04T16:51+00:00",
+     "title": "Stockholmsbörsen vänder upp – utdelningspress på H&M",
      "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFAzaUYxekpNUXJibEptNUFwR2pSdHo1UVFXbDJNcWVuM1hVV29EREplSHZqTkFXdTJSaUQ5VlBzM2ZsaTl4ZzVyMlVhOHdmNkdmUVR0Z3hrNW00dGdtZHBxY0wtZnMyZw?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE83ZjRiVDI2aV9Ka3lMZnhuMDZCOW9nNFpQTDFzQUp1SWJJRWQzZktManZoRmhNM21QaTdKT1pUeERFVXdUc2xHejZWRGw4b1ZmWEhTdU90dVNaUlI0MUFza2VnWUU4NHRHcUtocnJ3dnVBNkNNc3BoQXJqNA?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:46+00:00",
-     "title": "Blandad utveckling på Stockholmsbörsen – OMXS30 backade",
+     "t": "2026-11-04T16:47+00:00",
+     "title": "Stockholmsbörsen steg efter mellanårsvalet",
      "source": "Affärsvärlden",
-     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOclZoeGYyVFdCSGEyWHNkUGlhQWtSd1ZRVzVkUGJaSmwzQktGclBaVkQ2QXhzVXoxVkNORmtqa1ZSbmZ0dFhkLU0wdElmV00zVDRobEtjYkVSb2cxVEZBbzk0dXlFSlVOZlN1QlhPWmJFdXZwT1dONDRQaXRZOUFxR3JqZDNfTkRwZUdTR2V1VFZ4eEl5?oc=5",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNazJ2djVfTmNIbEw2TXNaa1VVZEJJWGxDSXZFS1ZGTjRNS2t4TEpvSVdWUThWT2NabVFvSXVmaDh0VEdybzQ4SjNEZnZ1dk5ueFVqOWVNc3MxYzdiYWZmbElfSC1qTGwzUDN4VHRGWHlaaXZCeWRLSmlSSlRsSG9JakQtcFVndw?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:45+00:00",
-     "title": "Oregelbunden avslutning på Stockholmsbörsen",
-     "source": "Placera.se",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOYzdsZGpQbW5GYVlVR0J3MmNXLUpodHhNcEtnblZLSmZmSnJOazFwemlkX29GbzljS0Y4WGp4Y2NyTlJQZjJsVklpMWoxT3ktcnh0VzRmWXVaOXdDMkJkTWQ1QTQwbU5QTWtCSk51d2ludXQ0aFFRaDlORlc2Q2JGYlRqbldzd0l1X08zc0NR?oc=5",
+     "t": "2026-11-04T16:33+00:00",
+     "title": "Vallyft på Stockholmsbörsen – banker i topp",
+     "source": "DI",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1VTUF5WVRKOEx3QnRLRlNXYlJRV21YT0paUnNCTi1ZQTZqSTN6UUNIT1M0WURyOTRoTzZZaWhYdVM5U1BoS1dueVgtZnYxanJHMjBZbFRhajVvV3ZnMDd3YmpNZzlKeXZaNG5PU0FHcXhLZlU?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:40+00:00",
-     "title": "Stockholmsbörsen stänger på rött efter slagig dag",
-     "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpeDBVdnhya0sxYlhfNzFPN1NSNTkxYWl3Z0M5OUlTNEp1dVo2aFkzVV9scDVPdEt6OVFaZVYxLUt2WFM1bnJ5OVB1UTFsUmFfMUp3N0RYQWQ5Yno1OV95VFh4WERIYnlXb0ZkdUJNRUlhQQ?oc=5",
+     "t": "2026-11-04T16:02+00:00",
+     "title": "Stockholmsbörsen steg efter USA-valet",
+     "source": "Göteborgs-Posten",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVJZVURZdHdKamM1U0kwQVpNTXRqdDRYUGZTcHZ4TkR5aWxZR0J0S28ySW1XTmRMdmtHVlRZdzJNVG5adnJiU1JXRTlSV2xxWVJkc2I2WHljYjhDUDR6ZUxUN1kzbGpNVDR3SUJUVy1tblMwaUhaOUZadC12VnhRby14ZXdUaVNSZEZzNzNPTjB5RXN1d0o1SHJIT1Z3eU0?oc=5",
      "kind": "borsen"
     },
     {
-     "t": "2026-11-03T16:24+00:00",
-     "title": "Återhämtning på Stockholmsbörsen – men flera tunga rapportras",
-     "source": "EFN",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBNQmFpcTBERXpzdUdSX2NMYU1lUzhrOG9YTEdyRmZBZ0wtNmxlM3pfMTlNZHpUdEN1bE0wRmdRelpjN3l4c1RXQ0pyYnpVR25QLVVCSEJ5MjJqNG9PcU9jVEFzSGgtcTh2bmQzRklWaFJoOUw0Y0swVG16c0h5WDQ?oc=5",
-     "kind": "borsen"
+     "t": "2026-11-04T15:33+00:00",
+     "title": "Kommentar: Riksbanken skickar en joker till nästa regering",
+     "source": "DI",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9ZN1k3TzNibDFVemZ6V3dkdmhFMUZUSVp5dWZkdHlsdWdzTHFCaHZQTVJTWnBrMEhiN3dMd0IxMmM0WlRWUWtTd3RCYjNZanpBa3piNzNtSjFveGdQOEsxYXI5Nm9EWUY0NmZCZU5yTQ?oc=5",
+     "kind": "makro"
     }
    ],
    "sections": [
     {
      "id": "vad",
      "title": "Vad hände?",
-     "text": "[[index|OMXS30]] steg 0,8 % den senaste månaden (5 oktober–3 november) och står på 3284 punkter. En vanlig månad rör sig index ungefär ±4,4 %, så rörelsen var inom det normala (0,2 [[sigma-move|standardavvikelser]]). **18 av 30** aktier gick upp. Bäst gick AstraZeneca (+16,1 %), Ericsson B (+15,5 %), Telia (+12,5 %); sämst Lifco B (−13,7 %), ABB (−12,4 %), SEB A (−10,1 %).",
+     "text": "[[index|OMXS30]] steg 0,9 % den senaste månaden (6 oktober–4 november) och står på 3312 punkter. En vanlig månad rör sig index ungefär ±4,4 %, så rörelsen var inom det normala (0,2 [[sigma-move|standardavvikelser]]). **16 av 30** aktier gick upp. Bäst gick AstraZeneca (+16,4 %), Telia (+14,9 %), Ericsson B (+14,5 %); sämst ABB (−14,8 %), Atlas Copco A (−12,2 %), Lifco B (−10,7 %).",
      "explain": "Index är ett snitt av de 30 största bolagen, där stora bolag väger mer. Att jämföra med en \"vanlig\" period visar om något särskilt hände eller om det bara var normalt brus. Under 1 standardavvikelse är vardag – det händer ungefär två gånger av tre."
     },
     {
      "id": "varfor",
      "title": "Varför?",
      "bullets": [
-      "**Största bidragen till indexet** kom från AstraZeneca (+16,1 %), Investor B (+6,1 %), Ericsson B (+15,5 %). De tre flyttade index ungefär 4,27 procentenheter av totalt 0,82 – övriga bolag drog tillsammans åt andra hållet (−3,45). Stora bolag väger tyngst i indexet.",
-      "**Sektorer:** bäst gick hälsovård (+16,1 %), sämst industri (−4,8 %).",
-      "**Riskaptit:** konjunkturkänsliga sektorer (industri, råvaror, banker) gick sämre än defensiva (hälsovård, dagligvaror, telekom) med 10,9 procentenheter. Det mönstret brukar betyda att investerarna söker trygghet.",
-      "**Omvärlden** samma period: S&P 500 −2,6 %, Euro Stoxx 50 −1,6 %, dollarn föll 2,4 % mot kronan (starkare krona), oljan +3,3 %, USA:s 10-årsränta −35 punkter.",
-      "**Teman i nyheterna:** räntor och inflation, bolagsrapporter.",
-      "AstraZeneca (+16,1 %) – i nyheterna under perioden: ”AstraZeneca och Loomis mot strömmen på röd börs” (Placera.se).",
-      "Ericsson B (+15,5 %) – i nyheterna under perioden: ”Telia och Ericsson inleder 6G-tester i Sverige” (Placera.se)."
+      "**Största bidragen till indexet** kom från AstraZeneca (+16,4 %), Investor B (+5,7 %), Assa Abloy B (+12,9 %). De tre flyttade index ungefär 4,34 procentenheter av totalt 0,88 – övriga bolag drog tillsammans åt andra hållet (−3,47). Stora bolag väger tyngst i indexet.",
+      "**Sektorer:** bäst gick hälsovård (+16,4 %), sämst industri (−6,0 %).",
+      "**Riskaptit:** konjunkturkänsliga sektorer (industri, råvaror, banker) gick sämre än defensiva (hälsovård, dagligvaror, telekom) med 11,1 procentenheter. Det mönstret brukar betyda att investerarna söker trygghet.",
+      "**Omvärlden** samma period: S&P 500 −1,5 %, Euro Stoxx 50 −0,1 %, dollarn föll 3,1 % mot kronan (starkare krona), oljan −6,4 %, USA:s 10-årsränta −37 punkter.",
+      "**Teman i nyheterna:** räntor och inflation, bolagsrapporter, olja och energi.",
+      "AstraZeneca (+16,4 %) – i nyheterna under perioden: ”AstraZeneca och Loomis mot strömmen på röd börs” (Placera.se).",
+      "Telia (+14,9 %) – i nyheterna under perioden: ”Telia och Ericsson ska bygga 5G-nät åt Försvarsmakten” (DI)."
      ],
      "explain": "Börsen rör sig av många skäl samtidigt, och ingen vet exakt varför. Här visas det som syns i datan: vilka bolag som flyttade index mest, vilka branscher som drog och vad som hände i omvärlden. Nyheter visas som \"i nyheterna\" – att två saker händer samtidigt betyder inte att den ena orsakade den andra."
     },
@@ -1209,9 +1212,9 @@
      "id": "fordelar",
      "title": "Det som ser bra ut",
      "bullets": [
-      "**Nära toppen:** index är bara 1,5 % från sin högsta nivå det senaste året.",
+      "**Nära toppen:** index är bara 0,7 % från sin högsta nivå det senaste året.",
       "**Fallande räntor i USA:** gör framtida vinster mer värda idag och brukar gynna aktier, särskilt tillväxtbolag.",
-      "**Uppgång:** den som ägde en indexfond tjänade ungefär 0,8 % den senaste månaden."
+      "**Uppgång:** den som ägde en indexfond tjänade ungefär 0,9 % den senaste månaden."
      ],
      "explain": "Ljuspunkter i datan. Precis som riskerna säger de något om läget just nu, inte om vad som händer i morgon."
     },
@@ -1219,7 +1222,7 @@
      "id": "framtid",
      "title": "Framtidspaning",
      "bullets": [
-      "**Vad historiken säger:** sedan 2010 har månaden efter en normal månad (836 tillfällen) slutat plus i **58 %** av fallen, med en mittenavkastning på +0,9 %. Det kan jämföras med 60 % och +1,0 % för alla perioder. Skillnaden är liten – **historiken ger ingen tydlig riktning**.",
+      "**Vad historiken säger:** sedan 2010 har månaden efter en normal månad (837 tillfällen) slutat plus i **58 %** av fallen, med en mittenavkastning på +0,9 %. Det kan jämföras med 60 % och +1,0 % för alla perioder. Skillnaden är liten – **historiken ger ingen tydlig riktning**.",
       "**Svängningar:** de senaste veckornas svängningar är ungefär normala. Volatilitet är trögrörlig: när den legat på den här nivån har den nästa månad i snitt legat runt 16 % per år (normalt 15 %). Det säger något om *hur mycket* börsen kan röra sig – inte åt vilket håll.",
       "**Att hålla koll på:** nyheter om räntor och inflation, kronans utveckling (viktigt för exportbolagen), räntorna i USA och besked från Riksbanken.",
       "**Rapportsäsong för tredje kvartalet** (mitten av oktober–början av november): bolagens besked om framtiden brukar väga tyngre än själva siffrorna.",
