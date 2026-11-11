@@ -1,436 +1,441 @@
 {
- "date": "2026-11-10",
- "generatedAt": "2026-11-10T18:34+01:00",
- "headline": "Stockholmsbörsen steg 0,5 % – finans drog uppåt",
+ "date": "2026-11-11",
+ "generatedAt": "2026-11-11T18:42+01:00",
+ "headline": "Stockholmsbörsen steg 1,0 % – informationsteknik drog uppåt",
  "index": {
-  "level": 3327.7544,
-  "r1d": 0.005409399054053798,
-  "r5d": 0.01318778888296901,
-  "r1m": 0.017727254655497626,
-  "rYtd": 0.154279926603468,
-  "sigma": 0.6192529090319447,
-  "sd": 0.008735363169323036
+  "level": 3360.011,
+  "r1d": 0.009694538351739057,
+  "r5d": 0.014597197625282776,
+  "r1m": 0.025390821396699126,
+  "rYtd": 0.165468596620846,
+  "sigma": 1.1078280937132403,
+  "sd": 0.008750941059135547
  },
  "breadth": {
-  "up": 22,
-  "down": 8,
+  "up": 23,
+  "down": 7,
   "total": 30
  },
  "sectors": [
   {
-   "name": "Finans",
-   "ret": 0.009796213761340608,
-   "n": 7
-  },
-  {
-   "name": "Dagligvaror",
-   "ret": 0.00969864911673013,
-   "n": 1
-  },
-  {
-   "name": "Sällanköpsvaror",
-   "ret": 0.008019177700533398,
+   "name": "Informationsteknik",
+   "ret": 0.024590548848768656,
    "n": 2
   },
   {
    "name": "Industri",
-   "ret": 0.007494781763744569,
+   "ret": 0.012515060675821173,
    "n": 13
   },
   {
-   "name": "Telekom & kommunikation",
-   "ret": 0.002921849990617398,
+   "name": "Finans",
+   "ret": 0.00420776303590485,
+   "n": 7
+  },
+  {
+   "name": "Råvaror & material",
+   "ret": 0.003689023757179888,
    "n": 2
   },
   {
-   "name": "Informationsteknik",
-   "ret": -0.0005007000779468362,
+   "name": "Telekom & kommunikation",
+   "ret": 0.00359044488408089,
    "n": 2
   },
   {
    "name": "Hälsovård",
-   "ret": -0.008362557323981612,
+   "ret": 0.0010881392818280489,
    "n": 1
   },
   {
-   "name": "Råvaror & material",
-   "ret": -0.013452271580101594,
+   "name": "Sällanköpsvaror",
+   "ret": -0.003883249849435111,
    "n": 2
+  },
+  {
+   "name": "Dagligvaror",
+   "ret": -0.01715265866209259,
+   "n": 1
   }
  ],
  "dispersion": {
-  "today": 0.008967059688590179,
-  "percentile": 0.13095238095238096
+  "today": 0.012640739548556544,
+  "percentile": 0.4603174603174603
  },
  "movers": [
   {
-   "ticker": "SKA-B.ST",
-   "name": "Skanska B",
-   "sector": "Industri",
-   "ret": 0.02408412483039335,
-   "abn": 0.018198790163644615,
-   "beta": 1.0879830842463494,
-   "volRatio": 1.688558135527506,
-   "sigma": 1.6389355112693664,
+   "ticker": "ERIC-B.ST",
+   "name": "Ericsson B",
+   "sector": "Informationsteknik",
+   "ret": 0.03100775193798455,
+   "abn": 0.024595926052844476,
+   "beta": 0.6613853751983857,
+   "volRatio": 0.9341877861894986,
+   "sigma": 1.5798401932950008,
    "news": {
-    "t": "2026-11-10T07:29+00:00",
-    "title": "Deutsche Bank ser vinsttillväxt i Skanska – upprepar köp och höjer riktkursen",
-    "source": "Börsvärlden",
-    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNY1lnM1Jzay1zRlBSMm4xMzBFU0UwX2psS0tEcTZZV0pTRmJQZXBmRGMxb1lZWW9HVXdyalhZd2U3b3JidlV2a0VrLWI5V3VjaU1BaHYyYktXXzhqa0hlVVRfTC1fMUNTTlkzN3d1TmxuRVhPZkpZVHQwaWZOemJPUkpBVldfeHVHdUg3WU9mbGhLNHl5Qi1VUnRGZGNmWTAyRl9HdnpGR1ZiUTQ1?oc=5"
+    "t": "2026-11-11T03:06+00:00",
+    "title": "Börsen på grönt – ABB och Ericsson vinnare",
+    "source": "Privata Affärer",
+    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQU2VZT0JBUDRLNExKWlFqeUcxV19QbVZORGVtd2tHZjZ2X3dpd3l5cjlMSFRXQkxRb3NJUzVoWDd2akRNUWxjYUNkNEVLSnZwX2pFZ0U3a1NlZmRRN2U0NmNZeVZ3MVk3TG5QamdWSk9seEFYNUZyYXFBMTd3OXNYNk8xMUNJNEdWckdaUVA2ZE1PbTJYY3B1eFk4THRmUQ?oc=5"
    }
-  },
-  {
-   "ticker": "SAAB-B.ST",
-   "name": "Saab B",
-   "sector": "Industri",
-   "ret": 0.018451915559030363,
-   "abn": 0.0146305218022885,
-   "beta": 0.706435912484237,
-   "volRatio": 0.9788183553452178,
-   "sigma": 0.7330526994594374,
-   "news": null
-  },
-  {
-   "ticker": "NDA-SE.ST",
-   "name": "Nordea",
-   "sector": "Finans",
-   "ret": 0.01763429191535537,
-   "abn": 0.013732172543821902,
-   "beta": 0.7213591255777708,
-   "volRatio": 0.6964139275125942,
-   "sigma": 1.4009249262065584,
-   "news": {
-    "t": "2026-11-10T09:16+00:00",
-    "title": "Nordea upprepar köp på Klarna - ser kraftig marginalexpansion",
-    "source": "Börsvärlden",
-    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNRDY5NHlodUZtaDZrbjNpRnVtZVkxdGNoSDZETlJqeDlRZ1lGb2Z3SFEzb0dqR1FPTEpBamFqRkJ1eEtfLVFDZWJpTkUtNDg4SlR2cHNHSnREM0JOYXFQdWVZd05iXzVRLTlxWjhZREVrQ0ozQ0xwUWdXOUlLUHFPOG1WbmpSNTZmcHNRV1hzd0sybjM1TWJV?oc=5"
-   }
-  },
-  {
-   "ticker": "VOLV-B.ST",
-   "name": "Volvo B",
-   "sector": "Industri",
-   "ret": 0.015491621877963935,
-   "abn": 0.008993169451905765,
-   "beta": 1.2013261290435278,
-   "volRatio": 1.0564766973643334,
-   "sigma": 1.0241304070861306,
-   "news": null
   },
   {
    "ticker": "ADDT-B.ST",
    "name": "Addtech B",
    "sector": "Industri",
-   "ret": 0.012422360248447228,
-   "abn": 0.005479085059343688,
-   "beta": 1.283557585551071,
-   "volRatio": 1.10896604100612,
-   "sigma": 0.7187149087176417,
-   "news": null
-  },
-  {
-   "ticker": "SEB-A.ST",
-   "name": "SEB A",
-   "sector": "Finans",
-   "ret": 0.01188299817184646,
-   "abn": 0.007257287086758245,
-   "beta": 0.8551247631881976,
-   "volRatio": 0.6163370042298846,
-   "sigma": 0.8928791471308115,
-   "news": null
-  },
-  {
-   "ticker": "EVO.ST",
-   "name": "Evolution",
-   "sector": "Sällanköpsvaror",
-   "ret": 0.01183431952662728,
-   "abn": 0.010324885279765725,
-   "beta": 0.2790391745512628,
-   "volRatio": 0.7109078904120746,
-   "sigma": 0.7006471029265777,
+   "ret": 0.026993865030674913,
+   "abn": 0.014572675389259345,
+   "beta": 1.2812564343703265,
+   "volRatio": 0.7606620168244982,
+   "sigma": 1.569000419278177,
    "news": null
   },
   {
    "ticker": "ATCO-A.ST",
    "name": "Atlas Copco A",
    "sector": "Industri",
-   "ret": 0.011720831113479102,
-   "abn": 0.00297668704089956,
-   "beta": 1.6164723632335256,
-   "volRatio": 0.610661098343269,
-   "sigma": 0.6183315888269467,
-   "news": null
-  },
-  {
-   "ticker": "INDU-C.ST",
-   "name": "Industrivärden C",
-   "sector": "Finans",
-   "ret": 0.011181513231457219,
-   "abn": 0.004989029518596429,
-   "beta": 1.144763706833599,
-   "volRatio": 1.07193264561486,
-   "sigma": 0.871597751987631,
-   "news": null
-  },
-  {
-   "ticker": "SWED-A.ST",
-   "name": "Swedbank A",
-   "sector": "Finans",
-   "ret": 0.010630587098332978,
-   "abn": 0.006721336584700949,
-   "beta": 0.7226774128823867,
-   "volRatio": 0.8101236537146835,
-   "sigma": 0.9251096896960496,
-   "news": {
-    "t": "2026-11-10T14:02+00:00",
-    "title": "Swedbank petar Volvo ur ”fokusportfölj” – tar in verkstadsbolaget",
-    "source": "EFN",
-    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE05dkV3bDdVMXN5bFl4Wm5pSUVnZXNBS29LZjEzbHFXOUFCcTlyRHZPY1ZKZEpad1dGcWR3dWNGeHFhd2xEdFJIZmk1RVF2eXE4TUNMNkZYRS1vbFFLNnIyLWNOVEJRNmVYd0MzWURlX2dVZzBwaTlF?oc=5"
-   }
-  },
-  {
-   "ticker": "ESSITY-B.ST",
-   "name": "Essity B",
-   "sector": "Dagligvaror",
-   "ret": 0.00969864911673013,
-   "abn": 0.007783659697985515,
-   "beta": 0.3540114899287237,
-   "volRatio": 0.8863232230289021,
-   "sigma": 0.7904479197516912,
-   "news": null
-  },
-  {
-   "ticker": "SAND.ST",
-   "name": "Sandvik",
-   "sector": "Industri",
-   "ret": 0.00909341416368159,
-   "abn": 1.2783079248231827e-06,
-   "beta": 1.680803313806758,
-   "volRatio": 0.6628616565339972,
-   "sigma": 0.44828037538209153,
-   "news": {
-    "t": "2026-11-10T15:00+00:00",
-    "title": "Sandvik utser ny affärsområdeschef för Machining",
-    "source": "Cision News",
-    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSnQzSk5CcklqZm42QXY0MkprdzhlZjRIVVhfTVNEeWdSaDE1MzdVbzgwWTI4ZXZKT1h1Qm00QmdRZVVfbU1XX3FyVVZ6Vm0yOHA2SzRiamRDVy1YVUU0SHg3QWJZaUVwalluX2l4UXpsVDBUdC1rNWRITy16a1FnYzI2R0JMM3k4R1lFXzhEWDhiWTZJck5QRVVn?oc=5"
-   }
-  },
-  {
-   "ticker": "TEL2-B.ST",
-   "name": "Tele2 B",
-   "sector": "Telekom & kommunikation",
-   "ret": 0.008703761268262333,
-   "abn": 0.007853539922547,
-   "beta": 0.15717482426780444,
-   "volRatio": 0.6511018283819349,
-   "sigma": 0.6619409276120598,
-   "news": null
-  },
-  {
-   "ticker": "EQT.ST",
-   "name": "EQT",
-   "sector": "Finans",
-   "ret": 0.007440957618893407,
-   "abn": 0.0018949392800333403,
-   "beta": 1.025255907992938,
-   "volRatio": 0.7543636280600323,
-   "sigma": 0.34490825592633795,
-   "news": null
-  },
-  {
-   "ticker": "SHB-A.ST",
-   "name": "Handelsbanken A",
-   "sector": "Finans",
-   "ret": 0.006427915518824712,
-   "abn": 0.0031790447617859956,
-   "beta": 0.6005973537123344,
-   "volRatio": 0.6659404828214841,
-   "sigma": 0.5944282400571201,
-   "news": {
-    "t": "2026-11-10T11:14+00:00",
-    "title": "BofA: Danske Bank favorit – Handelsbanken minst attraktiv",
-    "source": "Affärsvärlden",
-    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPWlBqYlBYZWxvMEhZRmNDYmVNSXpiVjZLY0xfTy01T0pnWk9fSlZYZHNfMEt5TkRWOUlsWTVneS0yNVpuWG5lQ0RJbHlSOEc4Y1FCaTA3U3VCZVVCcTVOVURGdzNNMjA3Wm1uSDJoVVc5Wk1DYU85OXZ4REh1Z3FQcnRyYW9jQm1PbFJ4dE9PVlRxOTZ3RHc?oc=5"
-   }
-  },
-  {
-   "ticker": "LIFCO-B.ST",
-   "name": "Lifco B",
-   "sector": "Industri",
-   "ret": 0.0056140350877194045,
-   "abn": 1.2184237032413815e-05,
-   "beta": 1.0355772969807004,
-   "volRatio": 0.5532788051498237,
-   "sigma": 0.32665854785644644,
-   "news": null
-  },
-  {
-   "ticker": "HM-B.ST",
-   "name": "H&M B",
-   "sector": "Sällanköpsvaror",
-   "ret": 0.004204035874439516,
-   "abn": 0.0005928987776139746,
-   "beta": 0.6675671476149201,
-   "volRatio": 0.9805246833618025,
-   "sigma": 0.2790646825082716,
-   "news": null
-  },
-  {
-   "ticker": "INVE-B.ST",
-   "name": "Investor B",
-   "sector": "Finans",
-   "ret": 0.0033752327746741084,
-   "abn": -0.0018146860572093712,
-   "beta": 0.9594261358836449,
-   "volRatio": 0.9476072698819038,
-   "sigma": 0.31592941581472533,
-   "news": null
-  },
-  {
-   "ticker": "EPI-A.ST",
-   "name": "Epiroc A",
-   "sector": "Industri",
-   "ret": 0.0024291497975708065,
-   "abn": -0.005671854362092488,
-   "beta": 1.4975793204963146,
-   "volRatio": 0.5112015919003742,
-   "sigma": 0.12188980946737694,
-   "news": null
-  },
-  {
-   "ticker": "NIBE-B.ST",
-   "name": "Nibe B",
-   "sector": "Industri",
-   "ret": 0.0015624999999999112,
-   "abn": -0.003084861917126946,
-   "beta": 0.8591272100075754,
-   "volRatio": 0.9215004524926158,
-   "sigma": 0.0654449326362281,
+   "ret": 0.025013164823591394,
+   "abn": 0.009346821984787798,
+   "beta": 1.6159967881289865,
+   "volRatio": 0.5171601903271195,
+   "sigma": 1.3200126249823818,
    "news": null
   },
   {
    "ticker": "ABB.ST",
    "name": "ABB",
    "sector": "Industri",
-   "ret": 0.001210653753026536,
-   "abn": -0.005445045664113667,
-   "beta": 1.2303953453299823,
-   "volRatio": 1.0379726350177694,
-   "sigma": 0.06673948039943907,
+   "ret": 0.023941958887545356,
+   "abn": 0.012043251450315285,
+   "beta": 1.2273619439646262,
+   "volRatio": 0.9443637719282237,
+   "sigma": 1.322428629028583,
    "news": null
   },
   {
-   "ticker": "HEXA-B.ST",
-   "name": "Hexagon B",
-   "sector": "Informationsteknik",
-   "ret": 0.000932835820895539,
-   "abn": -0.004486997809727054,
-   "beta": 1.0019289714928639,
-   "volRatio": 0.6625625630044146,
-   "sigma": 0.047925691449034497,
+   "ticker": "SAND.ST",
+   "name": "Sandvik",
+   "sector": "Industri",
+   "ret": 0.0204806116876024,
+   "abn": 0.00418245511910743,
+   "beta": 1.6811689197734023,
+   "volRatio": 0.5071871707366875,
+   "sigma": 1.0093875251621762,
    "news": null
   },
   {
    "ticker": "ALFA.ST",
    "name": "Alfa Laval",
    "sector": "Industri",
-   "ret": -0.00037299515106314907,
-   "abn": -0.006104012835622581,
-   "beta": 1.05945551941941,
-   "volRatio": 1.574015277174648,
-   "sigma": -0.026713189476673515,
+   "ret": 0.0194029850746269,
+   "abn": 0.009150772528233984,
+   "beta": 1.0575245746027524,
+   "volRatio": 1.1532777345670076,
+   "sigma": 1.3906551202597166,
+   "news": null
+  },
+  {
+   "ticker": "HEXA-B.ST",
+   "name": "Hexagon B",
+   "sector": "Informationsteknik",
+   "ret": 0.01817334575955276,
+   "abn": 0.008469717252318276,
+   "beta": 1.000937657386625,
+   "volRatio": 0.6191658670704099,
+   "sigma": 0.9337580612361756,
+   "news": {
+    "t": "2026-11-10T17:26+00:00",
+    "title": "Odin Norden ökade 2,33 procent i oktober - DSV och Hexagon bland bästa bidragsgivare",
+    "source": "Börsvärlden",
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPLW1odEZKUXlOZy1icnFnV25VU0cwTjJ3YmRkV1ppbk5jOEtaXzBRZUV0M2tvNU1WVF90YXcyVWNNYWl5RmEydURPVEcwY2V6bWd4YnZ4TUFIRHRMWlBiY2NSZlRqMlZRM1ltbWt3RFBTcVB0TFVhdVJ1SmZmRWl1MEJZV09UVnJ1Q1FZSFp5UDR5U3BzRkhBX2E3WjNPNHFsWllUSkRmWjIzMDc5V2FENU12N2VqT0l5a0E?oc=5"
+   }
+  },
+  {
+   "ticker": "EPI-A.ST",
+   "name": "Epiroc A",
+   "sector": "Industri",
+   "ret": 0.017770597738287597,
+   "abn": 0.003281797597730512,
+   "beta": 1.4945322422658742,
+   "volRatio": 0.40184129809317465,
+   "sigma": 0.8932527071263276,
+   "news": null
+  },
+  {
+   "ticker": "EQT.ST",
+   "name": "EQT",
+   "sector": "Finans",
+   "ret": 0.016056518946692355,
+   "abn": 0.006113701011070097,
+   "beta": 1.025610253410227,
+   "volRatio": 0.6574004243590488,
+   "sigma": 0.7441572379639436,
    "news": null
   },
   {
    "ticker": "SKF-B.ST",
    "name": "SKF B",
    "sector": "Industri",
-   "ret": -0.0014534883720929148,
-   "abn": -0.008525401971115877,
-   "beta": 1.3073381217315214,
-   "volRatio": 0.785462904677633,
-   "sigma": -0.07900262491363017,
-   "news": {
-    "t": "2026-11-10T14:13+00:00",
-    "title": "SKF-avknoppning till börsen om tre veckor",
-    "source": "Svenska Dagbladet",
-    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFAzY1M5QkFuemJ1emF6R2dXcXE3UEZYMzRMYzZSb3RpdlRPRTRqSHRfaW1ocEt2UENseGJhZm15cGszLW45R3Z0aDN6NktPMjZBTjdfdk02ZHEzZXQ3QmZuNk1yclBxdWVOMUJnbVhyUEtLdTRUWkVDTA?oc=5"
-   }
-  },
-  {
-   "ticker": "ERIC-B.ST",
-   "name": "Ericsson B",
-   "sector": "Informationsteknik",
-   "ret": -0.0019342359767892114,
-   "abn": -0.0055150833308317245,
-   "beta": 0.6619676822250763,
-   "volRatio": 0.5712536152716242,
-   "sigma": -0.09855146922543184,
-   "news": {
-    "t": "2026-11-09T17:13+00:00",
-    "title": "Ericsson-chefen: Så kommer vi gynnas av AI",
-    "source": "DI",
-    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBiQWwxYldZdGRxZGVHV2pGSTFmV0NaRmR3OWkzRkNKbnNvOWY2TlFianFzYlVtVEJna01pY0tOQlc3dWo2bUx2UUJVb2lEUU9Bb0dfM2NERDJrSVk0dThOazBCOE5FX3hscW80MW4zemQ5cDQ?oc=5"
-   }
-  },
-  {
-   "ticker": "ASSA-B.ST",
-   "name": "Assa Abloy B",
-   "sector": "Industri",
-   "ret": -0.0028219599794767625,
-   "abn": -0.007879501099894,
-   "beta": 0.9349543396372505,
-   "volRatio": 0.9675218758754001,
-   "sigma": -0.21055258641204302,
-   "news": null
-  },
-  {
-   "ticker": "TELIA.ST",
-   "name": "Telia",
-   "sector": "Telekom & kommunikation",
-   "ret": -0.0028600612870275377,
-   "abn": -0.0030637131022242334,
-   "beta": 0.037647770697205166,
-   "volRatio": 0.6825219649858657,
-   "sigma": -0.22229161424521868,
-   "news": {
-    "t": "2026-11-10T12:02+00:00",
-    "title": "Tekniska problem för Telia och polisen",
-    "source": "Omni – Alla nyheter. Alla perspektiv.",
-    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE04YXF3aERjalIzUUt0b0drcHFGQVN0MnkzaEhpbW95dnFxVWdzS3NLZ3pKUWQ4Q2NUaHFQRFRMaDNhdG1raE5wRTFFX2tkS2tvYUlQc1F2YkQzdGhiczhuS0VNTVdmR3pUUlF3YnY0T2o?oc=5"
-   }
-  },
-  {
-   "ticker": "AZN.ST",
-   "name": "AstraZeneca",
-   "sector": "Hälsovård",
-   "ret": -0.008362557323981612,
-   "abn": -0.009818941979570542,
-   "beta": 0.26923224576998367,
-   "volRatio": 0.9977582508950684,
-   "sigma": -0.5013368162749892,
+   "ret": 0.015647743813682613,
+   "abn": 0.0029911828914785665,
+   "beta": 1.3055351851729635,
+   "volRatio": 0.831512924571824,
+   "sigma": 0.8506752799637207,
    "news": null
   },
   {
    "ticker": "BOL.ST",
    "name": "Boliden",
    "sector": "Råvaror & material",
-   "ret": -0.008849557522123686,
-   "abn": -0.01952807041423236,
-   "beta": 1.9740663954355904,
-   "volRatio": 0.8416552756154765,
-   "sigma": -0.30561967409878554,
+   "ret": 0.012810559006211086,
+   "abn": -0.006314588068777098,
+   "beta": 1.9727754309783523,
+   "volRatio": 0.8277622699607189,
+   "sigma": 0.44242369324752645,
    "news": null
+  },
+  {
+   "ticker": "SKA-B.ST",
+   "name": "Skanska B",
+   "sector": "Industri",
+   "ret": 0.01026830076184182,
+   "abn": -0.0002520080824855407,
+   "beta": 1.0851789391745685,
+   "volRatio": 1.1727458703967923,
+   "sigma": 0.7104694687917869,
+   "news": null
+  },
+  {
+   "ticker": "ASSA-B.ST",
+   "name": "Assa Abloy B",
+   "sector": "Industri",
+   "ret": 0.009776177000257347,
+   "abn": 0.0007254663131002464,
+   "beta": 0.9335886206003338,
+   "volRatio": 0.6012951967252633,
+   "sigma": 0.7293703933340469,
+   "news": null
+  },
+  {
+   "ticker": "INVE-B.ST",
+   "name": "Investor B",
+   "sector": "Finans",
+   "ret": 0.009743649228627804,
+   "abn": 0.0004525255531110991,
+   "beta": 0.9583874278912946,
+   "volRatio": 1.0921018389964348,
+   "sigma": 0.9127914067783931,
+   "news": null
+  },
+  {
+   "ticker": "EVO.ST",
+   "name": "Evolution",
+   "sector": "Sällanköpsvaror",
+   "ret": 0.008421052631579107,
+   "abn": 0.005708221755987907,
+   "beta": 0.2798308467266579,
+   "volRatio": 1.1572730419404473,
+   "sigma": 0.4984041193935686,
+   "news": {
+    "t": "2026-11-10T23:32+00:00",
+    "title": "Evolution aktie 2026/2027: riktkurs −10 % – rekommendation",
+    "source": "TradeDesk.dk",
+    "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9LdnZqdmNMdlZwUUI4TFl4MnFWSEhPa1gtRXZ2Y0VsZm1WZlAwekIzaEhkRGowaE1fTjlVZnJSdFRSbXFmTUJwcHVZMXA2QQ?oc=5"
+   }
+  },
+  {
+   "ticker": "INDU-C.ST",
+   "name": "Industrivärden C",
+   "sector": "Finans",
+   "ret": 0.0070033173608550214,
+   "abn": -0.0041024734002263405,
+   "beta": 1.1455719043175632,
+   "volRatio": 1.0675662921788496,
+   "sigma": 0.5454007404315563,
+   "news": null
+  },
+  {
+   "ticker": "VOLV-B.ST",
+   "name": "Volvo B",
+   "sector": "Industri",
+   "ret": 0.00591531755915331,
+   "abn": -0.0057399213293861245,
+   "beta": 1.2022479529877415,
+   "volRatio": 0.8263472949213757,
+   "sigma": 0.39066891093155565,
+   "news": null
+  },
+  {
+   "ticker": "LIFCO-B.ST",
+   "name": "Lifco B",
+   "sector": "Industri",
+   "ret": 0.005582693649685888,
+   "abn": -0.004438503289681955,
+   "beta": 1.0336951153089398,
+   "volRatio": 0.6710300054067458,
+   "sigma": 0.3255203514886196,
+   "news": null
+  },
+  {
+   "ticker": "TEL2-B.ST",
+   "name": "Tele2 B",
+   "sector": "Telekom & kommunikation",
+   "ret": 0.003697996918335944,
+   "abn": 0.0021549112395258764,
+   "beta": 0.15917061987105974,
+   "volRatio": 0.5191773098982739,
+   "sigma": 0.2810665531783541,
+   "news": null
+  },
+  {
+   "ticker": "SEB-A.ST",
+   "name": "SEB A",
+   "sector": "Finans",
+   "ret": 0.0036133694670279493,
+   "abn": -0.004705112719435472,
+   "beta": 0.8580586186418262,
+   "volRatio": 0.586290676922068,
+   "sigma": 0.27136033617745475,
+   "news": null
+  },
+  {
+   "ticker": "TELIA.ST",
+   "name": "Telia",
+   "sector": "Telekom & kommunikation",
+   "ret": 0.003482892849825836,
+   "abn": 0.0031152019740526165,
+   "beta": 0.03792763125304065,
+   "volRatio": 0.6209120665634589,
+   "sigma": 0.27084215308137716,
+   "news": null
+  },
+  {
+   "ticker": "SWED-A.ST",
+   "name": "Swedbank A",
+   "sector": "Finans",
+   "ret": 0.0023906287353574474,
+   "abn": -0.004634622068180307,
+   "beta": 0.7246606850833209,
+   "volRatio": 0.6365162484748901,
+   "sigma": 0.20784846770098078,
+   "news": {
+    "t": "2026-11-11T10:26+00:00",
+    "title": "Swedbank petar Volvo ur ”fokusportfölj” – tar in verkstadsbolaget",
+    "source": "EFN",
+    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE05dkV3bDdVMXN5bFl4Wm5pSUVnZXNBS29LZjEzbHFXOUFCcTlyRHZPY1ZKZEpad1dGcWR3dWNGeHFhd2xEdFJIZmk1RVF2eXE4TUNMNkZYRS1vbFFLNnIyLWNOVEJRNmVYd0MzWURlX2dVZzBwaTlF?oc=5"
+   }
+  },
+  {
+   "ticker": "AZN.ST",
+   "name": "AstraZeneca",
+   "sector": "Hälsovård",
+   "ret": 0.0010881392818280489,
+   "abn": -0.0015425083885756336,
+   "beta": 0.27135357816515143,
+   "volRatio": 0.7131108381108381,
+   "sigma": 0.06556596122513449,
+   "news": {
+    "t": "2026-11-11T06:48+00:00",
+    "title": "Astra Zeneca gör amerikanskt förvärv",
+    "source": "Affärsvärlden",
+    "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA4MHVsc2ViYThGWVlPZjBWbTJ4bTN6LThrdV9HdXYtbmNTNEJqdzdsQTdCQmZKaF9qQl80WDgwWEFHZE5zZVJoNDZCRjh0RVJRd2Q1SENTME9ZbkhpaGpZNUtEV3M1cGhwd05MMGtfdnZXX1VlMVkwTGZtcjdYdw?oc=5"
+   }
+  },
+  {
+   "ticker": "NDA-SE.ST",
+   "name": "Nordea",
+   "sector": "Finans",
+   "ret": -0.0005331911490270569,
+   "abn": -0.007585834947757747,
+   "beta": 0.7274862961850628,
+   "volRatio": 0.7113400401093494,
+   "sigma": -0.04246205618784121,
+   "news": {
+    "t": "2026-11-11T14:35+00:00",
+    "title": "Nordea: Bra tillfälle att ta hem vinsten i Nibe – aktien sjunker",
+    "source": "EFN",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQUHN4OEFkcUR4V2NOYmN0bmRFdzFLWlM1Tzk1QUg2cFJQeS0teGJUeWNsVDlHazgwNkVMU09rZWRpRE1KeDVVRmppUEl3OXFaYm9YREYwMkxDbHZsY1BVVFF1SnNUSEJ5UE1yTWdpRmNmQjNxaTZGeUtFR1piMGl2MWJR?oc=5"
+   }
+  },
+  {
+   "ticker": "NIBE-B.ST",
+   "name": "Nibe B",
+   "sector": "Industri",
+   "ret": -0.0028972587474926925,
+   "abn": -0.011213668599002866,
+   "beta": 0.857844855502411,
+   "volRatio": 2.0754661877691873,
+   "sigma": -0.12137213091297859,
+   "news": {
+    "t": "2026-11-11T14:35+00:00",
+    "title": "Nordea: Bra tillfälle att ta hem vinsten i Nibe – aktien sjunker",
+    "source": "EFN",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQUHN4OEFkcUR4V2NOYmN0bmRFdzFLWlM1Tzk1QUg2cFJQeS0teGJUeWNsVDlHazgwNkVMU09rZWRpRE1KeDVVRmppUEl3OXFaYm9YREYwMkxDbHZsY1BVVFF1SnNUSEJ5UE1yTWdpRmNmQjNxaTZGeUtFR1piMGl2MWJR?oc=5"
+   }
   },
   {
    "ticker": "SCA-B.ST",
    "name": "SCA B",
    "sector": "Råvaror & material",
-   "ret": -0.0180549856380795,
-   "abn": -0.02126293712892812,
-   "beta": 0.5930328782907195,
-   "volRatio": 1.2109566836914687,
-   "sigma": -1.3963030445934317,
+   "ret": -0.005432511491851311,
+   "abn": -0.011157738187535331,
+   "beta": 0.5905620760845202,
+   "volRatio": 0.7130184115764415,
+   "sigma": -0.4189156934649096,
+   "news": null
+  },
+  {
+   "ticker": "SHB-A.ST",
+   "name": "Handelsbanken A",
+   "sector": "Finans",
+   "ret": -0.008819951338199572,
+   "abn": -0.014663992403144484,
+   "beta": 0.6028178808428333,
+   "volRatio": 0.8636375389912632,
+   "sigma": -0.8169323501507715,
+   "news": {
+    "t": "2026-11-11T14:15+00:00",
+    "title": "Handelsbanken: Därför sänker vi Clas Ohlson",
+    "source": "EFN Ekonomikanalen",
+    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5wZmpWRmhGbHMtM2duMkhWTDA2TXhlNjdtWXlLZTE0TmVmMGFxUjl2SnlxeVdkMTFicGdYYWVQN3hRbnktOUlBN2RrUGZPUG43VWRVVUstMEtSWTctaDJIS19RS2tmbWRG?oc=5"
+   }
+  },
+  {
+   "ticker": "SAAB-B.ST",
+   "name": "Saab B",
+   "sector": "Industri",
+   "ret": -0.01520036849378159,
+   "abn": -0.022068600295824935,
+   "beta": 0.7084640395291526,
+   "volRatio": 0.837268586592863,
+   "sigma": -0.6034141292868169,
+   "news": {
+    "t": "2026-11-11T09:52+00:00",
+    "title": "Ny order: Nu ska Saab träna danska försvaret",
+    "source": "Dagens PS",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNMFJ3OXV3RGpIQklOTHlXYWZwVkZCWGhXTjFOM1k4TkNnZkhZTnk0NjhBQWUtSjhRaEwwTnlDNVU5VDBwRTh0ajgwc3FzdFh3MGNwRHpjcEdPVjF2MmN0SWc0Mko1Uk9XdmVWanZGM2hlQTFhYU1HTVpnT204RGxrWVZ5Y201aUk?oc=5"
+   }
+  },
+  {
+   "ticker": "HM-B.ST",
+   "name": "H&M B",
+   "sector": "Sällanköpsvaror",
+   "ret": -0.01618755233044933,
+   "abn": -0.022682695223544054,
+   "beta": 0.6699795964941015,
+   "volRatio": 0.9778981031731963,
+   "sigma": -1.0761851679596923,
+   "news": null
+  },
+  {
+   "ticker": "ESSITY-B.ST",
+   "name": "Essity B",
+   "sector": "Dagligvaror",
+   "ret": -0.01715265866209259,
+   "abn": -0.02059957911861336,
+   "beta": 0.3555528207181151,
+   "volRatio": 0.8984428709823415,
+   "sigma": -1.396435343541784,
    "news": null
   }
  ],
@@ -438,53 +443,60 @@
   {
    "id": "day",
    "title": "Dagen i korthet",
-   "text": "[[index|OMXS30]] steg 0,5 % och stängde på 3327,8 punkter tisdag 10 november. 22 av 30 aktier gick upp och 8 ner. En vanlig dag rör sig index ungefär ±0,9 %, så dagens rörelse var 0,6 [[sigma-move|standardavvikelser]] – en helt normal dag.",
+   "text": "[[index|OMXS30]] steg 1,0 % och stängde på 3360,0 punkter onsdag 11 november. 23 av 30 aktier gick upp och 7 ner. En vanlig dag rör sig index ungefär ±0,9 %, så dagens rörelse var 1,1 [[sigma-move|standardavvikelser]] – en lite större rörelse än vanligt.",
    "explain": "OMXS30 är ett mått på hur de 30 största och mest handlade bolagen på Stockholmsbörsen gick tillsammans. Att jämföra dagens rörelse med en \"vanlig dag\" är ett sätt att avgöra om något speciellt hände, eller om det bara var vardagligt brus. Under 1 standardavvikelse händer ungefär två dagar av tre."
   },
   {
    "id": "movers",
    "title": "Vinnare och förlorare",
-   "text": "Bäst gick **Skanska B** +2,4 %. I nyheterna samma dag: ”Deutsche Bank ser vinsttillväxt i Skanska – upprepar köp och höjer riktkursen” (Börsvärlden); **Saab B** +1,8 %; **Nordea** +1,8 %. I nyheterna samma dag: ”Nordea upprepar köp på Klarna - ser kraftig marginalexpansion” (Börsvärlden). Sämst gick **SCA B** −1,8 %; **Boliden** −0,9 %; **AstraZeneca** −0,8 %. Rensat för hur mycket aktien brukar följa börsen ([[beta|beta]]) stack SCA B ut mest, med en [[abnormal-return|bolagsspecifik rörelse]] på −2,1 %.",
+   "text": "Bäst gick **Ericsson B** +3,1 %. I nyheterna samma dag: ”Börsen på grönt – ABB och Ericsson vinnare” (Privata Affärer); **Addtech B** +2,7 %; **Atlas Copco A** +2,5 %. Sämst gick **Essity B** −1,7 %; **H&M B** −1,6 %; **Saab B** −1,5 %. I nyheterna samma dag: ”Ny order: Nu ska Saab träna danska försvaret” (Dagens PS). Rensat för hur mycket aktien brukar följa börsen ([[beta|beta]]) stack Ericsson B ut mest, med en [[abnormal-return|bolagsspecifik rörelse]] på +2,5 %.",
    "explain": "En aktie kan röra sig av två skäl: hela marknaden rör sig, eller något händer i just det bolaget (en rapport, en order, en vinstvarning). Den bolagsspecifika delen är den intressanta för en kvant – det är den som kan få två annars likadana aktier att glida isär. Hög volym betyder att många handlade, vilket ofta tyder på ny information snarare än slump."
   },
   {
    "id": "sectors",
    "title": "Sektorer",
-   "text": "Bäst gick finans (+1,0 % i snitt) och sämst råvaror & material (−1,3 %). Spridningen mellan aktierna ([[dispersion|dispersion]]) var 0,90 %, högre än 13 % av dagarna det senaste året.",
+   "text": "Bäst gick informationsteknik (+2,5 % i snitt) och sämst dagligvaror (−1,7 %). Spridningen mellan aktierna ([[dispersion|dispersion]]) var 1,26 %, högre än 46 % av dagarna det senaste året.",
    "explain": "Bolag i samma bransch påverkas av samma saker – räntor för bankerna, världskonjunkturen för verkstadsbolagen. Därför rör de sig ofta i flock. När spridningen mellan aktierna är stor går marknaden \"isär\": det är just då par som brukar följas åt kan få tillfälliga avvikelser att handla på."
   },
   {
    "id": "trend",
    "title": "Veckan, månaden och året",
-   "text": "Senaste veckan har OMXS30 gått +1,3 %, senaste månaden +1,8 % och hittills i år +15,4 %.",
+   "text": "Senaste veckan har OMXS30 gått +1,5 %, senaste månaden +2,5 % och hittills i år +16,5 %.",
    "explain": "En enskild dag säger lite. Längre perioder visar trenden. Tänk på att aktier i snitt har stigit ungefär 7–9 % per år historiskt, men med stora svängningar på vägen."
   },
   {
    "id": "statarb",
    "title": "För stat arb-spanaren",
-   "text": "Par som är [[cointegration|samintegrerade]] på tre år och där avståndet nu är ovanligt stort: **Nibe B/Saab B** z = 1,9; **Assa Abloy B/Boliden** z = 1,8; **Nibe B/Tele2 B** z = 1,7. Det är inte en köprekommendation – se [[multiple-testing|multipel testning]] innan du litar på ett enskilt par.",
+   "text": "Par som är [[cointegration|samintegrerade]] på tre år och där avståndet nu är ovanligt stort: **Assa Abloy B/Boliden** z = 1,9; **Nibe B/Saab B** z = 1,8; **Nibe B/Tele2 B** z = 1,6; **Nordea/Swedbank A** z = −1,5. Det är inte en köprekommendation – se [[multiple-testing|multipel testning]] innan du litar på ett enskilt par.",
    "explain": "Ett z-värde på ±2 betyder att avståndet mellan två aktier som brukar följas åt är ovanligt stort. Pairs trading satsar på att det krymper igen. Klicka på ett par för att se hela analysen.",
    "pairs": [
     {
-     "y": "NIBE-B.ST",
-     "x": "SAAB-B.ST",
-     "z": 1.89,
-     "p": 0.03766,
-     "hl": 21.35
-    },
-    {
      "y": "ASSA-B.ST",
      "x": "BOL.ST",
-     "z": 1.83,
-     "p": 0.01668,
-     "hl": 24.26
+     "z": 1.94,
+     "p": 0.01401,
+     "hl": 23.74
+    },
+    {
+     "y": "NIBE-B.ST",
+     "x": "SAAB-B.ST",
+     "z": 1.81,
+     "p": 0.03944,
+     "hl": 21.49
     },
     {
      "y": "NIBE-B.ST",
      "x": "TEL2-B.ST",
-     "z": 1.66,
-     "p": 0.03416,
-     "hl": 21.35
+     "z": 1.64,
+     "p": 0.03615,
+     "hl": 21.5
+    },
+    {
+     "y": "NDA-SE.ST",
+     "x": "SWED-A.ST",
+     "z": -1.51,
+     "p": 0.0478,
+     "hl": 23.27
     }
    ]
   }
