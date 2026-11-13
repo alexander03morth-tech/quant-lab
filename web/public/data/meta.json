@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-12T17:38:29+00:00",
- "lastTradingDay": "2026-11-12",
+ "updatedAt": "2026-11-13T17:37:36+00:00",
+ "lastTradingDay": "2026-11-13",
  "firstDate": "2010-01-04",
  "universeAsOf": "2026-06-01",
  "benchmark": {
@@ -95,12 +95,6 @@
    "name": "Handelsbanken A",
    "sector": "finans",
    "news": "\"Handelsbanken\""
-  },
-  {
-   "ticker": "HM-B.ST",
-   "name": "H&M B",
-   "sector": "sallanskop",
-   "news": "\"H&M\" OR \"Hennes & Mauritz\""
   },
   {
    "ticker": "HEXA-B.ST",
