@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-13T17:37:36+00:00",
- "lastTradingDay": "2026-11-13",
+ "updatedAt": "2026-11-16T17:46:50+00:00",
+ "lastTradingDay": "2026-11-16",
  "firstDate": "2010-01-04",
  "universeAsOf": "2026-06-01",
  "benchmark": {
@@ -97,6 +97,12 @@
    "news": "\"Handelsbanken\""
   },
   {
+   "ticker": "HM-B.ST",
+   "name": "H&M B",
+   "sector": "sallanskop",
+   "news": "\"H&M\" OR \"Hennes & Mauritz\""
+  },
+  {
    "ticker": "HEXA-B.ST",
    "name": "Hexagon B",
    "sector": "it",
@@ -149,12 +155,6 @@
    "name": "SCA B",
    "sector": "material",
    "news": "\"SCA\" (skog OR Svenska Cellulosa OR aktie) OR \"Svenska Cellulosa\""
-  },
-  {
-   "ticker": "SEB-A.ST",
-   "name": "SEB A",
-   "sector": "finans",
-   "news": "\"SEB\" (bank OR aktie OR banken)"
   },
   {
    "ticker": "SKA-B.ST",
