@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-16T17:46:50+00:00",
- "lastTradingDay": "2026-11-16",
+ "updatedAt": "2026-11-17T17:46:01+00:00",
+ "lastTradingDay": "2026-11-17",
  "firstDate": "2010-01-04",
  "universeAsOf": "2026-06-01",
  "benchmark": {
@@ -155,6 +155,12 @@
    "name": "SCA B",
    "sector": "material",
    "news": "\"SCA\" (skog OR Svenska Cellulosa OR aktie) OR \"Svenska Cellulosa\""
+  },
+  {
+   "ticker": "SEB-A.ST",
+   "name": "SEB A",
+   "sector": "finans",
+   "news": "\"SEB\" (bank OR aktie OR banken)"
   },
   {
    "ticker": "SKA-B.ST",
