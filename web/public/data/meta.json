@@ -1,6 +1,6 @@
 {
- "updatedAt": "2026-11-26T17:39:29+00:00",
- "lastTradingDay": "2026-11-26",
+ "updatedAt": "2026-11-27T17:40:48+00:00",
+ "lastTradingDay": "2026-11-27",
  "firstDate": "2010-01-04",
  "universeAsOf": "2026-06-01",
  "benchmark": {
@@ -149,12 +149,6 @@
    "name": "Sandvik",
    "sector": "industri",
    "news": "\"Sandvik\""
-  },
-  {
-   "ticker": "SCA-B.ST",
-   "name": "SCA B",
-   "sector": "material",
-   "news": "\"SCA\" (skog OR Svenska Cellulosa OR aktie) OR \"Svenska Cellulosa\""
   },
   {
    "ticker": "SEB-A.ST",
